@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prepare": "husky install",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettify": "prettier --write src"
   },
   "dependencies": {
     "@linaria/babel-preset": "^4.4.3",
@@ -20,9 +22,13 @@
     "next": "13.2.4",
     "next-with-linaria": "^0.5.0",
     "normalize.css": "^8.0.1",
+    "prettier": "^2.8.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sass": "^1.60.0",
     "typescript": "5.0.3"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3"
   }
 }
