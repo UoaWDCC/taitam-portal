@@ -5,42 +5,33 @@ body {
   color: white;
 }
 
-.contact-container{
-
-  width:80%;
+.contact-container {
+  width: 80%;
   height: 700px;
   margin: 0 auto;
   border: 10px solid;
   border-color: black;
-
-
 }
 
-
-.contact-inner-container{
-
-  width:200px;
+.contact-inner-container {
+  width: 200px;
   height: 500px;
   margin: 0 auto;
   border: 10px solid;
   border-color: black;
-
-
 }
 
-.contact-container{
+.contact-container {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-
 }
 
-.contact-inner-container{
+.contact-inner-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 .contact-item {
@@ -53,7 +44,4 @@ body {
   text-align: center;
   border: 10px solid blue;
   border-radius: 10px;
-
-
 }
-

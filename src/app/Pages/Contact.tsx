@@ -18,7 +18,10 @@ export default function Contact({}: Props) {
       <div className="contact-info">
         <h1 className="contact-header">Contact us</h1>
         <h2 className="contact-header-2">Have some questions</h2>
-        <p  className="contact-interest">Thank you for your interest. Please fill out the form and we will get back to you promptly regarding your request</p>
+        <p className="contact-interest">
+          Thank you for your interest. Please fill out the form and we will get
+          back to you promptly regarding your request
+        </p>
       </div>
 
       <div>
@@ -29,7 +32,7 @@ export default function Contact({}: Props) {
             <textarea placeholder="Message" rows={7} />
 
             <div>
-            <button>Submit</button>
+              <button>Submit</button>
             </div>
           </div>
         </form>
