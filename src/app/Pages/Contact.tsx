@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import "./Contact.css"; // import the CSS file
-import PoppinsRegular from '../../Fonts/Poppins-Regular.ttf';
-
+import PoppinsRegular from "../../Fonts/Poppins-Regular.ttf";
 
 type Props = {};
 
@@ -30,11 +29,16 @@ export default function Contact({}: Props) {
         <form>
           <div className="form">
             <p className="form-info">Full Name*</p>
-            <input className = "input" placeholder="Full Name" name="Full Name" type="text" />
+            <input
+              className="input"
+              placeholder="Full Name"
+              name="Full Name"
+              type="text"
+            />
             <p className="form-info">Email</p>
-            <input className = "input" placeholder="Email" type="email" />
+            <input className="input" placeholder="Email" type="email" />
             <p className="form-info">Message</p>
-            <textarea className = "input" placeholder="Message" rows={5} />
+            <textarea className="input" placeholder="Message" rows={5} />
 
             <div>
               <button className="button">Submit</button>

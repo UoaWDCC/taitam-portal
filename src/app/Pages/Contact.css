@@ -1,17 +1,20 @@
+
+
+
 .contact {
   display: flex;
   flex-direction: column;
   margin: 0;
   padding: 0;
   margin-left: 160px;
-  margin-top: 60px;
+  margin-top: 50px;
 }
 
 .form {
   display: flex;
   flex-direction: column;
   width: 600px;
-  margin-top: -20px;
+  margin-top: -5px;
 }
 
 .contact-info {
@@ -65,7 +68,7 @@
   display: flex;
   align-items: center;
   color: #000000;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .input {
@@ -76,6 +79,7 @@
   text-indent: 10px;
   transition: box-shadow 0.3s ease;
   resize: none;
+  min-height: 25px;
 }
 
 .input:hover,
@@ -99,7 +103,7 @@
   padding: 10px 20px;
   border: none;
   color: black;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   cursor: pointer;
   position: relative;
@@ -110,5 +114,3 @@
 .button:hover {
   transform: scale(0.9);
 }
-
-
