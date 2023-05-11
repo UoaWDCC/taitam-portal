@@ -1,0 +1,56 @@
+.contact {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  margin-left: 160px;
+  margin-top: 70px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start; /* or center */
+  margin: 0;
+  padding: 0;
+}
+
+.contact-header {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 96px;
+  text-transform: uppercase;
+  color: #f96e47;
+  margin: 0;
+  padding: 0;
+  line-height: 0.8;
+}
+
+.contact-header-2 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  color: #000000;
+  margin: 0;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.contact-interest {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+  margin-top: 0px;
+}
