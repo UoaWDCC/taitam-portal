@@ -4,14 +4,14 @@
   margin: 0;
   padding: 0;
   margin-left: 160px;
-  margin-top: 70px;
-  
+  margin-top: 60px;
 }
 
 .form {
   display: flex;
   flex-direction: column;
   width: 600px;
+  margin-top: -20px;
 }
 
 .contact-info {
@@ -55,3 +55,60 @@
   color: #000000;
   margin-top: 0px;
 }
+
+.form-info {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  margin-top: 10px;
+}
+
+.input {
+  border: 1px solid #056dfa;
+  border-radius: 10px;
+  margin-top: -20px;
+  width: 600px;
+  text-indent: 10px;
+  transition: box-shadow 0.3s ease;
+  resize: none;
+}
+
+.input:hover,
+.input:focus {
+  box-shadow: 0px 2px 0px 1px #1c74d9;
+}
+
+.input::placeholder {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+}
+
+.button {
+  background: #ffcc01;
+  box-shadow: 0px 2px 0px 1px #000000;
+  border-radius: 20px;
+  padding: 10px 20px;
+  border: none;
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  margin-top: 5px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.button:hover {
+  transform: scale(0.9);
+}
+
+
