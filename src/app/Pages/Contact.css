@@ -1,6 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;900&display=swap");
 
 .contact {
   display: flex;
@@ -80,12 +78,10 @@
   text-indent: 10px;
   transition: box-shadow 0.3s ease;
   resize: none;
-  min-height: 30px;
-  padding-top: 3px;
+  min-height: 35px;
 }
 
-.input:hover,
-.input:focus {
+.input:hover {
   box-shadow: 0px 2px 0px 1px #1c74d9;
 }
 
@@ -109,7 +105,7 @@
   font-weight: bold;
   cursor: pointer;
   position: relative;
-  margin-top: 5px;
+  margin-top: 10px;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -122,7 +118,7 @@
   flex-direction: row;
 }
 
-.image{
+.image {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

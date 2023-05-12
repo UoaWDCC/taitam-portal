@@ -1,12 +1,10 @@
-"use client"
+"use client";
 
 import React from "react";
 import "./Contact.css"; // import the CSS file
 import { Poppins } from "next/font/google";
 import contactSVG from "../Images/Illustration.svg";
 import Image from "next/image";
-
-
 
 type Props = {};
 
@@ -54,7 +52,7 @@ export default function Contact({}: Props) {
         </div>
       </div>
       <div className="image">
-        <Image src={contactSVG} alt="contact" width={400} height = {400}/>
+        <Image src={contactSVG} alt="contact" width={400} height={400} />
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className={styleContainer}>
       Index page
-      <section id="contact" width = {400} height = {400}>
+      <section id="contact" width={400} height={400}>
         <Contact />
       </section>
     </div>
