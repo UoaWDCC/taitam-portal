@@ -3,8 +3,11 @@ import {Card} from "@/app/components/bigCard";
 import stockImg1 from "../../images/events1.png";
 import stockImg2 from "../../images/events2.png";
 import stockImg3 from "../../images/events3.png";
+import React from "react";
 
 const poppinsBlack = Poppins({weight: "900", subsets: ['latin']});
+const poppinsMedium = Poppins({weight: "500", subsets: ['latin']});
+const poppinsRegular = Poppins({weight: "400", subsets: ['latin']});
 const poppinsLight = Poppins({weight: "300", subsets: ['latin']});
 
 
@@ -19,18 +22,35 @@ export default function events() {
                 with experienced tech professionals, employers, or recruiters, or simply want to meet other students
                 facing similar challenges, we have something for everyone.
             </div>
-            <Card title={"Launch Your Tech Career at Our Career Fair"} 
+            <Card title={"Launch Your Tech Career at Our Career Fair"}
                   date={"30 APR 6pm @ OGGB Building, UOA"}
                   paragraph={"Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."}
                   image={stockImg1}/>
-            <Card title={"Launch Your Tech Career at Our Career Fair"} 
+            <Card title={"Launch Your Tech Career at Our Career Fair"}
                   date={"30 APR 6pm @ OGGB Building, UOA"}
                   paragraph={"Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."}
                   image={stockImg2}/>
-            <Card title={"Launch Your Tech Career at Our Career Fair"} 
+            <Card title={"Launch Your Tech Career at Our Career Fair"}
                   date={"30 APR 6pm @ OGGB Building, UOA"}
                   paragraph={"Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."}
                   image={stockImg3}/>
+            <div className={poppinsRegular.className} style={{textAlign: "center", fontSize: "24pt", marginTop: "50px"}}>
+                Do you have any questions about our events? Contact us!
+            </div>
+            <div className={poppinsMedium.className}
+                 style={{
+                     backgroundColor: "#FFCC01",
+                     boxShadow: "0 2px 0 1px",
+                     width: "440px",
+                     height: "40px",
+                     borderRadius: "20px",
+                     fontSize: "19px",
+                     margin: "20px auto",
+                     textAlign: "center",
+                     position: "relative"
+                 }}>
+                <p style={{margin: "0", position: "absolute", top: "50%", left: "50%", translate: "-50% -50%"}}>Contact Us!</p>
+            </div>
         </div>
     );
 }
