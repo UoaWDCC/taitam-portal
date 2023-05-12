@@ -1,5 +1,9 @@
 import { css } from "@linaria/core";
 import Image from "next/image";
+import cloudText from "../images/cloudText.png";
+import roundText from "../images/roundText.png";
+import spikyText from "../images/spikyText.png";
+import maze from "../images/maze.png";
 import "../app/globals.scss";
 
 /* ------- headers -------*/
@@ -186,7 +190,7 @@ export default function About() {
       <div className={imageContainer}>
         <div className={bubbleImg1}>
           <Image
-            src="/cloudText.png"
+            src={cloudText}
             width={363}
             height={308}
             alt={"cloud bubble text"}
@@ -201,7 +205,7 @@ export default function About() {
         </div>
         <div className={bubbleImg2}>
           <Image
-            src="/roundText.png"
+            src={roundText}
             width={400}
             height={282}
             alt={"round bubble text"}
@@ -216,7 +220,7 @@ export default function About() {
         </div>
         <div className={bubbleImg3}>
           <Image
-            src="/spikyText.png"
+            src={spikyText}
             width={416}
             height={320}
             alt={"spiky bubble text"}
@@ -230,7 +234,7 @@ export default function About() {
           </p>
         </div>
         <div className={image}>
-          <Image src="/about.png" width={694} height={512} alt={"maze"} />
+          <Image src={maze} width={694} height={512} alt={"maze"} />
         </div>
       </div>
 
