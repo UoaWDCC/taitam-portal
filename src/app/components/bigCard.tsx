@@ -9,7 +9,7 @@ type CardProps = {
     paragraph: string,
     image: StaticImageData
 }
-
+ 
 const poppinsMedium = Poppins({weight: "500", subsets: ['latin']});
 const poppinsRegular = Poppins({weight: "400", subsets: ['latin']});
 

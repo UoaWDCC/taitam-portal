@@ -9,7 +9,7 @@ const poppinsBlack = Poppins({weight: "900", subsets: ['latin']});
 const poppinsMedium = Poppins({weight: "500", subsets: ['latin']});
 const poppinsRegular = Poppins({weight: "400", subsets: ['latin']});
 const poppinsLight = Poppins({weight: "300", subsets: ['latin']});
-
+ 
 
 export default function events() {
     return (
