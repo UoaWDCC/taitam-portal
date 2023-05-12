@@ -5,8 +5,11 @@ import "./Contact.css"; // import the CSS file
 import { Poppins } from "next/font/google";
 import contactSVG from "../Images/Illustration.svg";
 import Image from "next/image";
+import {useForm} from 'react-hook-form';
 
 type Props = {};
+
+/** This descibes the types of the inputs to the form. */
 
 type Inputs = {
   name: string;
@@ -14,9 +17,21 @@ type Inputs = {
   message: string;
 };
 
-//use everything but font size and stuff that makes sense to me.
 
 export default function Contact({}: Props) {
+
+  /** Creates form object that takes in inputs desrcibed above and has those two functions. */
+  const form = useForm<Inputs>();
+  const {register, handleSubmit} = form;
+
+  /** What we do when we press submit */
+  const onSubmit = (data:Inputs) => {
+    console.log("Done", data)
+  }
+
+
+
+
   return (
     <div className="main">
       <div className="contact">
@@ -28,21 +43,21 @@ export default function Contact({}: Props) {
             get back to you promptly regarding your request
           </p>
         </div>
-
         <div>
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form">
               <p className="form-info">Full Name*</p>
               <input
                 className="input"
                 placeholder="Full Name"
-                name="Full Name"
+                id ="name"
                 type="text"
+                {...register("name")}
               />
               <p className="form-info">Email</p>
-              <input className="input" placeholder="Email" type="email" />
+              <input className="input" placeholder="Email" type="email" id = "email" {...register("email")} />
               <p className="form-info">Message</p>
-              <textarea className="input" placeholder="Message" rows={5} />
+              <textarea className="input" placeholder="Message" rows={5} id = "message" {...register("message")} />
 
               <div>
                 <button className="button">Submit</button>

@@ -85,6 +85,11 @@
   box-shadow: 0px 2px 0px 1px #1c74d9;
 }
 
+.input:focus{
+  box-shadow: 0px 0px 0px 0px;
+}
+
+
 .input::placeholder {
   font-family: "Poppins";
   font-style: normal;
