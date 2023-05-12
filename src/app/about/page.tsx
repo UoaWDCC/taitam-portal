@@ -230,10 +230,7 @@ export default function About() {
           </p>
         </div>
         <div className={image}>
-          <Image src={"/maze.png"} 
-          width={694} 
-          height={512} 
-          alt={"maze"} />
+          <Image src={"/maze.png"} width={694} height={512} alt={"maze"} />
         </div>
       </div>
 
