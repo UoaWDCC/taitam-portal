@@ -1,0 +1,43 @@
+.btn {
+  --type: transparent;
+  --fill: transparent;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  border-radius: 20px;
+  box-shadow: 0px 1px 0px 1px #000000;
+  background-color: hsl(var(--bkg));
+  color: hsl(var(--accent2));
+}
+
+.btn svg {
+  height: var(--fs-300);
+}
+
+.primary {
+  background-color: #ffcc01;
+  color: black;
+}
+
+.secondary {
+  background-color: #1c74d9;
+  color: white;
+}
+
+.tertiary {
+  background-color: #e992d7;
+  color: white;
+}
+
+.cardButton {
+  max-width: max-content;
+}
+
+.otherButton {
+  max-width: 438.4px;
+}
