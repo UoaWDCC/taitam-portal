@@ -1,5 +1,5 @@
-import React from 'react';
-import {ReactComponent as ReactHeader} from './Landingimage.svg';
+import React from "react";
+import { ReactComponent as ReactHeader } from "./Landingimage.svg";
 
 const LandingHeader = () => {
   return (
@@ -7,5 +7,5 @@ const LandingHeader = () => {
       <ReactLogo />
     </div>
   );
-}
+};
 export default LandingHeader;

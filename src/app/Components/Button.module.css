@@ -24,14 +24,29 @@
   color: black;
 }
 
+.primary:hover {
+  background: #f96e47;
+  text-decoration: underline;
+}
+
 .secondary {
   background-color: #1c74d9;
   color: white;
 }
 
+.secondary:hover {
+  background: #33c4df;
+  text-decoration: underline;
+}
+
 .tertiary {
   background-color: #e992d7;
   color: white;
+}
+
+.tertiary:hover {
+  background: #f96e47;
+  text-decoration: underline;
 }
 
 .cardButton {

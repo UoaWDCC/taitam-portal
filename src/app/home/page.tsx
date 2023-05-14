@@ -3,8 +3,9 @@ import React from "react";
 import Image from "next/image";
 import Card from "../Components/Card";
 import Button from "../Components/Button";
-import LandingImage from "../images/Landingimage.svg"
-import Mouse from "../images/mouse.svg"
+import LandingImage from "../images/Landingimage.svg";
+import Mouse from "../images/mouse.svg";
+import TownImage from "../images/Homeimage.svg"
 
 const layoutContainer = css`
   margin: 25px 150px 75px 150px;
@@ -23,7 +24,6 @@ const container = css`
   display: flex;
   flex-flow: column wrap;
   justify-content: space-between;
-
 `;
 
 const cardContainer = css`
@@ -65,6 +65,12 @@ const headerImage = css`
   left: 2%;
 `;
 
+const townImage = css`
+  z-index: -1;
+  position: absolute;
+  
+`;
+
 const MouseImage = css`
   z-index: -1;
   position: absolute;
@@ -88,7 +94,7 @@ export default function Home() {
 
       <div className={container}>
         <h1 className={title}>WELCOME</h1>
-        <p style={{marginRight:"200px"}}>
+        <p style={{ marginRight: "200px" }}>
           Taitamariki Potentia is a student-led tech community created to bridge
           the gap between university and employment. Our mission is to empower
           young people studying technical disciplines to navigate the challenges
@@ -109,6 +115,7 @@ export default function Home() {
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Image src="/bigimage.png" alt="Town" width={930} height={750} />
         </div>
+
       </div>
 
       <h3 className={h3style}>Upcoming</h3>
@@ -164,60 +171,58 @@ export default function Home() {
       <div className={MouseImage}>
         <Image src={Mouse} alt="Mouse Image" width={700}></Image>
       </div>
-      
-      <div className={cardContainer}>
-      <h3 className={h3style}>Latest</h3>
-      <h1 className={title}>ARTICLES</h1>
 
-      <div className={cardrow}>
-        <Card
-          title="Launch Your Tech Career at Our Career Fair"
-          imageUrl="https://t3.ftcdn.net/jpg/05/07/97/04/240_F_507970416_alQzqRPyu5bVayFcavgWFNoru5q5Qze7.jpg"
-          body="Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
-          btn={{
-            text: "Learn More",
-            href: "#",
-            type: "primary",
-            width: "cardButton",
-          }}
-        />
-        <div className={cardSpace}>
+      <div className={cardContainer}>
+        <h3 className={h3style}>Latest</h3>
+        <h1 className={title}>ARTICLES</h1>
+
+        <div className={cardrow}>
           <Card
-            title="Solve Real-World Tech Problems and Win Prizes"
-            imageUrl="https://t4.ftcdn.net/jpg/04/30/92/33/240_F_430923373_9qr0KsEw2uXIeDOJHT8cyOEgTnacm5rl.jpg"
-            body="Work in teams to solve real-world tech problems and present your solutions to a panel of judges for a chance to win prizes. Put your skills to the test and make valuable connections at our annual Hackathon."
+            title="Launch Your Tech Career at Our Career Fair"
+            imageUrl="https://t3.ftcdn.net/jpg/05/07/97/04/240_F_507970416_alQzqRPyu5bVayFcavgWFNoru5q5Qze7.jpg"
+            body="Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
             btn={{
               text: "Learn More",
               href: "#",
-              type: "secondary",
+              type: "primary",
+              width: "cardButton",
+            }}
+          />
+          <div className={cardSpace}>
+            <Card
+              title="Solve Real-World Tech Problems and Win Prizes"
+              imageUrl="https://t4.ftcdn.net/jpg/04/30/92/33/240_F_430923373_9qr0KsEw2uXIeDOJHT8cyOEgTnacm5rl.jpg"
+              body="Work in teams to solve real-world tech problems and present your solutions to a panel of judges for a chance to win prizes. Put your skills to the test and make valuable connections at our annual Hackathon."
+              btn={{
+                text: "Learn More",
+                href: "#",
+                type: "secondary",
+                width: "cardButton",
+              }}
+            />
+          </div>
+          <Card
+            title="Build Your Soft Skills and Stand Out to Employers"
+            imageUrl="https://t4.ftcdn.net/jpg/03/14/34/87/240_F_314348719_6CxqaGP9rfDJwnB1RjntD6V7C6K0Ou6K.jpg"
+            body="Develop your communication, teamwork, and adaptability skills at our Soft Skills Workshop. Led by experienced professionals, this interactive workshop will teach you the essential skills you need to succeed in the tech industry."
+            btn={{
+              text: "Learn More",
+              href: "#",
+              type: "tertiary",
               width: "cardButton",
             }}
           />
         </div>
-        <Card
-          title="Build Your Soft Skills and Stand Out to Employers"
-          imageUrl="https://t4.ftcdn.net/jpg/03/14/34/87/240_F_314348719_6CxqaGP9rfDJwnB1RjntD6V7C6K0Ou6K.jpg"
-          body="Develop your communication, teamwork, and adaptability skills at our Soft Skills Workshop. Led by experienced professionals, this interactive workshop will teach you the essential skills you need to succeed in the tech industry."
-          btn={{
-            text: "Learn More",
-            href: "#",
-            type: "tertiary",
-            width: "cardButton",
-          }}
-        />
-      </div>
 
-      <div className={buttonPlacement}>
-        <Button
-          text="Learn More"
-          href="#"
-          type="primary"
-          width="otherButton"
-        ></Button>
+        <div className={buttonPlacement}>
+          <Button
+            text="Learn More"
+            href="#"
+            type="primary"
+            width="otherButton"
+          ></Button>
+        </div>
       </div>
     </div>
-
-     </div>
-     
   );
 }
