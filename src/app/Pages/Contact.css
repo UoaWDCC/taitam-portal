@@ -173,7 +173,7 @@
 .text-input {
   border: 1px solid #056dfa;
   border-radius: 10px;
-  margin-top: -10px;
+  margin-top: -20px;
   width: 600px;
   text-indent: 10px;
   transition: box-shadow 0.3s ease;
@@ -181,3 +181,11 @@
   padding-top: 15px;
 }
 
+.text-input::placeholder {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+}

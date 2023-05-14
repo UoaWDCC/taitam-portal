@@ -46,9 +46,8 @@ export default function Contact({}: Props) {
                 <div className="error-contact">
                   <p className="form-info">Full Name*</p>
                   <div className="error-msg">
-                  <p className="error">{errors.name?.message}</p>
+                    <p className="error">{errors.name?.message}</p>
                   </div>
-                  
                 </div>
                 <input
                   className="input"
@@ -67,9 +66,8 @@ export default function Contact({}: Props) {
                 <div className="error-contact">
                   <p className="form-info">Email</p>
                   <div className="error-msg">
-                  <p className="error">{errors.email?.message}</p>
+                    <p className="error">{errors.email?.message}</p>
                   </div>
-
                 </div>
                 <input
                   className="input"
