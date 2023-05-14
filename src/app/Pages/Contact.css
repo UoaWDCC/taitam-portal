@@ -130,7 +130,7 @@
   margin-right: 30px;
 }
 
-.error{
+.error {
   color: red;
   font-family: "Poppins";
   font-style: normal;
@@ -138,25 +138,22 @@
   font-size: 12px;
   line-height: 18px;
   margin-bottom: 0px;
-  
 }
 
 .error-msg {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.error-contact{
-
+.error-contact {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
 }
 
-.form-text-info{
-    border: 1px solid #056dfa;
+.form-text-info {
+  border: 1px solid #056dfa;
   border-radius: 10px;
   margin-top: -20px;
   width: 600px;
@@ -166,13 +163,11 @@
   min-height: 35px;
 }
 
-.text-error-contact{
-
+.text-error-contact {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding-bottom: 10px;
-
 }
 
 .text-input {
@@ -185,3 +180,4 @@
   resize: none;
   padding-top: 15px;
 }
+
