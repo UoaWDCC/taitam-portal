@@ -5,7 +5,7 @@ import Card from "../Components/Card";
 import Button from "../Components/Button";
 import LandingImage from "../images/Landingimage.svg";
 import Mouse from "../images/mouse.svg";
-import TownImage from "../images/Homeimage.svg"
+import TownImage from "../images/Homeimage.svg";
 
 const layoutContainer = css`
   margin: 25px 150px 75px 150px;
@@ -68,7 +68,6 @@ const headerImage = css`
 const townImage = css`
   z-index: -1;
   position: absolute;
-  
 `;
 
 const MouseImage = css`
@@ -115,7 +114,6 @@ export default function Home() {
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Image src="/bigimage.png" alt="Town" width={930} height={750} />
         </div>
-
       </div>
 
       <h3 className={h3style}>Upcoming</h3>
