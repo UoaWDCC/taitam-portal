@@ -5,7 +5,7 @@ import "./Contact.css"; // import the CSS file
 import { Poppins } from "next/font/google";
 import contactSVG from "../Images/Illustration.svg";
 import Image from "next/image";
-import {useForm} from 'react-hook-form';
+import { useForm } from "react-hook-form";
 
 type Props = {};
 
@@ -17,20 +17,16 @@ type Inputs = {
   message: string;
 };
 
-
 export default function Contact({}: Props) {
-
   /** Creates form object that takes in inputs desrcibed above and has those two functions. */
   const form = useForm<Inputs>();
-  const {register, handleSubmit} = form;
+  const { register, handleSubmit, formState } = form;
+  const { errors } = formState;
 
   /** What we do when we press submit */
-  const onSubmit = (data:Inputs) => {
-    console.log("Done", data)
-  }
-
-
-
+  const onSubmit = (data: Inputs) => {
+    console.log("Done", data);
+  };
 
   return (
     <div className="main">
@@ -44,21 +40,72 @@ export default function Contact({}: Props) {
           </p>
         </div>
         <div>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit)} noValidate>
             <div className="form">
-              <p className="form-info">Full Name*</p>
-              <input
-                className="input"
-                placeholder="Full Name"
-                id ="name"
-                type="text"
-                {...register("name")}
-              />
-              <p className="form-info">Email</p>
-              <input className="input" placeholder="Email" type="email" id = "email" {...register("email")} />
-              <p className="form-info">Message</p>
-              <textarea className="input" placeholder="Message" rows={5} id = "message" {...register("message")} />
+              <div className="form-contact">
+                <div className="error-contact">
+                  <p className="form-info">Full Name*</p>
+                  <div className="error-msg">
+                  <p className="error">{errors.name?.message}</p>
+                  </div>
+                  
+                </div>
+                <input
+                  className="input"
+                  placeholder="Full Name"
+                  id="name"
+                  type="text"
+                  {...register("name", {
+                    required: {
+                      value: true,
+                      message: "Name required",
+                    },
+                  })}
+                />
+              </div>
+              <div>
+                <div className="error-contact">
+                  <p className="form-info">Email</p>
+                  <div className="error-msg">
+                  <p className="error">{errors.email?.message}</p>
+                  </div>
 
+                </div>
+                <input
+                  className="input"
+                  placeholder="Email"
+                  type="email"
+                  id="email"
+                  {...register("email", {
+                    pattern: {
+                      value:
+                        /^[a-zA-Z0-9.!#$%&*+/=?^_`{|}~-]+@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9-]+)*$/,
+                      message: "Invalid email format",
+                    },
+                  })}
+                />
+              </div>
+              <div>
+                <div className="text-error-contact">
+                  <p className="form-info">Message</p>
+                  <div className="error-msg">
+                    <p className="error">{errors.message?.message}</p>
+                  </div>
+                </div>
+
+                <textarea
+                  className="text-input"
+                  placeholder="Message"
+                  rows={5}
+                  id="message"
+                  {...register("message", {
+                    required: {
+                      value: true,
+                      message: "Message required",
+                    },
+                  })}
+                />
+              </div>
               <div>
                 <button className="button">Submit</button>
               </div>
