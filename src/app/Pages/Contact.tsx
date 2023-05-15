@@ -14,7 +14,7 @@ type Props = {};
 type Inputs = {
   name: string;
   email: string;
-  message: string;
+  password: string;
 };
 
 export default function Contact({}: Props) {
@@ -39,74 +39,71 @@ export default function Contact({}: Props) {
             get back to you promptly regarding your request
           </p>
         </div>
-        <div>
+        <div className="form">
           <form onSubmit={handleSubmit(onSubmit)} noValidate>
-            <div className="form">
-              <div className="form-contact">
-                <div className="error-contact">
-                  <p className="form-info">Full Name*</p>
-                  <div className="error-msg">
-                    <p className="error">{errors.name?.message}</p>
-                  </div>
+            <div className="input-container">
+              <div className="error-contact">
+                <p className="form-info">Full Name*</p>
+                <div className="error-msg">
+                  <p className="error">{errors.name?.message}</p>
                 </div>
-                <input
-                  className="input"
-                  placeholder="Full Name"
-                  id="name"
-                  type="text"
-                  {...register("name", {
-                    required: {
-                      value: true,
-                      message: "Name required",
-                    },
-                  })}
-                />
               </div>
-              <div>
-                <div className="error-contact">
-                  <p className="form-info">Email</p>
-                  <div className="error-msg">
-                    <p className="error">{errors.email?.message}</p>
-                  </div>
+              <input
+                className="input"
+                placeholder="Full Name"
+                id="name"
+                type="text"
+                {...register("name", {
+                  required: {
+                    value: true,
+                    message: "Name required",
+                  },
+                })}
+              />
+            </div>
+            <div className="input-container">
+              <div className="error-contact">
+                <p className="form-info">Email</p>
+                <div className="error-msg">
+                  <p className="error">{errors.email?.message}</p>
                 </div>
-                <input
-                  className="input"
-                  placeholder="Email"
-                  type="email"
-                  id="email"
-                  {...register("email", {
-                    pattern: {
-                      value:
-                        /^[a-zA-Z0-9.!#$%&*+/=?^_`{|}~-]+@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9-]+)*$/,
-                      message: "Invalid email format",
-                    },
-                  })}
-                />
               </div>
-              <div>
-                <div className="text-error-contact">
-                  <p className="form-info">Message</p>
-                  <div className="error-msg">
-                    <p className="error">{errors.message?.message}</p>
-                  </div>
+              <input
+                className="input"
+                placeholder="Email"
+                type="email"
+                id="email"
+                {...register("email", {
+                  pattern: {
+                    value:
+                      /^[a-zA-Z0-9.!#$%&*+/=?^_`{|}~-]+@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9-]+)*$/,
+                    message: "Invalid email format",
+                  },
+                })}
+              />
+            </div>
+            <div className="input-container">
+              <div className="error-contact">
+                <p className="form-info">Password</p>
+                <div className="error-msg">
+                  <p className="error">{errors.password?.message}</p>
                 </div>
+              </div>
 
-                <textarea
-                  className="text-input"
-                  placeholder="Message"
-                  rows={5}
-                  id="message"
-                  {...register("message", {
-                    required: {
-                      value: true,
-                      message: "Message required",
-                    },
-                  })}
-                />
-              </div>
-              <div>
-                <button className="button">Submit</button>
-              </div>
+              <input
+                className="input"
+                placeholder="Hello"
+                id="password"
+                {...register("password", {
+                  required: {
+                    value: true,
+                    message: "Password required",
+                  },
+                })}
+              />
+            </div>
+            <div>
+              <button className="button">Submit</button>
             </div>
           </form>
         </div>
