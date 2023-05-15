@@ -25,7 +25,7 @@ export default function Contact({}: Props) {
 
   /** What we do when we press submit */
   const onSubmit = (data: Inputs) => {
-    console.log("Done", data);
+    console.log(data);
   };
 
   return (
@@ -79,6 +79,14 @@ export default function Contact({}: Props) {
                       /^[a-zA-Z0-9.!#$%&*+/=?^_`{|}~-]+@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9-]+)*$/,
                     message: "Invalid email format",
                   },
+                  validate: {
+                    notEmpty: (fieldValue) =>{
+                      return (fieldValue !== "" || "Please enter an email address");
+                    },
+                    notAdmin: (fieldValue) =>{
+                      return (fieldValue !== "admin@taitam.com" || "Enter a different email address");
+                    },
+                  }
                 })}
               />
             </div>
@@ -104,7 +112,8 @@ export default function Contact({}: Props) {
             </div>
             <div className="final-info">
               <p className="contact-interest">
-              One of our colleagues will get back in touch with you soon! Have a great day!
+                One of our colleagues will get back in touch with you soon! Have
+                a great day!
               </p>
               <button className="button">Submit</button>
             </div>

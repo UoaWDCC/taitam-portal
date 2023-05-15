@@ -126,7 +126,7 @@
   position: relative;
   margin-top: -5px;
   transition: transform 0.2s ease-in-out;
-  width: 100px 
+  width: 100px;
 }
 
 .button:hover {
