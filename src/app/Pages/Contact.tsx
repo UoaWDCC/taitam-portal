@@ -102,14 +102,17 @@ export default function Contact({}: Props) {
                 })}
               />
             </div>
-            <div>
+            <div className="final-info">
+              <p className="contact-interest">
+              One of our colleagues will get back in touch with you soon! Have a great day!
+              </p>
               <button className="button">Submit</button>
             </div>
           </form>
         </div>
       </div>
       <div className="image">
-        <Image src={contactSVG} alt="contact" width={400} height={400} />
+        <Image src={contactSVG} alt="contact" width={400} height={450} />
       </div>
     </div>
   );
