@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import "./Contact.css"; // import the CSS file
 import { Poppins } from "next/font/google";
 import contactSVG from "../Images/Illustration.svg";
@@ -14,7 +14,7 @@ type Props = {};
 type Inputs = {
   name: string;
   email: string;
-  password: string;
+  message: string;
 };
 
 export default function Contact({}: Props) {
@@ -23,10 +23,14 @@ export default function Contact({}: Props) {
   const { register, handleSubmit, formState } = form;
   const { errors } = formState;
 
+  let hasError = errors.email;
+
+
   /** What we do when we press submit */
   const onSubmit = (data: Inputs) => {
     console.log(data);
   };
+
 
   return (
     <div className="main">
@@ -49,7 +53,7 @@ export default function Contact({}: Props) {
                 </div>
               </div>
               <input
-                className="input"
+                className={`input ${hasError ? '' : '-error'}`}
                 placeholder="Full Name"
                 id="name"
                 type="text"
@@ -80,32 +84,38 @@ export default function Contact({}: Props) {
                     message: "Invalid email format",
                   },
                   validate: {
-                    notEmpty: (fieldValue) =>{
-                      return (fieldValue !== "" || "Please enter an email address");
+                    notEmpty: (fieldValue) => {
+                      return (
+                        fieldValue !== "" || "Please enter an email address"
+                      );
                     },
-                    notAdmin: (fieldValue) =>{
-                      return (fieldValue !== "admin@taitam.com" || "Enter a different email address");
+                    notAdmin: (fieldValue) => {
+                      return (
+                        fieldValue !== "admin@taitam.com" ||
+                        "Enter a different email address"
+                      );
                     },
-                  }
+                  },
                 })}
               />
             </div>
             <div className="input-container">
               <div className="error-contact">
-                <p className="form-info">Password</p>
+                <p className="form-info">Message</p>
                 <div className="error-msg">
-                  <p className="error">{errors.password?.message}</p>
+                  <p className="error">{errors.message?.message}</p>
                 </div>
               </div>
 
-              <input
-                className="input"
-                placeholder="Hello"
-                id="password"
-                {...register("password", {
+              <textarea
+                className="input-1"
+                placeholder="Message"
+                id="message"
+                rows={7}
+                {...register("message", {
                   required: {
                     value: true,
-                    message: "Password required",
+                    message: "message  required",
                   },
                 })}
               />
