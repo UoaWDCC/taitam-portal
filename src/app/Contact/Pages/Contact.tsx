@@ -82,7 +82,7 @@ export default function Contact({}: Props) {
                   validate: {
                     notEmpty: (fieldValue) => {
                       return (
-                        fieldValue !== "" || "Please enter an email address"
+                        fieldValue !== "" || "Email address required"
                       );
                     },
                     notAdmin: (fieldValue) => {
