@@ -125,7 +125,7 @@
 }
 
 .invalid {
-  border-color: #FF342B;
+  border-color: #ff342b;
   transition: box-shadow 0.3s ease;
 }
 
@@ -135,7 +135,7 @@
 
 .invalid:hover,
 .invalid.input:hover {
-  box-shadow: 0px 2px 0px 1px #FF342B;
+  box-shadow: 0px 2px 0px 1px #ff342b;
 }
 
 .input:focus {
@@ -145,6 +145,7 @@
 .invalid:focus,
 .invalid.input:focus {
   box-shadow: 0px 0px 0px 0px;
+  outline: 2px solid red;
 }
 
 .input::placeholder {
@@ -190,7 +191,7 @@
 }
 
 .error {
-  color: #FF342B;
+  color: #ff342b;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 300;
