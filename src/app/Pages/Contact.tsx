@@ -23,14 +23,10 @@ export default function Contact({}: Props) {
   const { register, handleSubmit, formState } = form;
   const { errors } = formState;
 
-  let hasError = errors.email;
-
-
   /** What we do when we press submit */
   const onSubmit = (data: Inputs) => {
     console.log(data);
   };
-
 
   return (
     <div className="main">
@@ -53,7 +49,7 @@ export default function Contact({}: Props) {
                 </div>
               </div>
               <input
-                className={`input ${hasError ? '' : '-error'}`}
+                className={`input ${errors.name ? "invalid" : ""}`}
                 placeholder="Full Name"
                 id="name"
                 type="text"
@@ -73,7 +69,7 @@ export default function Contact({}: Props) {
                 </div>
               </div>
               <input
-                className="input"
+                className={`input ${errors.email ? "invalid" : ""}`}
                 placeholder="Email"
                 type="email"
                 id="email"
@@ -108,14 +104,14 @@ export default function Contact({}: Props) {
               </div>
 
               <textarea
-                className="input-1"
+                className={`input-1 ${errors.message ? "invalid" : ""}`}
                 placeholder="Message"
                 id="message"
                 rows={7}
                 {...register("message", {
                   required: {
                     value: true,
-                    message: "message  required",
+                    message: "Message  required",
                   },
                 })}
               />
