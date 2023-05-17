@@ -5,7 +5,8 @@ import Card from "../Components/Card";
 import Button from "../Components/Button";
 import LandingImage from "../images/Landingimage.svg";
 import Mouse from "../images/mouse.svg";
-import TownImage from "../images/Homeimage.svg";
+import Arrow from "../images/arrow.png"
+import BigImage from "../images/bigimage.png"
 
 const layoutContainer = css`
   margin: 25px 150px 75px 150px;
@@ -103,7 +104,7 @@ export default function Home() {
         <div className={icon}>
           <h3 className={h3style}>OUR HISTORY</h3>
           <Image
-            src="/arrow.png"
+            src={Arrow}
             alt="Arrow"
             className={icon}
             width={70}
@@ -112,7 +113,7 @@ export default function Home() {
         </div>
 
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <Image src="/bigimage.png" alt="Town" width={930} height={750} />
+          <Image src={BigImage} alt="Town" width={930} height={750} />
         </div>
       </div>
 
