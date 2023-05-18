@@ -1,20 +1,12 @@
 import React from "react";
 import styles from "./NavigationBar.module.css";
-import { Poppins } from "next/font/google";
-// import {Icon} from '../components/svg'
-// import imageToAdd from "./../assets/images/logo.png";
 
-const poppins = Poppins({
-  subsets: ["latin-ext"],
-  weight: ["400", "700"],
-});
-
-const NavigationBar: React.FC<{}> = () => {
+function NavigationBar() {
   return (
-    <main className={poppins.className}>
+    <main>
       <nav className={styles.navigationBar}>
         <div className={styles["logoContainer"]}>
-          <a className={styles.taitamHome} href="#">
+          <a className={styles.taitamHome} href="/">
             TAITAMARIKI <br></br>
             POTENTIA
           </a>
@@ -24,22 +16,22 @@ const NavigationBar: React.FC<{}> = () => {
           {/* the first one is shown as the active link, not sure if I can change whether they're active or not
             before routing the links in  */}
           <li>
-            <a className={styles.active} href="#">
+            <a className={styles.active} href="/about">
               ABOUT
             </a>
           </li>
           <li>
-            <a className={styles.navLinks} href="#">
+            <a className={styles.navLinks} href="/events">
               EVENTS
             </a>
           </li>
           <li>
-            <a className={styles.navLinks} href="#">
+            <a className={styles.navLinks} href="/articles">
               ARTICLES
             </a>
           </li>
           <li>
-            <a className={styles.navLinks} href="#">
+            <a className={styles.navLinks} href="/contact">
               CONTACT
             </a>
           </li>
@@ -56,5 +48,5 @@ const NavigationBar: React.FC<{}> = () => {
       </nav>
     </main>
   );
-};
+}
 export default NavigationBar;

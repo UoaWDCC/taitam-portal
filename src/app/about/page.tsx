@@ -8,6 +8,7 @@ const title = css`
   margin: 10px 0;
   color: #f96e47;
   text-align: left;
+  font-size: 96px;
 `;
 
 const h3styles = css`
@@ -175,9 +176,14 @@ const button = css`
   box-shadow: 0px 2px 0px 1px #000000;
 `;
 
-export default function About() {
+const rootContainer = css`
+  max-width: 1200px;
+  margin: 50px auto 100px auto;
+`
+
+export default function AboutPage() {
   return (
-    <div>
+    <div className={rootContainer}>
       <h1 className={title}>OUR STORY</h1>
       <h3 className={h3styles}>
         Our Mission: Empowering Students to Succeed in the Tech Industry
