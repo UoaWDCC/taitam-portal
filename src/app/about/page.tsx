@@ -1,4 +1,5 @@
 import { css } from "@linaria/core";
+import Button from "../(components)/Button";
 import Image from "next/image";
 import "../globals.scss";
 
@@ -308,7 +309,12 @@ export default function AboutPage() {
           </p>
         </div>
       </div>
-      <button className={button}>Contact Us</button>
+      <Button
+              text="Contact Us"
+              href="/contact"
+              type="primary"
+              width="aboutButton"
+        ></Button>
     </div>
   );
 }

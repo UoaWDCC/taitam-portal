@@ -14,7 +14,7 @@ const Button = ({ text, type, href, width }: ButtonProps) => {
       className={`${styles.btn} ${styles[type]} ${styles[width]}`}
       style={{ textAlign: "center", fontWeight: "normal", width: "100%" }}
     >
-      Learn More
+      {text}
     </a>
   );
 };
