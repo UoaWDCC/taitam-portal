@@ -32,8 +32,8 @@ export default function ContactPage() {
           <h1 className="contact-header">Contact us</h1>
           <h2 className="contact-header-2">Have some questions</h2>
           <p className="contact-interest">
-            Thank you for your interest. Please fill out the form and we will get back to you promptly regarding your
-            request
+            Thank you for your interest. Please fill out the form and we will
+            get back to you promptly regarding your request
           </p>
         </div>
         <div className="form">
@@ -72,7 +72,8 @@ export default function ContactPage() {
                 id="email"
                 {...register("email", {
                   pattern: {
-                    value: /^[a-zA-Z0-9.!#$%&*+/=?^_`{|}~-]+@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9-]+)*$/,
+                    value:
+                      /^[a-zA-Z0-9.!#$%&*+/=?^_`{|}~-]+@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9-]+)*$/,
                     message: "Invalid email format",
                   },
                   validate: {
@@ -80,7 +81,10 @@ export default function ContactPage() {
                       return fieldValue !== "" || "Email address required";
                     },
                     notAdmin: (fieldValue) => {
-                      return fieldValue !== "admin@taitam.com" || "Enter a different email address";
+                      return (
+                        fieldValue !== "admin@taitam.com" ||
+                        "Enter a different email address"
+                      );
                     },
                   },
                 })}
@@ -109,7 +113,8 @@ export default function ContactPage() {
             </div>
             <div className="final-info">
               <p className="contact-interest">
-                One of our colleagues will get back in touch with you soon! Have a great day!
+                One of our colleagues will get back in touch with you soon! Have
+                a great day!
               </p>
               <button className="button">Submit</button>
             </div>
