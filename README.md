@@ -32,9 +32,13 @@ before a commit)
 Install yarn (follow the instructions here: https://yarnpkg.com/getting-started/install). Yarn is a package manager
 for JS/TS based web applications.
 
+We are using version 3 of `yarn`, which does not have a `node_modules` folder (instead, `.yarn` is uploaded with the
+repository and supports 'Zero-Install'. To check the version, run the command `yarn --version`. If this is not 3+, set
+the version through `yarn set version latest`.
+
 ## How to start
 
-1. Run the command `yarn` to install dependencies.
+1. Run the command `yarn` to install dependencies if not already there.
 2. Set up any environment variables in a .env file (currently none).
 3. Run the command `yarn dev` to start the development server locally.
 
