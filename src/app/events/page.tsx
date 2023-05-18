@@ -1,8 +1,8 @@
 import { Poppins } from "next/font/google";
-import { Card } from "@/app/components/bigCard";
-import stockImg1 from "../../images/events1.png";
-import stockImg2 from "../../images/events2.png";
-import stockImg3 from "../../images/events3.png";
+import { EventCard } from "./bigCard";
+import stockImg1 from "./images/events1.png";
+import stockImg2 from "./images/events2.png";
+import stockImg3 from "./images/events3.png";
 import React from "react";
 
 const poppinsBlack = Poppins({ weight: "900", subsets: ["latin"] });
@@ -10,7 +10,7 @@ const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 const poppinsRegular = Poppins({ weight: "400", subsets: ["latin"] });
 const poppinsLight = Poppins({ weight: "300", subsets: ["latin"] });
 
-export default function events() {
+export default function EventsPage() {
   return (
     <div
       className={poppinsLight.className}
@@ -31,7 +31,7 @@ export default function events() {
         employers, or recruiters, or simply want to meet other students facing
         similar challenges, we have something for everyone.
       </div>
-      <Card
+      <EventCard
         title={"Launch Your Tech Career at Our Career Fair"}
         date={"30 APR 6pm @ OGGB Building, UOA"}
         paragraph={
@@ -39,7 +39,7 @@ export default function events() {
         }
         image={stockImg1}
       />
-      <Card
+      <EventCard
         title={"Launch Your Tech Career at Our Career Fair"}
         date={"30 APR 6pm @ OGGB Building, UOA"}
         paragraph={
@@ -47,7 +47,7 @@ export default function events() {
         }
         image={stockImg2}
       />
-      <Card
+      <EventCard
         title={"Launch Your Tech Career at Our Career Fair"}
         date={"30 APR 6pm @ OGGB Building, UOA"}
         paragraph={

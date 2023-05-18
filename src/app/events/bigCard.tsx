@@ -1,5 +1,5 @@
 ﻿import { Poppins } from "next/font/google";
-import heart from "../images/heart.svg";
+import heart from "./images/heart.svg";
 import React from "react";
 import Image, { StaticImageData } from "next/image";
 
@@ -13,7 +13,7 @@ type CardProps = {
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 const poppinsRegular = Poppins({ weight: "400", subsets: ["latin"] });
 
-export const Card = ({ title, date, paragraph, image }: CardProps) => (
+export const EventCard = ({ title, date, paragraph, image }: CardProps) => (
   <aside>
     <div
       style={{
