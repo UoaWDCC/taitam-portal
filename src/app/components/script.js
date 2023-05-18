@@ -7,13 +7,13 @@
 
 //         this.classList.add('.active');
 //     })
-// });    
+// });
 
-const navLinkEls = document.querySelectorAll('.navLinks');
+const navLinkEls = document.querySelectorAll(".navLinks");
 
 navLinkEls.forEach((navLinkEl) => {
-    navLinkEl.addEventListener('click', () => {
-        document.querySelector('.active')?.classList.remove('.active');
-        navLinkEl.classList.add('.active');
-    });
+  navLinkEl.addEventListener("click", () => {
+    document.querySelector(".active")?.classList.remove(".active");
+    navLinkEl.classList.add(".active");
+  });
 });
