@@ -1,6 +1,6 @@
 # Taitamariki Potentia Events Website & Playbook
 
-Project initiated by WDCC in 2023. 
+Project initiated by WDCC in 2023.
 
 _# TODO: Add description of project._
 
@@ -15,17 +15,19 @@ _# TODO: Add description of project._
 ## Technologies
 
 ### Main frameworks
+
 - [Next (v13)](https://nextjs.org/): A React framework for developing full-stack SSR enabled applications
 - [TypeScript](https://www.typescriptlang.org/): A strongly typed language based on the JavaScript language
 - [React](https://react.dev/): A framework for building web user interfaces
 
 ### Other tools / dependencies
+
 - [ESLint](https://eslint.org/): A 'linter' that identifies and fixes code style problems
 - [Linaria](https://linaria.dev/): A CSS-in-JS tool that allows you to write CSS in JS files.
 - [Normalize.css](https://www.npmjs.com/package/normalize.css): Resets default HTML styles to a normalized style
 - [Prettier](https://prettier.io/): An opinionated code formatter that keeps code the same
-- [Husky](https://typicode.github.io/husky): A tool that allows you to hook into git actions (e.g. run linting/tests 
-before a commit)
+- [Husky](https://typicode.github.io/husky): A tool that allows you to hook into git actions (e.g. run linting/tests
+  before a commit)
 
 ## Prerequisites
 
