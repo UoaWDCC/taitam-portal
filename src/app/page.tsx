@@ -5,5 +5,9 @@ const styleContainer = css`
 `;
 
 export default function Home() {
-  return <div className={styleContainer}>Index page</div>;
+  return (
+    <div className={styleContainer}>
+      Index page
+    </div>
+  );
 }
