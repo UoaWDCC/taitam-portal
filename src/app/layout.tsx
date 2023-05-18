@@ -11,7 +11,7 @@ export const metadata = {
 const container = css`
   margin-top: 120px;
   position: relative;
-`
+`;
 
 export default function RootLayout({
   children,
@@ -22,10 +22,8 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <NavigationBar />
-        <div className={container}>
-          {children}
-        </div>
-        </body>
+        <div className={container}>{children}</div>
+      </body>
     </html>
   );
 }

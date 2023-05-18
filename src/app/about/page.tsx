@@ -179,7 +179,7 @@ const button = css`
 const rootContainer = css`
   max-width: 1200px;
   margin: 50px auto 100px auto;
-`
+`;
 
 export default function AboutPage() {
   return (

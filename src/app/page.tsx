@@ -89,14 +89,21 @@ export default function Home() {
         <div className={container}>
           <h1 className={title}>WELCOME</h1>
           <p style={{ marginRight: "200px" }}>
-            Taitamariki Potentia is a student-led tech community created to bridge the gap between university and
-            employment. Our mission is to empower young people studying technical disciplines to navigate the challenges
-            associated with breaking into the industry.
+            Taitamariki Potentia is a student-led tech community created to
+            bridge the gap between university and employment. Our mission is to
+            empower young people studying technical disciplines to navigate the
+            challenges associated with breaking into the industry.
           </p>
 
           <div className={icon}>
             <h3 className={h3style}>OUR HISTORY</h3>
-            <Image src={Arrow} alt="Arrow" className={icon} width={70} height={30}></Image>
+            <Image
+              src={Arrow}
+              alt="Arrow"
+              className={icon}
+              width={70}
+              height={30}
+            ></Image>
           </div>
 
           <div style={{ display: "flex", justifyContent: "center" }}>
@@ -146,7 +153,12 @@ export default function Home() {
         </div>
 
         <div className={buttonPlacement}>
-          <Button text="Learn More" href="#" type="primary" width="otherButton"></Button>
+          <Button
+            text="Learn More"
+            href="#"
+            type="primary"
+            width="otherButton"
+          ></Button>
         </div>
 
         <div className={MouseImage}>
@@ -196,7 +208,12 @@ export default function Home() {
           </div>
 
           <div className={buttonPlacement}>
-            <Button text="Learn More" href="#" type="primary" width="otherButton"></Button>
+            <Button
+              text="Learn More"
+              href="#"
+              type="primary"
+              width="otherButton"
+            ></Button>
           </div>
         </div>
       </div>
