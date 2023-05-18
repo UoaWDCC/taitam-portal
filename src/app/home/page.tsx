@@ -5,8 +5,8 @@ import Card from "../Components/Card";
 import Button from "../Components/Button";
 import LandingImage from "../images/Landingimage.svg";
 import Mouse from "../images/mouse.svg";
-import Arrow from "../images/arrow.png"
-import BigImage from "../images/bigimage.png"
+import Arrow from "../images/arrow.png";
+import BigImage from "../images/bigimage.png";
 
 const layoutContainer = css`
   margin: 25px 150px 75px 150px;
@@ -70,7 +70,7 @@ const MouseImage = css`
   z-index: -1;
   position: absolute;
   left: 52%;
-  top: 290%;
+  top: 255%;
 `;
 
 const buttonPlacement = css`
