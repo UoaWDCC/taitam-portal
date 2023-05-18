@@ -10,7 +10,7 @@ export interface ButtonProps {
 const Button = ({ text, type, href, width }: ButtonProps) => {
   return (
     <a
-      href="#"
+      href= {href}
       className={`${styles.btn} ${styles[type]} ${styles[width]}`}
       style={{ textAlign: "center", fontWeight: "normal", width: "100%" }}
     >

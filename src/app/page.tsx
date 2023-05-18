@@ -155,7 +155,7 @@ export default function Home() {
         <div className={buttonPlacement}>
           <Button
             text="Learn More"
-            href="#"
+            href="/events"
             type="primary"
             width="otherButton"
           ></Button>
@@ -210,7 +210,7 @@ export default function Home() {
           <div className={buttonPlacement}>
             <Button
               text="Learn More"
-              href="#"
+              href="/articles"
               type="primary"
               width="otherButton"
             ></Button>
