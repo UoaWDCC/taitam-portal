@@ -1,47 +1,28 @@
 /* Import fonts here */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;900&display=swap");
 
 body {
   font-family: Arial, Helvetica, sans-serif;
   color: white;
 }
 
-.contact-container {
-  width: 80%;
-  height: 700px;
-  margin: 0 auto;
-  border: 10px solid;
-  border-color: black;
+h1 {
+  font-weight: 900;
+  font-size: 96px;
+  line-height: 100%;
 }
 
-.contact-inner-container {
-  width: 200px;
-  height: 500px;
-  margin: 0 auto;
-  border: 10px solid;
-  border-color: black;
+h3 {
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 130%;
 }
 
-.contact-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+p, li {
+  line-height: 24px;
 }
 
-.contact-inner-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.contact-item {
-  width: 150px;
-  height: 150px;
-  background-color: red;
-  padding: 1em;
-  font-weight: 700;
-  color: red;
-  text-align: center;
-  border: 10px solid blue;
-  border-radius: 10px;
+button {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
 }

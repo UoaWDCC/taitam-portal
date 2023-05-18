@@ -37,3 +37,13 @@ next-env.d.ts
 
 # IDE
 .vscode
+
+
+# Yarn Zero Installs V2 (Berry)
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
