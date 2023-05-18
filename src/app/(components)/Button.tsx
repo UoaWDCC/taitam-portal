@@ -1,7 +1,13 @@
-import { ButtonInterface } from "../types";
 import styles from "./Button.module.css";
 
-const Button = ({ text, type, href, width }: ButtonInterface) => {
+export interface ButtonProps {
+  text: string;
+  type: string;
+  href: string;
+  width: string;
+}
+
+const Button = ({ text, type, href, width }: ButtonProps) => {
   return (
     <a
       href="#"

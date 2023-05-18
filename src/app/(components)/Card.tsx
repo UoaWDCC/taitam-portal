@@ -1,9 +1,15 @@
 import React from "react";
 import "./Card.css";
-import { CardInterface } from "../types";
-import Button from "./Button";
+import Button, { ButtonProps } from "./Button";
 
-const Card = ({ title, imageUrl, body, btn }: CardInterface) => {
+export interface CardProps {
+  title: string;
+  imageUrl: string;
+  body: string;
+  btn: ButtonProps;
+}
+
+const Card = ({ title, imageUrl, body, btn }: CardProps) => {
   return (
     <div className="card-container">
       <div className="image-container">
