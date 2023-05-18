@@ -66,16 +66,11 @@ const headerImage = css`
   left: 2%;
 `;
 
-const townImage = css`
-  z-index: -1;
-  position: absolute;
-`;
-
 const MouseImage = css`
   z-index: -1;
   position: absolute;
   left: 52%;
-  top: 255%;
+  top: 290%;
 `;
 
 const buttonPlacement = css`
