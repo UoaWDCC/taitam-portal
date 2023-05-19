@@ -1,7 +1,10 @@
 import { css } from "@linaria/core";
+import { Poppins } from "next/font/google";
 import Button from "../(components)/Button";
 import Image from "next/image";
 import "../globals.scss";
+
+const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 
 /* ------- headers -------*/
 const title = css`
@@ -309,12 +312,14 @@ export default function AboutPage() {
           </p>
         </div>
       </div>
+      <div className={poppinsMedium.className}>
       <Button
-              text="Contact Us"
+              text="Contact Us!"
               href="/contact"
               type="primary"
               width="contactUsButton"
         ></Button>
+      </div>
     </div>
   );
 }
