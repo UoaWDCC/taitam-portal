@@ -55,9 +55,12 @@
 
 .otherButton {
   max-width: 438.4px;
+  margin-top: 25px;
+  margin-left: 340.8px;
+  margin-bottom: 25px;
 }
 
-.contactUsButton {
+.largeButton {
   display: block;
   margin: 0 auto;
   text-align: center;

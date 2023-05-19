@@ -1,4 +1,5 @@
 ﻿import { css } from "@linaria/core";
+import { Poppins } from "next/font/google";
 import React from "react";
 import Image from "next/image";
 import Card from "./(components)/Card";
@@ -7,6 +8,8 @@ import LandingImage from "./(images)/Landingimage.svg";
 import Mouse from "./(images)/mouse.svg";
 import Arrow from "./(images)/arrow.png";
 import BigImage from "./(images)/bigimage.png";
+
+const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 
 const layoutContainer = css`
   max-width: 1200px;
@@ -72,12 +75,6 @@ const MouseImage = css`
   z-index: -1;
   position: absolute;
   left: 52%;
-`;
-
-const buttonPlacement = css`
-  margin-top: 25px;
-  margin-left: 340.8px;
-  margin-bottom: 25px;
 `;
 
 export default function Home() {
@@ -152,12 +149,14 @@ export default function Home() {
           />
         </div>
 
-        <div className={buttonPlacement}>
+        <div className={poppinsMedium.className}  style={{
+          marginTop: "20px",
+        }}>
           <Button
             text="Learn More"
             href="/events"
             type="primary"
-            width="otherButton"
+            width="largeButton"
           ></Button>
         </div>
 
@@ -207,12 +206,14 @@ export default function Home() {
             />
           </div>
 
-          <div className={buttonPlacement}>
+          <div className={poppinsMedium.className}  style={{
+          marginTop: "20px",
+        }} >
             <Button
               text="Learn More"
               href="/articles"
               type="primary"
-              width="otherButton"
+              width="largeButton"
             ></Button>
           </div>
         </div>
