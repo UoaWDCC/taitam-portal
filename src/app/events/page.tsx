@@ -1,5 +1,6 @@
 import { Poppins } from "next/font/google";
 import { EventCard } from "./bigCard";
+import Button from "../(components)/Button";
 import stockImg1 from "./images/events1.png";
 import stockImg2 from "./images/events2.png";
 import stockImg3 from "./images/events3.png";
@@ -64,28 +65,15 @@ export default function EventsPage() {
       <div
         className={poppinsMedium.className}
         style={{
-          backgroundColor: "#FFCC01",
-          boxShadow: "0 2px 0 1px",
-          width: "440px",
-          height: "40px",
-          borderRadius: "20px",
-          fontSize: "19px",
-          margin: "20px auto",
-          textAlign: "center",
-          position: "relative",
+          marginTop: "20px",
         }}
       >
-        <p
-          style={{
-            margin: "0",
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            translate: "-50% -50%",
-          }}
-        >
-          Contact Us!
-        </p>
+        <Button
+              text="Contact Us!"
+              href="/contact"
+              type="primary"
+              width="contactUsButton"
+            ></Button>
       </div>
     </div>
   );

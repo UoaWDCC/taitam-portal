@@ -313,7 +313,7 @@ export default function AboutPage() {
               text="Contact Us"
               href="/contact"
               type="primary"
-              width="aboutButton"
+              width="contactUsButton"
         ></Button>
     </div>
   );
