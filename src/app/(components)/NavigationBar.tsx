@@ -1,7 +1,10 @@
+"use client";
 import React from "react";
 import styles from "./NavigationBar.module.css";
+import { usePathname } from 'next/navigation';
 
 function NavigationBar() {
+  const pathname = usePathname();
   return (
     <main>
       <nav className={styles.navigationBar}>
@@ -13,38 +16,35 @@ function NavigationBar() {
         </div>
 
         <ul className={styles["linksContainer"]}>
-          {/* the first one is shown as the active link, not sure if I can change whether they're active or not
-            before routing the links in  */}
           <li>
-            <a className={styles.active} href="/about">
+            <a className={pathname === "/about" ? styles.active:styles.navLinks} href="/about">
               ABOUT
             </a>
           </li>
           <li>
-            <a className={styles.navLinks} href="/events">
+            <a className={pathname === "/events" ? styles.active:styles.navLinks} href="/events">
               EVENTS
             </a>
           </li>
           <li>
-            <a className={styles.navLinks} href="/articles">
+            <a className={pathname === "/articles" ? styles.active:styles.navLinks} href="/articles">
               ARTICLES
             </a>
           </li>
           <li>
-            <a className={styles.navLinks} href="/contact">
+            <a className={pathname === "/contact" ? styles.active:styles.navLinks} href="/contact">
               CONTACT
             </a>
           </li>
           <a className={styles.buttonContainer} href="#">
             <button className={styles.logIn}>
               <div className={styles.userIconContainer}>
-                <img src="Icon.png" alt="" className="image" />
+                <img src="Icon.png" alt="" />
               </div>
               Login
             </button>
           </a>
         </ul>
-        {/* <script src="script.js"></script> */}
       </nav>
     </main>
   );
