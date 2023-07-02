@@ -8,12 +8,19 @@ type CardProps = {
   date: string;
   paragraph: string;
   image: StaticImageData;
+  link: string;
 };
 
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 const poppinsRegular = Poppins({ weight: "400", subsets: ["latin"] });
 
-export const EventCard = ({ title, date, paragraph, image }: CardProps) => (
+export const EventCard = ({
+  title,
+  date,
+  paragraph,
+  image,
+  link,
+}: CardProps) => (
   <aside>
     <div
       style={{
@@ -71,7 +78,11 @@ export const EventCard = ({ title, date, paragraph, image }: CardProps) => (
               textAlign: "center",
             }}
           >
-            <p style={{ margin: "8px 0" }}>Sign Up</p>
+            <p style={{ margin: "8px 0" }}>
+              <a href={link} target="_blank">
+                Sign Up
+              </a>
+            </p>
           </div>
           <div
             className={poppinsMedium.className}
