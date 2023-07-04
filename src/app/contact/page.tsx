@@ -5,7 +5,7 @@ import "./contact.page.css";
 import contactSVG from "../../assets/contact-form-illustration.svg";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
-import "@emailjs/nodejs";
+import emailjs from "@emailjs/nodejs";
 
 /** This describes the types of the inputs to the form. */
 
@@ -23,7 +23,18 @@ export default function ContactPage() {
 
   /** What we do when we press submit */
   const onSubmit = (data: Inputs) => {
-    console.log(data);
+    emailjs
+      .send("taitam_testing", "taitam_contact", data, {
+        publicKey: "SonHy1Qi9E3RpcmUh",
+      })
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+        },
+        (err) => {
+          console.log("FAILED...", err);
+        }
+      );
   };
 
   return (
