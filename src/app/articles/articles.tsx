@@ -1,9 +1,9 @@
 import { Poppins } from "next/font/google";
 import { EventCard } from "../(components)/BigCard";
 import Button from "../(components)/Button";
-import stockImg1 from "../(images)/events1.png";
-import stockImg2 from "../(images)/events2.png";
-import stockImg3 from "../(images)/events3.png";
+import stockImg1 from "./images/events1.png";
+import stockImg2 from "./images/events2.png";
+import stockImg3 from "./images/events3.png";
 import React from "react";
 
 const poppinsBlack = Poppins({ weight: "900", subsets: ["latin"] });
@@ -11,7 +11,7 @@ const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 const poppinsRegular = Poppins({ weight: "400", subsets: ["latin"] });
 const poppinsLight = Poppins({ weight: "300", subsets: ["latin"] });
 
-export default function EventsPage() {
+export default function ArticlesPage() {
   return (
     <div
       className={poppinsLight.className}
@@ -21,7 +21,7 @@ export default function EventsPage() {
         className={poppinsBlack.className}
         style={{ fontSize: 96 + "pt", color: "#F96E47" }}
       >
-        OUR EVENTS
+        ARTICLES
       </div>
       <div style={{ fontSize: 16 + "pt", marginBottom: "25px" }}>
         We regularly host meetups and events in Auckland, providing a vibrant
