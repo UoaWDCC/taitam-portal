@@ -39,7 +39,12 @@ export default function EventsPage() {
           "Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
         }
         image={stockImg1}
-        link="https://events.humanitix.com/taitam"
+        btn={{
+          text: "Sign Up",
+          href: "https://events.humanitix.com/taitam",
+          type: "primary",
+          width: "cardButton",
+        }}
       />
       <EventCard
         title={"Launch Your Tech Career at Our Career Fair"}
@@ -48,7 +53,12 @@ export default function EventsPage() {
           "Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
         }
         image={stockImg2}
-        link="https://events.humanitix.com/taitam"
+        btn={{
+          text: "Sign Up",
+          href: "https://events.humanitix.com/event-2-hwglmjti",
+          type: "primary",
+          width: "cardButton",
+        }}
       />
       <EventCard
         title={"Launch Your Tech Career at Our Career Fair"}
@@ -57,7 +67,12 @@ export default function EventsPage() {
           "Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
         }
         image={stockImg3}
-        link="https://events.humanitix.com/taitam"
+        btn={{
+          text: "Sign Up",
+          href: "https://events.humanitix.com/event-3-wc909i0m",
+          type: "primary",
+          width: "cardButton",
+        }}
       />
       <div
         className={poppinsRegular.className}

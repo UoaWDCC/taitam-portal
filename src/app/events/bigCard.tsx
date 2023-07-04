@@ -2,25 +2,20 @@
 import heart from "./images/heart.svg";
 import React from "react";
 import Image, { StaticImageData } from "next/image";
+import Button, { ButtonProps } from "../(components)/Button";
 
 type CardProps = {
   title: string;
   date: string;
   paragraph: string;
   image: StaticImageData;
-  link: string;
+  btn: ButtonProps;
 };
 
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 const poppinsRegular = Poppins({ weight: "400", subsets: ["latin"] });
 
-export const EventCard = ({
-  title,
-  date,
-  paragraph,
-  image,
-  link,
-}: CardProps) => (
+export const EventCard = ({ title, date, paragraph, image, btn }: CardProps) => (
   <aside>
     <div
       style={{
@@ -69,20 +64,16 @@ export const EventCard = ({
             className={poppinsMedium.className}
             style={{
               float: "left",
-              backgroundColor: "#FFCC01",
-              boxShadow: "0 2px 0 1px",
-              width: "137px",
-              height: "40px",
-              borderRadius: "20px",
               fontSize: "19px",
               textAlign: "center",
             }}
           >
-            <p style={{ margin: "8px 0" }}>
-              <a href={link} target="_blank">
-                Sign Up
-              </a>
-            </p>
+            <Button
+              type={btn.type}
+              text={btn.text}
+              href={btn.href}
+              width={btn.width}
+            />
           </div>
           <div
             className={poppinsMedium.className}
