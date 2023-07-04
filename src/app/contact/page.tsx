@@ -5,8 +5,9 @@ import "./contact.page.css";
 import contactSVG from "../../assets/contact-form-illustration.svg";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
+import "@emailjs/nodejs";
 
-/** This descibes the types of the inputs to the form. */
+/** This describes the types of the inputs to the form. */
 
 type Inputs = {
   name: string;
