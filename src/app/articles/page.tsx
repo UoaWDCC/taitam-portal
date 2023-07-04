@@ -1,9 +1,9 @@
 import { Poppins } from "next/font/google";
 import { EventCard } from "../(components)/BigCard";
 import Button from "../(components)/Button";
-import stockImg1 from "./images/events1.png";
-import stockImg2 from "./images/events2.png";
-import stockImg3 from "./images/events3.png";
+import stockImg1 from "../(images)/events1.png";
+import stockImg2 from "../(images)/events2.png";
+import stockImg3 from "../(images)/events3.png";
 import React from "react";
 
 const poppinsBlack = Poppins({ weight: "900", subsets: ["latin"] });
@@ -11,7 +11,7 @@ const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 const poppinsRegular = Poppins({ weight: "400", subsets: ["latin"] });
 const poppinsLight = Poppins({ weight: "300", subsets: ["latin"] });
 
-export default function ArticlesPage() {
+export default function EventsPage() {
   return (
     <div
       className={poppinsLight.className}
@@ -34,27 +34,45 @@ export default function ArticlesPage() {
       </div>
       <EventCard
         title={"Launch Your Tech Career at Our Career Fair"}
-        date={"30 APR 6pm @ OGGB Building, UOA"}
+        date={""}
         paragraph={
           "Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
         }
         image={stockImg1}
+        btn={{
+          text: "Read More",
+          href: "#",
+          type: "primary",
+          width: "cardButton",
+        }}
       />
       <EventCard
         title={"Launch Your Tech Career at Our Career Fair"}
-        date={"30 APR 6pm @ OGGB Building, UOA"}
+        date={""}
         paragraph={
           "Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
         }
         image={stockImg2}
+        btn={{
+          text: "Read More",
+          href: "#",
+          type: "primary",
+          width: "cardButton",
+        }}
       />
       <EventCard
         title={"Launch Your Tech Career at Our Career Fair"}
-        date={"30 APR 6pm @ OGGB Building, UOA"}
+        date={""}
         paragraph={
           "Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
         }
         image={stockImg3}
+        btn={{
+          text: "Read More",
+          href: "#",
+          type: "primary",
+          width: "cardButton",
+        }}
       />
       <div
         className={poppinsRegular.className}

@@ -39,6 +39,12 @@ export default function EventsPage() {
           "Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
         }
         image={stockImg1}
+        btn={{
+          text: "Sign Up",
+          href: "#",
+          type: "primary",
+          width: "cardButton",
+        }}
       />
       <EventCard
         title={"Launch Your Tech Career at Our Career Fair"}
@@ -47,6 +53,12 @@ export default function EventsPage() {
           "Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
         }
         image={stockImg2}
+        btn={{
+          text: "Sign Up",
+          href: "#",
+          type: "primary",
+          width: "cardButton",
+        }}
       />
       <EventCard
         title={"Launch Your Tech Career at Our Career Fair"}
@@ -55,6 +67,12 @@ export default function EventsPage() {
           "Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
         }
         image={stockImg3}
+        btn={{
+          text: "Sign Up",
+          href: "#",
+          type: "primary",
+          width: "cardButton",
+        }}
       />
       <div
         className={poppinsRegular.className}

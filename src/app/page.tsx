@@ -139,7 +139,7 @@ export default function Home() {
           <Card
             title="Build Your Soft Skills and Stand Out to Employers"
             imageUrl="https://t3.ftcdn.net/jpg/04/56/98/68/240_F_456986840_BbHQK0bynMEDxMDJP0L3fkCMqnfmJ283.jpg"
-            body="Develop your communication, teamwork, and adaptability skills at our Soft Skills Workshop. Led by experienced professionals, this interactive workshop will teach you the essential skills you need to succeed in the tech industry."
+            body="Develop your communication, teamwork, and adaptability skills at our Soft Skills Workshop. Led by experienced professionals, this workshop will teach you the skills you need to succeed in the tech industry."
             btn={{
               text: "Learn More",
               href: "#",
@@ -149,9 +149,12 @@ export default function Home() {
           />
         </div>
 
-        <div className={poppinsMedium.className}  style={{
-          marginTop: "20px",
-        }}>
+        <div
+          className={poppinsMedium.className}
+          style={{
+            marginTop: "20px",
+          }}
+        >
           <Button
             text="Learn More"
             href="/events"
@@ -196,7 +199,7 @@ export default function Home() {
             <Card
               title="Build Your Soft Skills and Stand Out to Employers"
               imageUrl="https://t4.ftcdn.net/jpg/03/14/34/87/240_F_314348719_6CxqaGP9rfDJwnB1RjntD6V7C6K0Ou6K.jpg"
-              body="Develop your communication, teamwork, and adaptability skills at our Soft Skills Workshop. Led by experienced professionals, this interactive workshop will teach you the essential skills you need to succeed in the tech industry."
+              body="Develop your communication, teamwork, and adaptability skills at our Soft Skills Workshop. Led by experienced professionals, this workshop will teach you the skills you need to succeed in the tech industry."
               btn={{
                 text: "Learn More",
                 href: "#",
@@ -206,9 +209,12 @@ export default function Home() {
             />
           </div>
 
-          <div className={poppinsMedium.className}  style={{
-          marginTop: "20px",
-        }} >
+          <div
+            className={poppinsMedium.className}
+            style={{
+              marginTop: "20px",
+            }}
+          >
             <Button
               text="Learn More"
               href="/articles"
