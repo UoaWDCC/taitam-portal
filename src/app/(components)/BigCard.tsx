@@ -2,7 +2,7 @@ import { Poppins } from "next/font/google";
 import heart from "../(images)/heart.svg";
 import React from "react";
 import Image, { StaticImageData } from "next/image";
-import Button, { ButtonProps } from "./Button";
+import Button, { ButtonProps } from "../(components)/Button";
 
 type CardProps = {
   title: string;
@@ -70,8 +70,6 @@ export const EventCard = ({
             className={poppinsMedium.className}
             style={{
               float: "left",
-              width: "137px",
-              height: "40px",
               fontSize: "19px",
               textAlign: "center",
             }}
