@@ -40,7 +40,7 @@ export default function ArticlesPage() {
         image={stockImg1}
         btn={{
           text: "Read More",
-          href: "#",
+          href: "/articles/first",
           type: "primary",
           width: "cardButton",
         }}
@@ -54,7 +54,7 @@ export default function ArticlesPage() {
         image={stockImg2}
         btn={{
           text: "Read More",
-          href: "#",
+          href: "/articles/second",
           type: "primary",
           width: "cardButton",
         }}
