@@ -8,7 +8,7 @@ import stockImg from "../../(images)/events1.png";
 
 const headerImage = css`
   max-width: 1119px;
-  height: 333px;
+  height: 310px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -49,15 +49,15 @@ export default function FirstArticle() {
         <div className={cardContainer}>
           <div>
             <ArticlesCard
-              title="The Importance of Soft Skills for Students in Technical Disciplines"
+              title="Launch Your Tech Career at Our Career Fair"
               reference="By Naren Rohan, Project Manager | 12 July 2023"
-              par1="As the demand for skilled technical professionals continues to grow, universities and institutions are doing an excellent job in preparing students with the technical skills required to succeed in the industry. However, studies show that technical skills alone are not enough for students to land a job and excel in their careers. In fact, a recent survey by LinkedIn found that 92% of hiring managers believe that soft skills, such as communication, teamwork, and adaptability, are equally or more important than technical skills."
-              subtitle="What is Taitamariki Potentia?"
-              par2="At Taitamariki Potentia, we understand the importance of soft skills in the tech industry and are committed to helping students develop these skills. Through our meetups and events, we provide students with opportunities to network and collaborate with their peers, as well as connect with experienced professionals and employers in the industry."
+              par1="In today's fast-paced digital age, technology has become an integral part of our daily lives. From innovative startups to multinational corporations, the demand for skilled tech professionals continues to grow. Our upcoming career fair offers an unparalleled opportunity to connect with leading companies, explore job prospects, and make meaningful connections that can shape your future."
+              subtitle="A Networking Haven for Aspiring Tech Professionals:"
+              par2="Attending a career fair can be a game-changer for aspiring tech professionals. It serves as a networking haven where you can meet and interact with representatives from top-tier companies actively seeking talented individuals like you. This face-to-face interaction provides a unique platform to showcase your skills, demonstrate your passion for technology, and make a lasting impression on potential employers."
               image={stockImg}
-              par3="In addition to technical knowledge, we believe that soft skills are essential for students to succeed in their careers. Communication skills, for example, are critical in expressing ideas clearly and working effectively with others. Teamwork skills are necessary for collaborating on projects and achieving shared goals, while adaptability is essential for responding to change and keeping up with the fast-paced industry."
-              par4="Soft skills are also important for students when it comes to job interviews and landing their first job. Employers are looking for candidates who can demonstrate strong soft skills in addition to technical skills, as these skills are essential for success in any workplace. By developing these skills, students can increase their employability and stand out in a competitive job market."
-              par5="In conclusion, technical skills are undoubtedly important for students in technical disciplines, but they are not enough on their own. Soft skills are equally important and can make the difference between success and failure in the industry. At Taitamariki Potentia, we are committed to helping students develop both technical and soft skills, empowering them to achieve their career goals and excel in the tech industry."
+              par3="Our career fair is designed to cater to a wide range of tech career paths. Whether you are interested in software development, data analysis, cybersecurity, artificial intelligence, or any other tech field, there will be opportunities for you to explore. Companies from various sectors such as finance, healthcare, e-commerce, and entertainment will be in attendance, offering diverse avenues for career growth."
+              par4="Aside from networking opportunities, our career fair also features informative sessions, workshops, and panel discussions conducted by industry experts. These sessions provide invaluable insights into the latest trends, technologies, and challenges in the tech industry. Whether it's a panel discussion on the future of AI or a workshop on mastering coding languages, you will gain knowledge that can give you a competitive edge in your job search and career advancement."
+              par5="Attending a career fair is an excellent way to jumpstart your tech career. From networking with industry leaders to gaining valuable insights, our upcoming career fair promises to be an event that can shape your professional trajectory. Don't miss this opportunity to connect with top companies, explore exciting job prospects, and take your first step towards launching a successful tech career. Join us at our career fair and unlock a world of possibilities!"
             />
           </div>
         </div>

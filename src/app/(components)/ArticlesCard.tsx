@@ -59,7 +59,7 @@ const ArticlesCard = ({
         />
       </div>
 
-      <div className="card-para" style={{ marginTop: "40px" }}>
+      <div className="card-para" style={{ marginTop: "35px" }}>
         <p>{par3}</p>
       </div>
 

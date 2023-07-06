@@ -29,13 +29,12 @@ export default function ArticlesPage() {
       <div className={root}>
         <h1 className={title}>ARTICLES</h1>
         <p style={{ marginTop: "-70px" }}>
-          We regularly host meetups and events in Auckland, providing a vibrant
-          and diverse community for students of all backgrounds who are studying
-          technical disciplines. Our events offer direct access to resources,
-          connections, and advice that can help you take your next career step.
-          Whether you're looking to connect with experienced tech professionals,
-          employers, or recruiters, or simply want to meet other students facing
-          similar challenges, we have something for everyone.
+          As a tech recruitment agency that is committed to making a difference
+          in the industry, we’re passionate about giving back to the community
+          and building tomorrow’s technology professionals from the grassroots
+          up. From hosting quarterly Korero Potentia events and attending local
+          meetups, to one of our many sponsorships with local businesses and
+          universities – everything we do is about our communities.
         </p>
         <EventCard
           title={"Launch Your Tech Career at Our Career Fair"}
@@ -60,22 +59,22 @@ export default function ArticlesPage() {
           image={stockImg2}
           btn={{
             text: "Read More",
-            href: "/articles/first-article",
-            type: "primary",
+            href: "/articles/second-article",
+            type: "secondary",
             width: "cardButton",
           }}
         />
         <EventCard
           title={"Build Your Soft Skills and Stand Out to Employers"}
-          date={"By Wesley Key, Director of Events | 2 May 2023"}
+          date={"By Wesley Key, Hiring Manager | 2 May 2023"}
           paragraph={
             "Develop your communication, teamwork, and adaptability skills at our Soft Skills Workshop. Led by experienced professionals, this workshop will teach you the skills you need to succeed in the tech industry."
           }
           image={stockImg3}
           btn={{
             text: "Read More",
-            href: "/articles/first-article",
-            type: "primary",
+            href: "/articles/third-article",
+            type: "tertiary",
             width: "cardButton",
           }}
         />
