@@ -1,0 +1,17 @@
+.card-container {
+  overflow: hidden;
+  width: 992px;
+  height: 904px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  box-shadow: 0px 3px 0px 2px #000000;
+}
+.image-container {
+  overflow: hidden;
+  width: 384px;
+  height: 216px;
+}
+.card-content {
+  margin: 1rem;
+  margin-top: 0.3rem;
+}
