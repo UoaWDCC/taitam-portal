@@ -1,9 +1,9 @@
 import { Poppins } from "next/font/google";
-import { EventCard } from "./bigCard";
+import { EventCard } from "../(components)/BigCard";
 import Button from "../(components)/Button";
-import stockImg1 from "./images/events1.png";
-import stockImg2 from "./images/events2.png";
-import stockImg3 from "./images/events3.png";
+import stockImg1 from "../(images)/events1.png";
+import stockImg2 from "../(images)/events2.png";
+import stockImg3 from "../(images)/events3.png";
 import React from "react";
 
 const poppinsBlack = Poppins({ weight: "900", subsets: ["latin"] });
@@ -39,6 +39,12 @@ export default function EventsPage() {
           "Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
         }
         image={stockImg1}
+        btn={{
+          text: "Sign Up",
+          href: "https://events.humanitix.com/taitam",
+          type: "primary",
+          width: "cardButton",
+        }}
       />
       <EventCard
         title={"Launch Your Tech Career at Our Career Fair"}
@@ -47,6 +53,12 @@ export default function EventsPage() {
           "Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
         }
         image={stockImg2}
+        btn={{
+          text: "Sign Up",
+          href: "https://events.humanitix.com/event-2-hwglmjti",
+          type: "primary",
+          width: "cardButton",
+        }}
       />
       <EventCard
         title={"Launch Your Tech Career at Our Career Fair"}
@@ -55,6 +67,12 @@ export default function EventsPage() {
           "Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
         }
         image={stockImg3}
+        btn={{
+          text: "Sign Up",
+          href: "https://events.humanitix.com/event-3-wc909i0m",
+          type: "primary",
+          width: "cardButton",
+        }}
       />
       <div
         className={poppinsRegular.className}
@@ -69,11 +87,11 @@ export default function EventsPage() {
         }}
       >
         <Button
-              text="Contact Us"
-              href="/contact"
-              type="primary"
-              width="largeButton"
-            ></Button>
+          text="Contact Us"
+          href="/contact"
+          type="primary"
+          width="largeButton"
+        ></Button>
       </div>
     </div>
   );
