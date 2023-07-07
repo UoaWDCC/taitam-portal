@@ -41,7 +41,7 @@ export default function EventsPage() {
         image={stockImg1}
         btn={{
           text: "Sign Up",
-          href: "https://events.humanitix.com/taitam",
+          href: "https://events.humanitix.com/test-event-1-o7k7hc2f",
           type: "primary",
           width: "cardButton",
         }}
@@ -55,7 +55,7 @@ export default function EventsPage() {
         image={stockImg2}
         btn={{
           text: "Sign Up",
-          href: "https://events.humanitix.com/event-2-hwglmjti",
+          href: "https://events.humanitix.com/test-event-2-2d9curo3",
           type: "primary",
           width: "cardButton",
         }}
@@ -69,7 +69,7 @@ export default function EventsPage() {
         image={stockImg3}
         btn={{
           text: "Sign Up",
-          href: "https://events.humanitix.com/event-3-wc909i0m",
+          href: "https://events.humanitix.com/test-event-3-hbr5ydfn",
           type: "primary",
           width: "cardButton",
         }}
