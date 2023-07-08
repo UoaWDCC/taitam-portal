@@ -24,7 +24,7 @@ export default function ContactPage() {
   /** What we do when we press submit */
   const onSubmit = (data: Inputs) => {
     emailjs
-      .send("taitam_testing", "taitam_contact" || '', data, {
+      .send("taitam_testing", "taitam_contact", data, {
         publicKey: "SonHy1Qi9E3RpcmUh",
       })
       .then(
@@ -35,7 +35,9 @@ export default function ContactPage() {
         },
         (err) => {
           console.log("FAILED...", err);
-          return window.alert("Oops! Something went wrong. Please refresh the page and try again.");
+          return window.alert(
+            "Oops! Something went wrong. Please refresh the page and try again."
+          );
         }
       );
   };
