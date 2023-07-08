@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { ToastContainer, toast } from "react-toastify";
 import "./contact.page.css";
 import contactSVG from "../../assets/contact-form-illustration.svg";
 import Image from "next/image";
@@ -31,11 +32,11 @@ export default function ContactPage() {
         (response) => {
           form.reset();
           console.log("SUCCESS!", response.status, response.text);
-          return window.alert("Email sent! We'll get back to you soon.");
+          return toast.success("Email sent! We'll get back to you soon.");
         },
         (err) => {
           console.log("FAILED...", err);
-          return window.alert(
+          return toast.error(
             "Oops! Something went wrong. Please refresh the page and try again."
           );
         }
@@ -141,6 +142,18 @@ export default function ContactPage() {
       <div className="image">
         <Image src={contactSVG} alt="contact" width={400} height={450} />
       </div>
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   );
 }
