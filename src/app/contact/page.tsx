@@ -24,15 +24,18 @@ export default function ContactPage() {
   /** What we do when we press submit */
   const onSubmit = (data: Inputs) => {
     emailjs
-      .send("taitam_testing", "taitam_contact", data, {
+      .send("taitam_testing", "taitam_contact" || '', data, {
         publicKey: "SonHy1Qi9E3RpcmUh",
       })
       .then(
         (response) => {
+          form.reset();
           console.log("SUCCESS!", response.status, response.text);
+          return window.alert("Email sent! We'll get back to you soon.");
         },
         (err) => {
           console.log("FAILED...", err);
+          return window.alert("Oops! Something went wrong. Please refresh the page and try again.");
         }
       );
   };
@@ -42,7 +45,7 @@ export default function ContactPage() {
       <div className="contact">
         <div className="contact-info">
           <h1 className="contact-header">Contact us</h1>
-          <h2 className="contact-header-2">Have some questions</h2>
+          <h2 className="contact-header-2">Have some questions?</h2>
           <p className="contact-interest">
             Thank you for your interest. Please fill out the form and we will
             get back to you promptly regarding your request
