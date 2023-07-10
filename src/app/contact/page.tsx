@@ -17,7 +17,7 @@ type Inputs = {
 };
 
 export default function ContactPage() {
-  /** Creates form object that takes in inputs desrcibed above and has those two functions. */
+  /** Creates form object that takes in inputs described above and has those two functions. */
   const form = useForm<Inputs>();
   const { register, handleSubmit, formState } = form;
   const { errors } = formState;
@@ -25,8 +25,8 @@ export default function ContactPage() {
   /** What we do when we press submit */
   const onSubmit = (data: Inputs) => {
     emailjs
-      .send("taitam_testing", "taitam_contact", data, {
-        publicKey: "SonHy1Qi9E3RpcmUh",
+      .send(process.env.NEXT_PUBLIC_EMAILJS_SERVICE || '', process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE || '', data, {
+        publicKey: process.env.NEXT_PUBLIC_EMAILJS_KEY || '',
       })
       .then(
         (response) => {
