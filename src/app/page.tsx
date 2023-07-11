@@ -149,9 +149,12 @@ export default function Home() {
           />
         </div>
 
-        <div className={poppinsMedium.className}  style={{
-          marginTop: "20px",
-        }}>
+        <div
+          className={poppinsMedium.className}
+          style={{
+            marginTop: "20px",
+          }}
+        >
           <Button
             text="Learn More"
             href="/events"
@@ -206,9 +209,12 @@ export default function Home() {
             />
           </div>
 
-          <div className={poppinsMedium.className}  style={{
-          marginTop: "20px",
-        }} >
+          <div
+            className={poppinsMedium.className}
+            style={{
+              marginTop: "20px",
+            }}
+          >
             <Button
               text="Learn More"
               href="/articles"

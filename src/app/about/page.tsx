@@ -313,11 +313,11 @@ export default function AboutPage() {
         </div>
       </div>
       <div className={poppinsMedium.className}>
-      <Button
-              text="Contact Us"
-              href="/contact"
-              type="primary"
-              width="largeButton"
+        <Button
+          text="Contact Us"
+          href="/contact"
+          type="primary"
+          width="largeButton"
         ></Button>
       </div>
     </div>
