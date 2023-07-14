@@ -1,5 +1,5 @@
 import { Poppins } from "next/font/google";
-import { EventCard } from "./bigCard";
+import { EventCard } from "../(components)/bigCard";
 import Button from "../(components)/Button";
 import stockImg1 from "./images/events1.png";
 import stockImg2 from "./images/events2.png";
