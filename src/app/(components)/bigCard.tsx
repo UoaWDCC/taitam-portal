@@ -1,8 +1,8 @@
 ﻿import { Poppins } from "next/font/google";
-import heart from "./images/heart.svg";
+import heart from "../events/images/heart.svg";
 import React from "react";
 import Image, { StaticImageData } from "next/image";
-import Button, { ButtonProps } from "../(components)/Button";
+import Button, { ButtonProps } from "./Button";
 
 type CardProps = {
   title: string;
@@ -73,6 +73,7 @@ export const EventCard = ({ title, date, paragraph, image, btn }: CardProps) => 
               text={btn.text}
               href={btn.href}
               width={btn.width}
+              target={btn.target}
             />
           </div>
           <div
