@@ -73,6 +73,7 @@ export const EventCard = ({ title, date, paragraph, image, btn }: CardProps) => 
               text={btn.text}
               href={btn.href}
               width={btn.width}
+              target={btn.target}
             />
           </div>
           <div

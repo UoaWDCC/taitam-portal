@@ -44,6 +44,7 @@ export default function EventsPage() {
           href: "https://events.humanitix.com/test-event-1-o7k7hc2f",
           type: "primary",
           width: "cardButton",
+          target: "_blank",
         }}
       />
       <EventCard
@@ -58,6 +59,7 @@ export default function EventsPage() {
           href: "https://events.humanitix.com/test-event-2-2d9curo3",
           type: "primary",
           width: "cardButton",
+          target: "_blank",
         }}
       />
       <EventCard
@@ -72,6 +74,7 @@ export default function EventsPage() {
           href: "https://events.humanitix.com/test-event-3-hbr5ydfn",
           type: "primary",
           width: "cardButton",
+          target: "_blank",
         }}
       />
       <div
