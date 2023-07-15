@@ -1695,6 +1695,7 @@ __metadata:
 "@next/swc-linux-x64-gnu@npm:13.2.4":
   version: 13.2.4
   resolution: "@next/swc-linux-x64-gnu@npm:13.2.4"
+  checksum: 6e32836906e99e60346cfea06af2a7d5b4aa3946c589c24a31ccbd4bd28093e548d04420b21a93fe88003d0137f0924ad45e9c7dc19dcf58d072a92b21d4944e
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
@@ -5554,6 +5555,7 @@ __metadata:
     "@linaria/babel-preset": ^4.4.3
     "@linaria/core": ^4.2.8
     "@linaria/react": ^4.3.6
+    "@next/swc-linux-x64-gnu": 13.2.4
     "@types/node": 18.15.11
     "@types/react": 18.0.33
     "@types/react-dom": 18.0.11
