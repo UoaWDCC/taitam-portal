@@ -104,8 +104,8 @@ const text3 = css`
   grid-row: 1;
   grid-column: 1/2;
   z-index: 1;
-  padding-top: 14%;
-  padding-left: 72%;
+  padding-top: 15%;
+  padding-left: 70%;
   text-align: center;
 `;
 
@@ -227,14 +227,14 @@ export default function AboutPage() {
         <div className={bubbleImg3}>
           <Image
             src={"/spikyText.png"}
-            width={416}
+            width={420}
             height={320}
             alt={"spiky bubble text"}
           />
         </div>
         <div className={text3}>
           <p>
-            I am just starting out in my career, but it seems like recruitment
+            I am just starting out my career, but it seems like recruitment
             agencies only want people with years of experience. How am I
             supposed to get my foot in the door?
           </p>
