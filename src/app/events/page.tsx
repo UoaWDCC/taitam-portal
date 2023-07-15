@@ -28,7 +28,7 @@ export default function EventsPage() {
         and diverse community for students of all backgrounds who are studying
         technical disciplines. Our events offer direct access to resources,
         connections, and advice that can help you take your next career step.
-        Whether you're looking to connect with experienced tech professionals,
+        Whether you are looking to connect with experienced tech professionals,
         employers, or recruiters, or simply want to meet other students facing
         similar challenges, we have something for everyone.
       </div>

@@ -104,8 +104,8 @@ const text3 = css`
   grid-row: 1;
   grid-column: 1/2;
   z-index: 1;
-  padding-top: 14%;
-  padding-left: 72%;
+  padding-top: 15%;
+  padding-left: 70%;
   text-align: center;
 `;
 
@@ -206,7 +206,7 @@ export default function AboutPage() {
           <p>
             It feels like the tech industry is constantly changing. Will my
             university coursework be enough to keep up with the latest trends
-            and technologies?"
+            and technologies?
           </p>
         </div>
         <div className={bubbleImg2}>
@@ -219,7 +219,7 @@ export default function AboutPage() {
         </div>
         <div className={text2}>
           <p>
-            I've spent years learning technical skills in school, but what about
+            I have spent years learning technical skills in school, but what about
             the soft skills that employers are looking for? Will I be able to
             find a job after graduation?
           </p>
@@ -227,16 +227,16 @@ export default function AboutPage() {
         <div className={bubbleImg3}>
           <Image
             src={"/spikyText.png"}
-            width={416}
+            width={420}
             height={320}
             alt={"spiky bubble text"}
           />
         </div>
         <div className={text3}>
           <p>
-            I'm just starting out in my career, but it seems like recruitment
+            I am just starting out my career, but it seems like recruitment
             agencies only want people with years of experience. How am I
-            supposed to get my foot in the door?"
+            supposed to get my foot in the door?
           </p>
         </div>
         <div className={image}>
