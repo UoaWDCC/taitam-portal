@@ -1,9 +1,9 @@
 import { Poppins } from "next/font/google";
 import { EventCard } from "../(components)/bigCard";
 import Button from "../(components)/Button";
-import stockImg1 from "./images/events1.png";
-import stockImg2 from "./images/events2.png";
-import stockImg3 from "./images/events3.png";
+import stockImg1 from "../(images)/events1.png";
+import stockImg2 from "../(images)/events2.png";
+import stockImg3 from "../(images)/events3.png";
 import React from "react";
 
 const poppinsBlack = Poppins({ weight: "900", subsets: ["latin"] });

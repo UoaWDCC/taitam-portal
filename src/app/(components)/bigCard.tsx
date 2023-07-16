@@ -1,5 +1,5 @@
 ﻿import { Poppins } from "next/font/google";
-import heart from "../events/images/heart.svg";
+import heart from "../(images)/heart.svg";
 import React from "react";
 import Image, { StaticImageData } from "next/image";
 import Button, { ButtonProps } from "./Button";
