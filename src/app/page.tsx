@@ -139,7 +139,7 @@ export default function Home() {
           <Card
             title="Build Your Soft Skills and Stand Out to Employers"
             imageUrl="https://t3.ftcdn.net/jpg/04/56/98/68/240_F_456986840_BbHQK0bynMEDxMDJP0L3fkCMqnfmJ283.jpg"
-            body="Develop your communication, teamwork, and adaptability skills at our Soft Skills Workshop. Led by experienced professionals, this interactive workshop will teach you the essential skills you need to succeed in the tech industry."
+            body="Develop your communication, teamwork, and adaptability skills at our Soft Skills Workshop. Led by experienced professionals, this workshop will teach you the skills you need to succeed in the tech industry."
             btn={{
               text: "Learn More",
               href: "#",
@@ -178,7 +178,7 @@ export default function Home() {
               body="Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
               btn={{
                 text: "Learn More",
-                href: "#",
+                href: "/articles/first-article",
                 type: "primary",
                 width: "cardButton",
               }}
@@ -190,7 +190,7 @@ export default function Home() {
                 body="Work in teams to solve real-world tech problems and present your solutions to a panel of judges for a chance to win prizes. Put your skills to the test and make valuable connections at our annual Hackathon."
                 btn={{
                   text: "Learn More",
-                  href: "#",
+                  href: "/articles/second-article",
                   type: "secondary",
                   width: "cardButton",
                 }}
@@ -199,10 +199,10 @@ export default function Home() {
             <Card
               title="Build Your Soft Skills and Stand Out to Employers"
               imageUrl="https://t4.ftcdn.net/jpg/03/14/34/87/240_F_314348719_6CxqaGP9rfDJwnB1RjntD6V7C6K0Ou6K.jpg"
-              body="Develop your communication, teamwork, and adaptability skills at our Soft Skills Workshop. Led by experienced professionals, this interactive workshop will teach you the essential skills you need to succeed in the tech industry."
+              body="Develop your communication, teamwork, and adaptability skills at our Soft Skills Workshop. Led by experienced professionals, this workshop will teach you the skills you need to succeed in the tech industry."
               btn={{
                 text: "Learn More",
-                href: "#",
+                href: "/articles/third-article",
                 type: "tertiary",
                 width: "cardButton",
               }}

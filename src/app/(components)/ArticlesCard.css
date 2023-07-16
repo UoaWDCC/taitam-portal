@@ -1,0 +1,21 @@
+.card-container {
+  overflow: hidden;
+  width: 992px;
+  max-height: auto;
+  background: #ffffff;
+  border: 1px solid #000000;
+  box-shadow: 0px 3px 0px 2px #000000;
+}
+
+.image-container {
+  overflow: hidden;
+  width: 384px;
+  height: 216px;
+}
+.card-para {
+  margin: 8px 32px 0px 32px;
+}
+
+.card-title {
+  margin: 30px 32px 0px 32px;
+}
