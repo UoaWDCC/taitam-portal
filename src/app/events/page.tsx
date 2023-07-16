@@ -1,9 +1,9 @@
 import { Poppins } from "next/font/google";
 import { EventCard } from "../(components)/bigCard";
 import Button from "../(components)/Button";
-import stockImg1 from "../(images)/events1.png";
-import stockImg2 from "../(images)/events2.png";
-import stockImg3 from "../(images)/events3.png";
+import stockImg1 from "./images/events1.png";
+import stockImg2 from "./images/events2.png";
+import stockImg3 from "./images/events3.png";
 import React from "react";
 
 const poppinsBlack = Poppins({ weight: "900", subsets: ["latin"] });
@@ -28,7 +28,7 @@ export default function EventsPage() {
         and diverse community for students of all backgrounds who are studying
         technical disciplines. Our events offer direct access to resources,
         connections, and advice that can help you take your next career step.
-        Whether you're looking to connect with experienced tech professionals,
+        Whether you are looking to connect with experienced tech professionals,
         employers, or recruiters, or simply want to meet other students facing
         similar challenges, we have something for everyone.
       </div>
@@ -41,9 +41,10 @@ export default function EventsPage() {
         image={stockImg1}
         btn={{
           text: "Sign Up",
-          href: "https://events.humanitix.com/taitam",
+          href: "https://events.humanitix.com/test-event-1-o7k7hc2f",
           type: "primary",
           width: "cardButton",
+          target: "_blank",
         }}
       />
       <EventCard
@@ -55,9 +56,10 @@ export default function EventsPage() {
         image={stockImg2}
         btn={{
           text: "Sign Up",
-          href: "https://events.humanitix.com/event-2-hwglmjti",
+          href: "https://events.humanitix.com/test-event-2-2d9curo3",
           type: "primary",
           width: "cardButton",
+          target: "_blank",
         }}
       />
       <EventCard
@@ -69,9 +71,10 @@ export default function EventsPage() {
         image={stockImg3}
         btn={{
           text: "Sign Up",
-          href: "https://events.humanitix.com/event-3-wc909i0m",
+          href: "https://events.humanitix.com/test-event-3-hbr5ydfn",
           type: "primary",
           width: "cardButton",
+          target: "_blank",
         }}
       />
       <div
