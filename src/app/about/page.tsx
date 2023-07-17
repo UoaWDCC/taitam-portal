@@ -2,6 +2,7 @@ import { css } from "@linaria/core";
 import { Poppins } from "next/font/google";
 import Button from "../(components)/Button";
 import Image from "next/image";
+import About from "public/about.svg";
 import "../globals.scss";
 
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
@@ -45,75 +46,9 @@ const item = css`
 `;
 
 /* ------- image section -------*/
-const imageContainer = css`
-  display: grid;
-  grid-template-columns: auto;
-  position: relative;
-  border: 1px black;
-  margin: 5% 0;
-`;
-
-const bubbleImg1 = css`
-  grid-row: 1;
-  grid-column: 1/2;
-  z-index: 1;
-  padding-top: 120px;
-  text-align: left;
-`;
-
-const bubbleImg2 = css`
-  grid-row: 1;
-  grid-column: 1/2;
-  z-index: 1;
-  text-align: center;
-  padding-right: 5%;
-  padding-top: 20px;
-`;
-
-const bubbleImg3 = css`
-  grid-row: 1;
-  grid-column: 1/2;
-  z-index: 1;
-  padding-top: 120px;
-  text-align: right;
-`;
-
-const text1 = css`
-  width: 20%;
-  grid-row: 1;
-  grid-column: 1/2;
-  z-index: 1;
-  padding-top: 190px;
-  padding-left: 70px;
-  text-align: center;
-`;
-
-const text2 = css`
-  width: 25%;
-  grid-row: 1;
-  grid-column: 1/2;
-  z-index: 1;
-  padding-right: 50%;
-  padding-left: 35%;
-  padding-top: 6%;
-  text-align: center;
-`;
-
-const text3 = css`
-  width: 21%;
-  grid-row: 1;
-  grid-column: 1/2;
-  z-index: 1;
-  padding-top: 15%;
-  padding-left: 70%;
-  text-align: center;
-`;
-
-const image = css`
-  grid-row: 1;
-  grid-column: 1/2;
-  text-align: center;
-  padding-top: 300px;
+const headerImage = css`
+  width: 100%;
+  padding-top: 2%;
 `;
 
 /* ------- bullet point section -------*/
@@ -193,56 +128,10 @@ export default function AboutPage() {
         Our Mission: Empowering Students to Succeed in the Tech Industry
       </h3>
 
-      <div className={imageContainer}>
-        <div className={bubbleImg1}>
-          <Image
-            src={"/cloudText.png"}
-            width={363}
-            height={308}
-            alt={"cloud bubble text"}
-          />
-        </div>
-        <div className={text1}>
-          <p>
-            It feels like the tech industry is constantly changing. Will my
-            university coursework be enough to keep up with the latest trends
-            and technologies?
-          </p>
-        </div>
-        <div className={bubbleImg2}>
-          <Image
-            src={"/roundText.png"}
-            width={400}
-            height={282}
-            alt={"round bubble text"}
-          />
-        </div>
-        <div className={text2}>
-          <p>
-            I have spent years learning technical skills in school, but what about
-            the soft skills that employers are looking for? Will I be able to
-            find a job after graduation?
-          </p>
-        </div>
-        <div className={bubbleImg3}>
-          <Image
-            src={"/spikyText.png"}
-            width={420}
-            height={320}
-            alt={"spiky bubble text"}
-          />
-        </div>
-        <div className={text3}>
-          <p>
-            I am just starting out my career, but it seems like recruitment
-            agencies only want people with years of experience. How am I
-            supposed to get my foot in the door?
-          </p>
-        </div>
-        <div className={image}>
-          <Image src={"/maze.png"} width={694} height={512} alt={"maze"} />
-        </div>
-      </div>
+      <Image
+        className={headerImage}
+        src={About} alt="About Image"
+      />
 
       <div className={container}>
         <div className={item}>
