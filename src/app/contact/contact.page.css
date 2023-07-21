@@ -25,7 +25,17 @@
   padding: 0;
 }
 
-33C4DF
+.contact-header {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 96px;
+  text-transform: uppercase;
+  color: #f96e47;
+  margin: 0;
+  padding: 0;
+  line-height: 0.8;
+}
 
 .contact-header-2 {
   font-family: "Poppins";
