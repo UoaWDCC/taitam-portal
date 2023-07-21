@@ -94,11 +94,6 @@ export default function LogInPage() {
                             type="password"
                             id="password"
                             {...register("password", {
-                                pattern: {
-                                    value:
-                                    /^[a-zA-Z0-9.!#$%&*+/=?^_`{|}~-]+@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9-]+)*$/,
-                                    message: "Invalid password format",
-                                },
                                 validate: {
                                     notEmpty: (fieldValue) => {
                                         return fieldValue !== "" || "Password required";
