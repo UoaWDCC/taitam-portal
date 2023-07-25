@@ -11,7 +11,17 @@ const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 const poppinsRegular = Poppins({ weight: "400", subsets: ["latin"] });
 const poppinsLight = Poppins({ weight: "300", subsets: ["latin"] });
 
-export default function EventsPage() {
+const fetchFromNotion = async () => {
+  const res = await fetch("http://localhost:3001/api/notion");
+  const data = await res.json()
+  console.log(data)
+  return JSON.parse(JSON.stringify(data))
+};
+
+export default async function EventsPage() {
+  const rows: rowsStruct = await fetchFromNotion();
+  console.log("rows on front end ------------------------------", rows)
+  
   return (
     <div
       className={poppinsLight.className}
@@ -33,10 +43,9 @@ export default function EventsPage() {
         similar challenges, we have something for everyone.
       </div>
       <EventCard
-        title={"Launch Your Tech Career at Our Career Fair"}
+        title={rows[1].name}
         date={"30 APR 6pm @ OGGB Building, UOA"}
-        paragraph={
-          "Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
+        paragraph={rows[1].desc
         }
         image={stockImg1}
         btn={{
