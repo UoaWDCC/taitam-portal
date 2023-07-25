@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { Url } from "next/dist/shared/lib/router/router";
 
 
-const notion = new Client({ auth: notionSecret });
+const notion = new Client({ auth: process.env.NOTION_SECRET });
 
 type Row = {
   Date: { id: string; date: string };
@@ -17,10 +17,10 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  if (!notionSecret || !notionDatabaseId) throw new Error("Missing secret");
+  if (!process.env.NOTION_SECRET || !process.env.NOTION_DB_ID) throw new Error("Missing secret");
 
   const query = await notion.databases.query({
-    database_id: notionDatabaseId,
+    database_id: process.env.NOTION_DB_ID,
   });
 
   // @ts-ignore
