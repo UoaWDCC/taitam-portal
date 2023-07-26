@@ -4,5 +4,6 @@ type rowsStruct = {
     link: string;
     desc: string;
     name: string;
+    cover: string;
   }[];
   

@@ -43,11 +43,11 @@ export default async function EventsPage() {
         similar challenges, we have something for everyone.
       </div>
       <EventCard
-        title={rows[1].name}
+        title={rows[0].name}
         date={"30 APR 6pm @ OGGB Building, UOA"}
-        paragraph={rows[1].desc
+        paragraph={rows[0].desc
         }
-        image={stockImg1}
+        image={rows[0].cover}
         btn={{
           text: "Sign Up",
           href: "https://events.humanitix.com/test-event-1-o7k7hc2f",
