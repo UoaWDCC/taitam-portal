@@ -12,7 +12,7 @@ const poppinsRegular = Poppins({ weight: "400", subsets: ["latin"] });
 const poppinsLight = Poppins({ weight: "300", subsets: ["latin"] });
 
 const fetchFromNotion = async () => {
-  const res = await fetch("http://localhost:3001/api/notion");
+  const res = await fetch("http://localhost:3005/api/notion");
   const data = await res.json()
   console.log(data)
   return JSON.parse(JSON.stringify(data))
@@ -33,6 +33,7 @@ export default async function EventsPage() {
       >
         OUR EVENTS
       </div>
+
       <div style={{ fontSize: 16 + "pt", marginBottom: "25px" }}>
         We regularly host meetups and events in Auckland, providing a vibrant
         and diverse community for students of all backgrounds who are studying
@@ -42,12 +43,13 @@ export default async function EventsPage() {
         employers, or recruiters, or simply want to meet other students facing
         similar challenges, we have something for everyone.
       </div>
+
       <EventCard
         title={rows[0].name}
-        date={"30 APR 6pm @ OGGB Building, UOA"}
+        date={rows[0].date.start}
         paragraph={rows[0].desc
         }
-        image={rows[0].cover}
+        image = {rows[0].cover}
         btn={{
           text: "Sign Up",
           href: "https://events.humanitix.com/test-event-1-o7k7hc2f",
@@ -62,7 +64,7 @@ export default async function EventsPage() {
         paragraph={
           "Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
         }
-        image={stockImg2}
+        image={rows[0].cover}
         btn={{
           text: "Sign Up",
           href: "https://events.humanitix.com/test-event-2-2d9curo3",
@@ -77,7 +79,7 @@ export default async function EventsPage() {
         paragraph={
           "Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
         }
-        image={stockImg3}
+        image={rows[0].cover}
         btn={{
           text: "Sign Up",
           href: "https://events.humanitix.com/test-event-3-hbr5ydfn",
