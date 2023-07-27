@@ -12,7 +12,7 @@ const poppinsRegular = Poppins({ weight: "400", subsets: ["latin"] });
 const poppinsLight = Poppins({ weight: "300", subsets: ["latin"] });
 
 const fetchFromNotion = async () => {
-  const res = await fetch("http://localhost:3005/api/notion");
+  const res = await fetch("http://localhost:3006/api/notion");
   const data = await res.json()
   console.log(data)
   return JSON.parse(JSON.stringify(data))
@@ -44,50 +44,25 @@ export default async function EventsPage() {
         similar challenges, we have something for everyone.
       </div>
 
-      <EventCard
-        title={rows[0].name}
-        date={rows[0].date.start}
-        paragraph={rows[0].desc
-        }
-        image = {rows[0].cover}
+
+      {rows.map((event, index) => (
+        <EventCard
+        key={index}
+        title = {event.name}
+        date = {event.date.start}
+        paragraph = {event.desc}
+        image = {event.cover}
+        
         btn={{
           text: "Sign Up",
-          href: "https://events.humanitix.com/test-event-1-o7k7hc2f",
+          href: event.link,
           type: "primary",
           width: "cardButton",
           target: "_blank",
         }}
-      />
-      <EventCard
-        title={"Launch Your Tech Career at Our Career Fair"}
-        date={"30 APR 6pm @ OGGB Building, UOA"}
-        paragraph={
-          "Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
-        }
-        image={rows[0].cover}
-        btn={{
-          text: "Sign Up",
-          href: "https://events.humanitix.com/test-event-2-2d9curo3",
-          type: "primary",
-          width: "cardButton",
-          target: "_blank",
-        }}
-      />
-      <EventCard
-        title={"Launch Your Tech Career at Our Career Fair"}
-        date={"30 APR 6pm @ OGGB Building, UOA"}
-        paragraph={
-          "Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
-        }
-        image={rows[0].cover}
-        btn={{
-          text: "Sign Up",
-          href: "https://events.humanitix.com/test-event-3-hbr5ydfn",
-          type: "primary",
-          width: "cardButton",
-          target: "_blank",
-        }}
-      />
+        />
+      ))}
+
       <div
         className={poppinsRegular.className}
         style={{ textAlign: "center", fontSize: "24pt", marginTop: "50px" }}

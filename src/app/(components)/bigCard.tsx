@@ -8,7 +8,7 @@ type CardProps = {
   title: string;
   date: string;
   paragraph: string;
-  image: StaticImageData;
+  image: string;
   btn: ButtonProps;
 };
 
@@ -32,12 +32,12 @@ export const EventCard = ({ title, date, paragraph, image, btn }: CardProps) => 
         style={{
           margin: "auto 0",
           gridColumnStart: "1",
-          width: "100%",
+          width: "500%",
           position: "relative",
           paddingTop: "50.7%",
         }}
       >
-        <Image src={image} alt="Stockholder image 1" fill={true} />
+        <img src={image} alt="Stockholder image 1"  width  = {"500px"} height = {"300px"}/>
       </div>
       <div
         style={{
