@@ -4,10 +4,10 @@ import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onA
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.FIREBASE_PROJECT_ID,
-  appId: process.env.FIREBASE_APP_ID,
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
 // Initialize Firebase
@@ -15,12 +15,13 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 //Create a new account for  the user using email and password
-export function signInWithEmailAndPassword(email:any,password:any) {
+export function createWithEmailAndPassword(email:any,password:any) {
   return createUserWithEmailAndPassword(auth, email, password);
 }
 
 //Logins in the user using email and password
-export function loginInWithEmailAndPassword(email:any,password:any) {
+export function signWithEmailAndPassword(email:any,password:any) {
+  return signInWithEmailAndPassword(auth,email,password)
 }
 
 //Signs out the user

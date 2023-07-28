@@ -1,6 +1,7 @@
 "use client"
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
+import {createWithEmailAndPassword} from "../firebase/firebase";
 import "./signUp.page.css";
 
 type Inputs = {
@@ -14,7 +15,7 @@ type Inputs = {
 };
 
 export default function SignUpPage() {
-  const { register, handleSubmit, formState } = useForm<Inputs>();
+  const { register, handleSubmit, formState, getValues } = useForm<Inputs>();
   const { errors } = formState;
 
   const [selectedEducation, setSelectedEducation] = useState("");
@@ -128,7 +129,7 @@ export default function SignUpPage() {
 
           <div className="input-container">
             <div className="error-signUp">
-              <p className="form-info">What's your Employment Status?</p>
+              <p className="form-info">What is your Employment Status?</p>
               <div className="error-msg">
                 <p className="error">{errors.employment?.message}</p>
               </div>
@@ -183,7 +184,7 @@ export default function SignUpPage() {
 
           <div className="input-container">
             <div className="error-signUp">
-              <p className="form-info">What's your degree?</p>
+              <p className="form-info">What is your degree?</p>
               <div className="error-msg">
                 <p className="error">{errors.studyingDegree?.message}</p>
               </div>
@@ -200,7 +201,14 @@ export default function SignUpPage() {
           </div>
 
           <div className="button-container">
-            <button type="submit" className="button">
+            <button type="submit" className="button" onClick={() => {
+              const email = getValues("email");
+              const password = getValues("password")
+              try {
+                createWithEmailAndPassword(email,password)
+              } catch(err) {
+                alert("Error")
+              }}}>
               Sign Up
             </button>
           </div>
