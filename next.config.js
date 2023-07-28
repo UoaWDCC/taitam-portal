@@ -8,4 +8,10 @@ const nextConfig = {
   },
 };
 
+// const importImages = {
+//   images: {
+//     domains: ['example.s3.us-west-2.amazonaws.com'],
+//   }
+// }
+
 module.exports = withLinaria(nextConfig);

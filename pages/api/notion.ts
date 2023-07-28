@@ -51,8 +51,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     cover: covers[index],
   }));
 
-  //console.log(JSON.stringify(rowsStruct))
-  //console.log("HELLO NAREN")
   res.status(200).json(rowsWithCovers);
 }
 

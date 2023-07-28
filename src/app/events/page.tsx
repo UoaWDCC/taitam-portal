@@ -12,15 +12,14 @@ const poppinsRegular = Poppins({ weight: "400", subsets: ["latin"] });
 const poppinsLight = Poppins({ weight: "300", subsets: ["latin"] });
 
 const fetchFromNotion = async () => {
-  const res = await fetch("http://localhost:3006/api/notion");
+  const res = await fetch("http://localhost:3008/api/notion");
   const data = await res.json()
-  console.log(data)
   return JSON.parse(JSON.stringify(data))
+  
 };
 
 export default async function EventsPage() {
   const rows: rowsStruct = await fetchFromNotion();
-  console.log("rows on front end ------------------------------", rows)
   
   return (
     <div

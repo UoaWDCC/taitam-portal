@@ -37,7 +37,7 @@ export const EventCard = ({ title, date, paragraph, image, btn }: CardProps) => 
           paddingTop: "50.7%",
         }}
       >
-        <img src={image} alt="Stockholder image 1"  width  = {"500px"} height = {"300px"}/>
+        <img src={image} alt="Stockholder image 1"/>
       </div>
       <div
         style={{
