@@ -48,9 +48,6 @@
   color: #f96e47;
 }
 
-.buttonContainer {
-}
-
 .userIconContainer {
   display: inline-block;
   padding: 0 0.5rem;
@@ -67,6 +64,7 @@
   margin-right: 5rem;
   box-shadow: -1px 2px 0px 2px #000000;
   border-radius: 30px;
+  transition: transform 0.2s ease-in-out;
 }
 
 .logIn:active {
@@ -76,4 +74,5 @@
 
 .logIn:hover {
   background-color: #f96e47;
+  transform: scale(0.9);
 }

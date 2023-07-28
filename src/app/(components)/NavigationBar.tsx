@@ -56,7 +56,7 @@ function NavigationBar() {
               CONTACT
             </a>
           </li>
-          <a className={styles.buttonContainer} href="#">
+          <a className={styles.buttonContainer} href="/logIn">
             <button className={styles.logIn}>
               <div className={styles.userIconContainer}>
                 <img src="Icon.png" alt="" />
