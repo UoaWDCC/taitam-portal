@@ -106,8 +106,9 @@ const headerImage = css`
   margin-top: -80px;
 
   @media only screen and (max-width: 600px) {
-    margin-top: 20px;
     width: 100%;
+    height: auto;
+    margin-top: 0;
   }
 `;
 
@@ -128,9 +129,8 @@ const MouseImage = css`
 
 const townImage = css`
   width: 100%;
-  @media only screen and (max-width: 600px) {
-    width: 100%;
-  }
+  height: auto;
+  background-color: #fffdf6;
 `;
 
 const paragraph = css`
