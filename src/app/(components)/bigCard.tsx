@@ -32,12 +32,12 @@ export const EventCard = ({ title, date, paragraph, image, btn }: CardProps) => 
         style={{
           margin: "auto 0",
           gridColumnStart: "1",
-          width: "500%",
+          width: "100%",
           position: "relative",
-          paddingTop: "50.7%",
+          paddingTop: "50.7%"
         }}
       >
-        <img src={image} alt="Stockholder image 1"/>
+        <Image src={image} alt="Stockholder image 1" fill={true} />
       </div>
       <div
         style={{
