@@ -14,21 +14,50 @@ const title = css`
   color: #f96e47;
   text-align: left;
   font-size: 96px;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 36px;
+  }
 `;
 
 const h3styles = css`
   padding: 0;
   margin-top: 10px;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 20px;
+  }
+`;
+
+const subheader = css`
+  padding: 0;
+  margin-top: 10px;
+  text-align: right;
+  padding-bottom: 15px;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 20px;
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 0;
+  }
 `;
 
 /* ------- info sections -------*/
 const container = css`
   margin: 10% 0;
-  padding: 0 50px;
+  padding: 0 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    margin: 0;
+  }
 `;
 
 const item = css`
@@ -36,12 +65,23 @@ const item = css`
   padding: 10px;
   text-align: left;
 
+  @media only screen and (max-width: 600px) {
+    padding: 0;
+    margin: 5px 5px 0px 5px;
+    text-align: left;
+    height: 100%;
+  }
+
   &:nth-child(1) {
     flex: 1.3;
   }
 
   &:nth-child(2) {
     flex: 2;
+
+    @media only screen and (max-width: 600px) {
+      margin-bottom: 10px;
+    }
   }
 `;
 
@@ -49,6 +89,11 @@ const item = css`
 const headerImage = css`
   width: 100%;
   padding-top: 2%;
+
+  @media only screen and (max-width: 600px) {
+    height: 100%;
+    padding: 5% 0 15% 0;
+  }
 `;
 
 /* ------- bullet point section -------*/
@@ -59,6 +104,11 @@ const box = css`
   outline: 1px solid black;
   background: white;
   box-shadow: 0px 3px 0px 2px #000000;
+
+  @media only screen and (max-width: 600px) {
+    margin: 60px 10px;
+    padding: 10px;
+  }
 `;
 
 const listheading = css`
@@ -78,6 +128,14 @@ const listindividual = css`
   font-size: 16px;
   width: 100%;
 
+  @media only screen and (max-width: 600px) {
+    padding: 0;
+    margin: 0.5rem;
+    font-size: 16px;git
+    line-height: 1.5rem;
+    gap: 0.3rem;
+  }
+
   &:before {
     counter-increment: list-item;
     content: counter(list-item) ".";
@@ -88,6 +146,10 @@ const listindividual = css`
   &:nth-child(1):before {
     color: #f96e47;
     margin-right: 22px;
+
+    @media only screen and (max-width: 600px) {
+      margin-right: 6px;
+    }
   }
 
   &:nth-child(2):before {
@@ -97,27 +159,21 @@ const listindividual = css`
 
   &:nth-child(3):before {
     color: #e992d7;
-  }
-`;
 
-/* ------- contact us -------*/
-const button = css`
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-  background-color: #ffcc01;
-  padding: 5px 12px;
-  border-radius: 20px;
-  font-size: 19px;
-  line-height: 24px;
-  width: 35%;
-  border: none;
-  box-shadow: 0px 2px 0px 1px #000000;
+    @media only screen and (max-width: 600px) {
+      margin-right: 5px;
+    }
+  }
 `;
 
 const rootContainer = css`
   max-width: 1200px;
   margin: 50px auto 100px auto;
+
+  @media only screen and (max-width: 600px) {
+    margin: 10px;
+    max-width: 600px;
+  }
 `;
 
 export default function AboutPage() {
@@ -138,7 +194,7 @@ export default function AboutPage() {
           <h1 className={title}>FOR THE LAST 10 YEARS...</h1>
         </div>
         <div className={item}>
-          <p>
+          <p style={{margin: "0"}}>
             For the last ten years, we’ve been heavily involved with local
             universities and higher institutions, not only through our annual
             Computer Science Scholarship, but also through various sponsorships
@@ -180,15 +236,14 @@ export default function AboutPage() {
       <div className={container} style={{ marginBottom: "0" }}>
         <div className={item}>
           <h3
-            className={h3styles}
-            style={{ textAlign: "right", paddingBottom: "15px" }}
+            className={subheader}
           >
             How do we go about bridging the gap between university and
             employment?
           </h3>
         </div>
         <div className={item}>
-          <p>
+          <p style={{margin: "0"}}>
             Together, these issues have created one overarching challenge. To
             tackle this, we’d need to go about things in a way that the
             recruitment world has never seen. This meant supporting and
