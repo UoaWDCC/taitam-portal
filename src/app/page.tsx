@@ -130,7 +130,6 @@ const MouseImage = css`
 const townImage = css`
   width: 100%;
   height: auto;
-  background-color: #fffdf6;
 `;
 
 const paragraph = css`
