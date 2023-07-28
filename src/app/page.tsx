@@ -7,7 +7,7 @@ import Button from "./(components)/Button";
 import LandingImage from "./(images)/Landingimage.svg";
 import Mouse from "./(images)/mouse.svg";
 import Arrow from "./(images)/arrow.png";
-import BigImage from "./(images)/bigimage.png";
+import BigImage from "./(images)/bigimage.svg";
 
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 
@@ -17,6 +17,14 @@ const layoutContainer = css`
   padding: 0 50px;
   box-sizing: border-box;
   margin: -50px auto 100px auto;
+
+  @media only screen and (max-width: 600px) {
+    padding: 0;
+    margin-left: 10px;
+    font-size: 16px;
+    line-height: 1.5rem;
+    gap: 0.3rem;
+  }
 `;
 
 const title = css`
@@ -25,6 +33,12 @@ const title = css`
   margin: 10px 0 0 0;
   color: #f96e47;
   text-align: left;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 36px;
+    color: #f96e47;
+    margin: 10px 0 10px 16px;
+  }
 `;
 
 const container = css`
@@ -32,6 +46,13 @@ const container = css`
   display: flex;
   flex-flow: column wrap;
   justify-content: space-between;
+
+  @media only screen and (max-width: 600px) {
+    margin: 0.5rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+  }
 `;
 
 const cardContainer = css`
@@ -47,6 +68,10 @@ const h3style = css`
   margin: 0 0 0 0;
   color: #000000;
   text-align: left;
+
+  @media only screen and (max-width: 600px) {
+    margin-left: 16px;
+  }
 `;
 
 const icon = css`
@@ -60,21 +85,62 @@ const cardrow = css`
   flex-direction: row;
   align-items: center;
   flex-wrap: nowrap;
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
 `;
 
 const cardSpace = css`
   margin: 0 35px 0 35px;
+
+  @media only screen and (max-width: 600px) {
+    margin: 28px 0 28px 0;
+  }
 `;
 
 const headerImage = css`
   width: 100%;
   margin-top: -80px;
+
+  @media only screen and (max-width: 600px) {
+    margin-top: 20px;
+    width: 100%;
+  }
 `;
 
 const MouseImage = css`
   z-index: -1;
   position: absolute;
-  left: 52%;
+  left: 48%;
+  margin-top: -170px;
+
+  @media only screen and (max-width: 600px) {
+    z-index: -1;
+    margin-top: -240px;
+    left: 15px;
+    position: absolute;
+    width: 100%;
+  }
+`;
+
+const townImage = css`
+  width: 100%;
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
+`;
+
+const paragraph = css`
+  font-size: 19px;
+  margin-right: 200px;
+  margin-left: 16px;
+
+  @media only screen and (max-width: 600px) {
+    margin-right: 0px;
+  }
 `;
 
 export default function Home() {
@@ -85,7 +151,7 @@ export default function Home() {
       <div className={layoutContainer}>
         <div className={container}>
           <h1 className={title}>WELCOME</h1>
-          <p style={{ marginRight: "200px" }}>
+          <p className={paragraph}>
             Taitamariki Potentia is a student-led tech community created to
             bridge the gap between university and employment. Our mission is to
             empower young people studying technical disciplines to navigate the
@@ -103,9 +169,7 @@ export default function Home() {
             ></Image>
           </div>
 
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <Image src={BigImage} alt="Town" width={930} height={750} />
-          </div>
+          <Image className={townImage} src={BigImage} alt="Town" />
         </div>
 
         <h3 className={h3style}>Upcoming</h3>
@@ -156,16 +220,14 @@ export default function Home() {
           }}
         >
           <Button
-            text="Learn More"
+            text="View All"
             href="/events"
             type="primary"
             width="largeButton"
           ></Button>
         </div>
 
-        <div className={MouseImage}>
-          <Image src={Mouse} alt="Mouse Image" width={700}></Image>
-        </div>
+        <Image className={MouseImage} src={Mouse} alt="Mouse Image"></Image>
 
         <div className={cardContainer}>
           <h3 className={h3style}>Latest</h3>
@@ -216,7 +278,7 @@ export default function Home() {
             }}
           >
             <Button
-              text="Learn More"
+              text="View All"
               href="/articles"
               type="primary"
               width="largeButton"
