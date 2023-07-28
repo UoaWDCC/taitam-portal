@@ -76,3 +76,52 @@
   background-color: #f96e47;
   transform: scale(0.9);
 }
+
+@media screen and (max-width: 600px) {
+  .logoContainer {
+    margin-left: 2rem;
+  }
+
+  .linksContainer {
+    display: none;
+  }
+
+  .linksContainer.showLinks {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    right: 0;
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    z-index: 999;
+  }
+
+  .navLinks {
+    margin-bottom: 1rem;
+  }
+
+  .mobileButton {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 2rem;
+  }
+
+  .burgerIcon {
+    width: 30px;
+    height: 4px;
+    background-color: #000;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .showLinks .burgerIcon {
+    transform: rotate(45deg);
+  }
+
+  .mobileButton.showLinks .burgerIcon {
+    transform: rotate(225deg);
+  }
+}

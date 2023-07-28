@@ -1,26 +1,30 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import styles from "./NavigationBar.module.css";
 import { usePathname } from "next/navigation";
 
 function NavigationBar() {
+  const [showLinks, setShowLinks] = useState(false);
   const pathname = usePathname();
+
+  const handleToggleLinks = () => {
+    setShowLinks(!showLinks);
+  };
+
   return (
     <main>
       <nav className={styles.navigationBar}>
-        <div className={styles["logoContainer"]}>
+        <div className={styles.logoContainer}>
           <a className={styles.taitamHome} href="/">
-            TAITAMARIKI <br></br>
+            TAITAMARIKI <br />
             POTENTIA
           </a>
         </div>
 
-        <ul className={styles["linksContainer"]}>
+        <ul className={`${styles.linksContainer} ${showLinks ? "showLinks" : ""}`}>
           <li>
             <a
-              className={
-                pathname === "/about" ? styles.active : styles.navLinks
-              }
+              className={pathname === "/about" ? styles.active : styles.navLinks}
               href="/about"
             >
               ABOUT
@@ -28,9 +32,7 @@ function NavigationBar() {
           </li>
           <li>
             <a
-              className={
-                pathname === "/events" ? styles.active : styles.navLinks
-              }
+              className={pathname === "/events" ? styles.active : styles.navLinks}
               href="/events"
             >
               EVENTS
@@ -38,9 +40,7 @@ function NavigationBar() {
           </li>
           <li>
             <a
-              className={
-                pathname === "/articles" ? styles.active : styles.navLinks
-              }
+              className={pathname === "/articles" ? styles.active : styles.navLinks}
               href="/articles"
             >
               ARTICLES
@@ -48,9 +48,7 @@ function NavigationBar() {
           </li>
           <li>
             <a
-              className={
-                pathname === "/contact" ? styles.active : styles.navLinks
-              }
+              className={pathname === "/contact" ? styles.active : styles.navLinks}
               href="/contact"
             >
               CONTACT
@@ -65,8 +63,14 @@ function NavigationBar() {
             </button>
           </a>
         </ul>
+
+        <div className={`${styles.mobileButton} ${showLinks ? "showLinks" : ""}`} onClick={handleToggleLinks}>
+          <span className={styles.burgerIcon}></span>
+        </div>
       </nav>
     </main>
   );
 }
+
 export default NavigationBar;
+
