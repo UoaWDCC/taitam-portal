@@ -206,6 +206,7 @@ export default function SignUpPage() {
               const password = getValues("password")
               try {
                 createWithEmailAndPassword(email,password)
+                console.log("You created an new account")
               } catch(err) {
                 alert("Error")
               }}}>

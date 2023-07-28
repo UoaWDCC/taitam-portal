@@ -3,6 +3,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import "./logIn.page.css";
+import { signWithEmailAndPassword } from "../firebase/firebase";
 
 type Inputs = {
     name: string;
@@ -13,7 +14,7 @@ type Inputs = {
 export default function LogInPage() {
 
     const form = useForm<Inputs>();
-    const { register, handleSubmit, formState } = form;
+    const { register, handleSubmit, formState, getValues} = form;
     const { errors } = formState;
 
     const onSubmit = (data: Inputs) => {
@@ -109,7 +110,15 @@ export default function LogInPage() {
                             />
                         </div>
                         <a className="button-container" href="">
-                            <button className="button">Sign in</button>
+                            <button className="button" onClick = {() => {
+                                    const email = getValues("email");
+                                    const password = getValues("password")
+                                    try {
+                                      signWithEmailAndPassword(email,password)
+                                      console.log("You are logged in")
+                                    } catch(err) {
+                                      alert("Error")
+                                    }}}>Sign in</button>
                         </a>
                     </form>
                 </div>
