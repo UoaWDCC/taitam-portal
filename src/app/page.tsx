@@ -77,7 +77,20 @@ const MouseImage = css`
   left: 52%;
 `;
 
-export default function Home() {
+const fetchFromNotion = async () => {
+  console.log(process.env.API_ENDPOINT);
+  const res = await fetch(`${process.env.API_ENDPOINT}/notion`, {
+    method: "GET",
+    headers: {
+      "Cache-Control": "no-cache",
+    },
+  });
+  const data = await res.json();
+  return JSON.parse(JSON.stringify(data));
+};
+
+export default async function Home() {
+  const rows: rowsStruct = await fetchFromNotion();
   return (
     <>
       <Image className={headerImage} src={LandingImage} alt="Landing Image" />
@@ -112,41 +125,24 @@ export default function Home() {
         <h1 className={title}>EVENTS</h1>
 
         <div className={cardrow}>
-          <Card
-            title="Launch Your Tech Career at Our Career Fair"
-            imageUrl="https://t3.ftcdn.net/jpg/02/92/34/14/240_F_292341430_qGtNmxVKgAx4OieUQYNwpMlIbc0ABgVs.jpg"
-            body="Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
-            btn={{
-              text: "Learn More",
-              href: "#",
-              type: "primary",
-              width: "cardButton",
-            }}
-          />
-          <div className={cardSpace}>
+          {rows.slice(0,3).map((event, index) => (
             <Card
-              title="Solve Real-World Tech Problems and Win Prizes"
-              imageUrl="https://t4.ftcdn.net/jpg/02/27/98/79/240_F_227987910_stMstGspY3J4PbPmdNBr1Huu0eCTs9oa.jpg"
-              body="Work in teams to solve real-world tech problems and present your solutions to a panel of judges for a chance to win prizes. Put your skills to the test and make valuable connections at our annual Hackathon."
+              key={index}
+              title={event.name}
+              body={event.desc}
+              imageUrl={event.cover}
               btn={{
-                text: "Learn More",
-                href: "#",
-                type: "secondary",
+                text: "Sign Up",
+                href: event.link,
+                type: "primary",
                 width: "cardButton",
+                target: "_blank",
               }}
             />
-          </div>
-          <Card
-            title="Build Your Soft Skills and Stand Out to Employers"
-            imageUrl="https://t3.ftcdn.net/jpg/04/56/98/68/240_F_456986840_BbHQK0bynMEDxMDJP0L3fkCMqnfmJ283.jpg"
-            body="Develop your communication, teamwork, and adaptability skills at our Soft Skills Workshop. Led by experienced professionals, this workshop will teach you the skills you need to succeed in the tech industry."
-            btn={{
-              text: "Learn More",
-              href: "#",
-              type: "tertiary",
-              width: "cardButton",
-            }}
-          />
+          ))}
+
+
+    
         </div>
 
         <div
