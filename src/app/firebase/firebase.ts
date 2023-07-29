@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, User } from "firebase/auth"
+import {getFirestore, collection, addDoc} from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -13,6 +14,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
 //Create a new account for  the user using email and password
 export function createWithEmailAndPassword(email:any,password:any) {
@@ -33,6 +35,13 @@ export function SignOut() {
 export function onAuthStateChangedHelper(callback: (user: User | null) => void) {
   return onAuthStateChanged(auth, callback)
 }
+
+//Stores the newly created user information on firestore
+export function createUser(name: string, email: string, educationLevel: string, employment: string, isLookingForWork: "Yes" | "No" | undefined, degree: string) {
+  const userCollectionRef = collection(db,"users")
+  return addDoc(userCollectionRef, {degree, isLookingForWork, employment, educationLevel, email, name})
+} 
+
 
 
 

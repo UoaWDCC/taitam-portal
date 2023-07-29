@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
-import { createWithEmailAndPassword } from "../firebase/firebase";
+import { createWithEmailAndPassword, createUser } from "../firebase/firebase";
 import "./signUp.page.css";
 
 type Inputs = {
@@ -60,6 +60,7 @@ export default function SignUpPage() {
       (response) => {
         form.reset();
         console.log("SUCCESS!");
+        createUser(name, email, selectedEducation, employment, lookingForWork, degree);
         return toast.success("You successfully signed up.");
       },
       (err) => {
