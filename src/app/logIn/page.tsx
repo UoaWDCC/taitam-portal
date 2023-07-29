@@ -3,6 +3,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import "./logIn.page.css";
+import { ToastContainer, toast } from "react-toastify";
 import { signWithEmailAndPassword } from "../firebase/firebase";
 
 type Inputs = {

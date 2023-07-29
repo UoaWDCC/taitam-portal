@@ -1,6 +1,7 @@
 "use client"
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect} from "react";
 import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from "react-toastify";
 import {createWithEmailAndPassword} from "../firebase/firebase";
 import "./signUp.page.css";
 
@@ -15,7 +16,8 @@ type Inputs = {
 };
 
 export default function SignUpPage() {
-  const { register, handleSubmit, formState, getValues } = useForm<Inputs>();
+  const form = useForm<Inputs>();
+  const { register, handleSubmit, formState, getValues } = form;
   const { errors } = formState;
 
   const [selectedEducation, setSelectedEducation] = useState("");
@@ -32,6 +34,25 @@ export default function SignUpPage() {
     }
     console.log(data);
   };
+
+  const handleSignUp = (): any => {
+    const email = getValues("email");
+    const password = getValues("password")
+    createWithEmailAndPassword(email,password).then(
+      (response) => {
+        form.reset();
+        console.log("SUCCESS!");
+        return toast.success("You successfully signed up.");
+      },(err) => {
+        console.log("FAILED...", err);
+        if (password.length < 6) {
+          return toast.error("Password should be atleast six characters");
+        }
+        else {
+          return toast.error("Oops! Something went wrong. Please try again.");
+        }
+      });
+  }
 
   return (
     <div className="main">
@@ -201,20 +222,24 @@ export default function SignUpPage() {
           </div>
 
           <div className="button-container">
-            <button type="submit" className="button" onClick={() => {
-              const email = getValues("email");
-              const password = getValues("password")
-              try {
-                createWithEmailAndPassword(email,password)
-                console.log("You created an new account")
-              } catch(err) {
-                alert("Error")
-              }}}>
+            <button type="submit" className="button" onClick={handleSignUp}>
               Sign Up
             </button>
           </div>
         </form>
       </div>
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   );
 }
