@@ -130,10 +130,6 @@ export default function LogInPage() {
                     <button className="button">Sign Up</button>
                 </a>
             </div>
-
-
         </div>
-        
-        
     )
 }

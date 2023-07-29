@@ -1,10 +1,27 @@
 "use client";
-import React from "react";
+import React, {useState, useEffect} from "react";
 import styles from "./NavigationBar.module.css";
 import { usePathname } from "next/navigation";
+import { SignOut, onAuthStateChangedHelper } from "../firebase/firebase";
+import { User } from "firebase/auth";
 
 function NavigationBar() {
   const pathname = usePathname();
+  // Init user state
+  const [user, setUser] = useState<User | null>(null);
+  
+  useEffect(() => {
+    const unsubscribe = onAuthStateChangedHelper((user) => {
+      setUser(user)
+    });
+    return () => unsubscribe();
+  },[]);
+
+  function handleChange() {
+    user && SignOut();
+    console.log("You have logged out")
+  }
+
   return (
     <main>
       <nav className={styles.navigationBar}>
@@ -57,11 +74,11 @@ function NavigationBar() {
             </a>
           </li>
           <a className={styles.buttonContainer} href="/logIn">
-            <button className={styles.logIn}>
+            <button className={styles.logIn} onClick = {handleChange}>
               <div className={styles.userIconContainer}>
                 <img src="Icon.png" alt="" />
               </div>
-              Login
+              {user ? "Logout" : "Login"}
             </button>
           </a>
         </ul>
