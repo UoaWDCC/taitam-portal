@@ -51,7 +51,7 @@ export default async function EventsPage() {
         <EventCard
         key={index}
         title = {event.name}
-        date = {event.date.start}
+        date = {`${event.date.start} @ ${event.location}`}
         paragraph = {event.desc}
         image = {event.cover}
         
