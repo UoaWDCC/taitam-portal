@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import { useForm } from "react-hook-form";
 import "./logIn.page.css";
@@ -32,9 +31,7 @@ export default function LogInPage() {
       },
       (err) => {
         console.log("FAILED...", err);
-        return toast.error(
-          "Oops! Incorrect email or password. Please try again."
-        );
+        return toast.error(err.code);
       }
     );
   };

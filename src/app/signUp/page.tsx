@@ -1,8 +1,8 @@
-"use client"
-import React, { useState, useEffect} from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
-import {createWithEmailAndPassword} from "../firebase/firebase";
+import { createWithEmailAndPassword } from "../firebase/firebase";
 import "./signUp.page.css";
 
 type Inputs = {
@@ -21,7 +21,9 @@ export default function SignUpPage() {
   const { errors } = formState;
 
   const [selectedEducation, setSelectedEducation] = useState("");
-  const [lookingForWork, setLookingForWork] = useState<"Yes" | "No" | undefined>(undefined);
+  const [lookingForWork, setLookingForWork] = useState<
+    "Yes" | "No" | undefined
+  >(undefined);
 
   useEffect(() => {
     setLookingForWork(undefined);
@@ -37,22 +39,39 @@ export default function SignUpPage() {
 
   const handleSignUp = (): any => {
     const email = getValues("email");
-    const password = getValues("password")
-    createWithEmailAndPassword(email,password).then(
+    const password = getValues("password");
+    const name = getValues("name");
+    const employment = getValues("employment");
+    const degree = getValues("studyingDegree");
+    if (
+      degree === "" ||
+      degree === undefined ||
+      selectedEducation === "" ||
+      selectedEducation === undefined ||
+      lookingForWork === undefined ||
+      name === "" ||
+      name === undefined ||
+      employment === "" ||
+      employment === undefined
+    ) {
+      return toast.error("Form needs to be filled");
+    }
+    createWithEmailAndPassword(email, password).then(
       (response) => {
         form.reset();
         console.log("SUCCESS!");
         return toast.success("You successfully signed up.");
-      },(err) => {
+      },
+      (err) => {
         console.log("FAILED...", err);
         if (password.length < 6) {
           return toast.error("Password should be atleast six characters");
+        } else {
+          return toast.error(err.code);
         }
-        else {
-          return toast.error("Oops! Something went wrong. Please try again.");
-        }
-      });
-  }
+      }
+    );
+  };
 
   return (
     <div className="main">
@@ -136,7 +155,8 @@ export default function SignUpPage() {
               id="education"
               {...register("education", {
                 required: "Education level required",
-                validate: (value) => value !== "" || "Please select a valid education level",
+                validate: (value) =>
+                  value !== "" || "Please select a valid education level",
               })}
               value={selectedEducation}
               onChange={(e) => setSelectedEducation(e.target.value)}
