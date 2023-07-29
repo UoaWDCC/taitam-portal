@@ -78,7 +78,6 @@ const MouseImage = css`
 `;
 
 const fetchFromNotion = async () => {
-  console.log(process.env.API_ENDPOINT);
   const res = await fetch(`${process.env.API_ENDPOINT}/notion`, {
     method: "GET",
     headers: {
@@ -91,6 +90,7 @@ const fetchFromNotion = async () => {
 
 export default async function Home() {
   const rows: rowsStruct = await fetchFromNotion();
+
   return (
     <>
       <Image className={headerImage} src={LandingImage} alt="Landing Image" />
@@ -125,7 +125,7 @@ export default async function Home() {
         <h1 className={title}>EVENTS</h1>
 
         <div className={cardrow}>
-          {rows.slice(0,3).map((event, index) => (
+          {rows.slice(0, 3).map((event, index) => (
             <Card
               key={index}
               title={event.name}
@@ -140,9 +140,6 @@ export default async function Home() {
               }}
             />
           ))}
-
-
-    
         </div>
 
         <div

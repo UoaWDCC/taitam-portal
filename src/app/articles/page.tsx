@@ -23,7 +23,20 @@ const root = css`
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 const poppinsRegular = Poppins({ weight: "400", subsets: ["latin"] });
 
-export default function ArticlesPage() {
+const fetchArticlesFromNotion = async () => {
+  const res = await fetch(`${process.env.API_ENDPOINT}/articlesApi`, {
+    method: "GET",
+    headers: {
+      "Cache-Control": "no-cache",
+    },
+  });
+  const data = await res.json();
+  return JSON.parse(JSON.stringify(data));
+};
+
+export default async function ArticlesPage() {
+  const arts: artStruct = await fetchArticlesFromNotion();
+
   return (
     <>
       <div className={root}>
@@ -36,48 +49,23 @@ export default function ArticlesPage() {
           meetups, to one of our many sponsorships with local businesses and
           universities – everything we do is about our communities.
         </p>
-        <EventCard
-          title={"Launch Your Tech Career at Our Career Fair"}
-          date={"By Naren Rohan, Project Manager | 12 July 2023"}
-          paragraph={
-            "Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
-          }
-          image={stockImg1}
-          btn={{
-            text: "Read More",
-            href: "/articles/first-article",
-            type: "primary",
-            width: "cardButton",
-          }}
-        />
-        <EventCard
-          title={"Solve Real-World Tech Problems and Win Prizes"}
-          date={"By Janna Rutor, Director of Events | 5 June 2023"}
-          paragraph={
-            "Work in teams to solve real-world tech problems and present your solutions to a panel of judges for a chance to win prizes. Put your skills to the test and make valuable connections at our annual Hackathon."
-          }
-          image={stockImg2}
-          btn={{
-            text: "Read More",
-            href: "/articles/second-article",
-            type: "secondary",
-            width: "cardButton",
-          }}
-        />
-        <EventCard
-          title={"Build Your Soft Skills and Stand Out to Employers"}
-          date={"By Wesley Key, Hiring Manager | 2 May 2023"}
-          paragraph={
-            "Develop your communication, teamwork, and adaptability skills at our Soft Skills Workshop. Led by experienced professionals, this workshop will teach you the skills you need to succeed in the tech industry."
-          }
-          image={stockImg3}
-          btn={{
-            text: "Read More",
-            href: "/articles/third-article",
-            type: "tertiary",
-            width: "cardButton",
-          }}
-        />
+
+        {arts.map((art, index) => (
+          <EventCard
+            key={index}
+            title={art.name}
+            date={`By ${art.author} | ${art.date.start}`}
+            paragraph={art.desc}
+            image={art.cover}
+            btn={{
+              text: "Read More",
+              href: "/articles/second-article",
+              type: "secondary",
+              width: "cardButton",
+            }}
+          />
+        ))}
+
         <div
           className={poppinsRegular.className}
           style={{ textAlign: "center", fontSize: "20pt", marginTop: "50px" }}
