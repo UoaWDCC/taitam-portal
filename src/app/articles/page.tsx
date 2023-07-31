@@ -13,11 +13,31 @@ const title = css`
   color: #f96e47;
   text-align: left;
   font-size: 96px;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 36px;
+    padding: 0;
+    color: #f96e47;
+    text-align: left;
+    margin-top: 50px;
+  }
 `;
 
 const root = css`
   max-width: 1200px;
   margin: 50px auto 100px auto;
+
+  @media only screen and (max-width: 600px) {
+    margin: 0 20px 0 20px;
+  }
+`;
+
+const paragraph = css`
+  margin-top: -70px;
+
+  @media only screen and (max-width: 600px) {
+    margin-top: 0px;
+  }
 `;
 
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
@@ -28,7 +48,7 @@ export default function ArticlesPage() {
     <>
       <div className={root}>
         <h1 className={title}>ARTICLES</h1>
-        <p style={{ marginTop: "-70px" }}>
+        <p className={paragraph}>
           As a tech recruitment agency that is committed to making a difference
           in the industry, we’re passionate about giving back to the community
           and building tomorrow’s technology professionals from the grassroots
