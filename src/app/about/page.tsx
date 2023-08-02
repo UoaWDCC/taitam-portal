@@ -96,6 +96,22 @@ const headerImage = css`
   }
 `;
 
+const image = css`
+  background-image: url('/about.svg');
+  width: 100%;
+  height: 60vw;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+  @media only screen and (max-width: 600px) {
+    background-image: url('/aboutMobile.svg');
+    width: 100%;
+    height: 120vw;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+`;
+
 /* ------- bullet point section -------*/
 const box = css`
   padding: 30px;
@@ -131,7 +147,7 @@ const listindividual = css`
   @media only screen and (max-width: 600px) {
     padding: 0;
     margin: 0.5rem;
-    font-size: 16px;git
+    font-size: 16px;
     line-height: 1.5rem;
     gap: 0.3rem;
   }
@@ -184,10 +200,7 @@ export default function AboutPage() {
         Our Mission: Empowering Students to Succeed in the Tech Industry
       </h3>
 
-      <Image
-        className={headerImage}
-        src={About} alt="About Image"
-      />
+      <div className={image}></div>
 
       <div className={container}>
         <div className={item}>
