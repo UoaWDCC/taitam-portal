@@ -1,3 +1,4 @@
+"use client";
 import { Poppins } from "next/font/google";
 import { EventCard } from "../(components)/bigCard";
 import Button from "../(components)/Button";
