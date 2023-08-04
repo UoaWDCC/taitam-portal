@@ -44,11 +44,13 @@ const ArticlesCard = ({
           <h3>{subtitle}</h3>
           <p>{par2}</p>
         </div>
-        <Image
-          src={image}
-          alt="Stockholder image 1"
-          style={{ width: "384px", height: "216px", marginLeft: "30px" }}
-        />
+        <div className="card-image">
+          <Image
+            src={image}
+            alt="Stockholder image 1"
+            style={{ width: "384px", height: "216px", marginLeft: "30px" }}
+          />
+        </div>
       </div>
 
       <div className="card-para">
