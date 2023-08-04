@@ -21,7 +21,7 @@ function NavigationBar() {
           </a>
         </div>
 
-        <ul className={`${styles.linksContainer} ${showLinks ? "showLinks" : ""}`}>
+        <ul className={`${styles.linksContainer} ${showLinks ? styles.showLinks : ""}`}>
           <li>
             <a
               className={pathname === "/about" ? styles.active : styles.navLinks}
@@ -64,7 +64,10 @@ function NavigationBar() {
           </a>
         </ul>
 
-        <div className={`${styles.mobileButton} ${showLinks ? "showLinks" : ""}`} onClick={handleToggleLinks}>
+        <div
+          className={`${styles.mobileButton} ${showLinks ? styles.showLinks : ""}`}
+          onClick={handleToggleLinks}
+        >
           <span className={styles.burgerIcon}></span>
         </div>
       </nav>
@@ -73,4 +76,3 @@ function NavigationBar() {
 }
 
 export default NavigationBar;
-
