@@ -25,6 +25,11 @@
   cursor: pointer;
   text-decoration: none;
   font-weight: 700;
+  /* word-wrap: break-word; */
+}
+
+.linksContainer {
+  margin-left: 20rem;
 }
 
 .linksContainer li {
@@ -79,7 +84,7 @@
   transform: scale(0.9);
 }
 
-@media screen and (max-width: 1205px) {
+@media screen and (max-width: 600px) {
   .logoContainer {
     margin-left: 2rem;
   }
