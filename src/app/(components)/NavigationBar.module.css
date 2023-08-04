@@ -23,7 +23,6 @@
   cursor: pointer;
   text-decoration: none;
   font-weight: 700;
-  word-wrap: break-word;
 }
 
 .linksContainer li {
@@ -37,7 +36,7 @@
   text-decoration: none;
   cursor: pointer;
   padding: 0 0.5rem;
-  font-weight: 400;
+  /* font-weight: 400; */
 }
 
 .active {
@@ -94,7 +93,7 @@
     top: 4.25rem;
     right: 0;
     height: 100%;
-    background-color: #f0f0f0;
+    background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 1rem;
     z-index: 999;
@@ -110,10 +109,16 @@
     transform: rotate(90deg);
   }
 
-  .navLinks {
-    margin-bottom: 20rem;
+  .linksContainer.showLinks li {
+    margin-bottom: 3rem; 
+    font-size: 1.5rem;
+    font-weight: bold;
   }
 
+  /* make the links in the side bar a different color */
+  .linksContainer.showLinks li a {
+    color: #f96e47;
+  }
   .mobileButton {
     display: flex;
     align-items: center;
