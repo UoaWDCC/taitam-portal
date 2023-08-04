@@ -34,8 +34,8 @@
   align-items: center;
 
   @media (max-width: 600px) {
-    flex-direction: column; /* Stack paragraphs vertically for mobile */
-    text-align: left; /* Center the text for mobile */
+    flex-direction: column;
+    text-align: left;
   }
 }
 
@@ -43,7 +43,7 @@
   margin: 30px 32px 0px 32px;
 
   @media (max-width: 600px) {
-    text-align: left; /* Center the title for mobile */
+    text-align: left;
   }
 }
 
@@ -52,6 +52,6 @@
   margin: 8px 32px 0px 32px;
 
   @media (max-width: 600px) {
-    text-align: left; /* Center the title for mobile */
+    text-align: left;
   }
 }

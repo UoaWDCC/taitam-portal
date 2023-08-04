@@ -73,4 +73,9 @@
   border: none;
   box-shadow: 0px 2px 0px 1px #000000;
   max-width: 438.4px;
+
+  @media screen and (max-width: 768px) {
+    max-width: 134px;
+    margin: 0 auto;
+  }
 }
