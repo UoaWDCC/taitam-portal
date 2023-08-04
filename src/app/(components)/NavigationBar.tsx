@@ -4,6 +4,7 @@ import styles from "./NavigationBar.module.css";
 import { usePathname } from "next/navigation";
 
 function NavigationBar() {
+
   const [showLinks, setShowLinks] = useState(false);
   const pathname = usePathname();
 
