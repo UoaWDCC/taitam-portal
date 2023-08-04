@@ -21,6 +21,8 @@ jobs:
 
       - run: yarn
 
+      - run: yarn build
+
       - uses: "google-github-actions/auth@v0"
         with:
           # Credentials stored inside WDCC organisation secrets
