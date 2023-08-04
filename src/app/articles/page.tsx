@@ -45,8 +45,9 @@ const paragraph = css`
 const smallCard = css`
   margin-bottom: 40px;
   display: flex;
-  flex-flow: column wrap;
+  flex-direction: column;
   align-items: center;
+  flex-wrap: nowrap;
 `;
 
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
@@ -168,6 +169,8 @@ export default function ArticlesPage() {
           className={poppinsMedium.className}
           style={{
             marginTop: "14px",
+            marginBottom: "30px",
+            textAlign: "center",
           }}
         >
           <Button
