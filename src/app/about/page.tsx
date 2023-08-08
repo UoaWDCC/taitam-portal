@@ -1,11 +1,10 @@
 import { css } from "@linaria/core";
 import { Poppins } from "next/font/google";
 import Button from "../(components)/Button";
-import Image from "next/image";
-import About from "public/about.svg";
 import "../globals.scss";
 
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
+
 
 /* ------- headers -------*/
 const title = css`
@@ -16,7 +15,11 @@ const title = css`
   font-size: 96px;
 
   @media only screen and (max-width: 600px) {
-    font-size: 36px;
+    font-size: 40px;
+  }
+
+  @media (min-width: 600px) and (max-width: 1024px) {
+    font-size: 7vw;
   }
 `;
 
@@ -70,10 +73,21 @@ const item = css`
     margin: 5px 5px 0px 5px;
     text-align: left;
     height: 100%;
+    font-size: 14px;
+  }
+
+  @media (min-width: 600px) and (max-width: 1024px) {
+    padding: 0;
+    margin: 5px 5px 0px 5px;
+    height: 100%;
   }
 
   &:nth-child(1) {
     flex: 1.3;
+
+    @media (min-width: 600px) and (max-width: 1024px) {
+      padding-right: 15px;
+    }
   }
 
   &:nth-child(2) {
@@ -82,20 +96,16 @@ const item = css`
     @media only screen and (max-width: 600px) {
       margin-bottom: 10px;
     }
+
+    @media (min-width: 600px) and (max-width: 1024px) {
+      font-size: 14px;
+      line-height: 2vw;
+      padding-bottom: 10px;
+    }
   }
 `;
 
 /* ------- image section -------*/
-const headerImage = css`
-  width: 100%;
-  padding-top: 2%;
-
-  @media only screen and (max-width: 600px) {
-    height: 100%;
-    padding: 5% 0 15% 0;
-  }
-`;
-
 const image = css`
   background-image: url('/about.svg');
   width: 100%;
@@ -125,6 +135,11 @@ const box = css`
     margin: 60px 10px;
     padding: 10px;
   }
+
+  @media (min-width: 600px) and (max-width: 1024px) {
+    margin: 10px;
+    padding: 10px;
+  }
 `;
 
 const listheading = css`
@@ -146,10 +161,14 @@ const listindividual = css`
 
   @media only screen and (max-width: 600px) {
     padding: 0;
-    margin: 0.5rem;
-    font-size: 16px;
+    margin: 1rem;
+    font-size: 14px;
     line-height: 1.5rem;
     gap: 0.3rem;
+  }
+
+  @media (min-width: 600px) and (max-width: 1024px) {
+    font-size: 14px;
   }
 
   &:before {
@@ -157,14 +176,22 @@ const listindividual = css`
     content: counter(list-item) ".";
     font-size: 96px;
     font-weight: 700;
+
+    @media only screen and (max-width: 600px) {
+    font-size: 75px;
+  }
+
+    @media (min-width: 600px) and (max-width: 1024px) {
+      font-size: 80px;
+    }
   }
 
   &:nth-child(1):before {
     color: #f96e47;
     margin-right: 22px;
 
-    @media only screen and (max-width: 600px) {
-      margin-right: 6px;
+    @media (min-width: 600px) and (max-width: 1024px) {
+      margin-right: 4px;
     }
   }
 
@@ -179,17 +206,30 @@ const listindividual = css`
     @media only screen and (max-width: 600px) {
       margin-right: 5px;
     }
+
+    @media (min-width: 600px) and (max-width: 1024px) {
+      margin-right: 4px;
+    }
   }
 `;
 
 const rootContainer = css`
   max-width: 1200px;
   margin: 50px auto 100px auto;
+  padding: 0 50px;
 
   @media only screen and (max-width: 600px) {
     margin: 10px;
     max-width: 600px;
+    padding: 0
   }
+
+  @media (min-width: 600px) and (max-width: 1024px) {
+    margin: 10px;
+    max-width: 1024px;
+    padding: 0 20px;
+  }
+  
 `;
 
 export default function AboutPage() {
