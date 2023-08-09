@@ -8,7 +8,7 @@
 
   @media (max-width: 600px) {
     overflow: hidden;
-    width: 340px;
+    width: 100%;
     max-height: auto;
     background: #ffffff;
     border: 1px solid #000000;

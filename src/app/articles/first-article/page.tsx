@@ -15,6 +15,10 @@ const headerImage = css`
   z-index: -1;
   position: absolute;
 
+  img {
+    border: 1px solid #000;
+  }
+
   @media only screen and (max-width: 600px) {
     margin-left: auto;
     margin-right: auto;
@@ -23,9 +27,12 @@ const headerImage = css`
     height: auto;
 
     img {
-      width: 100%;
+      max-width: 100%;
       height: auto;
-      margin: 45px 16px 0 16px;
+      margin-left: 16px;
+      margin-top: 45px;
+      margin-right: 16px;
+      border: 1px solid #000;
     }
   }
 `;
@@ -64,10 +71,11 @@ const cardContainer = css`
   margin-top: 280px;
 
   @media only screen and (max-width: 600px) {
+    margin-left: 27px;
     display: block;
     flex-flow: column wrap;
-    align-items: center;
-    margin: 90px 70px 0px 70px;
+    justify-content: space-between;
+    margin-top: 90px;
   }
 `;
 
