@@ -7,7 +7,7 @@ import Button from "./(components)/Button";
 import LandingImage from "./(images)/Landingimage.svg";
 import Mouse from "./(images)/mouse.svg";
 import Arrow from "./(images)/arrow.png";
-import BigImage from "./(images)/Group 47.png";
+import BigImage from "./(images)/Group 47.svg";
 
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 
@@ -24,6 +24,10 @@ const layoutContainer = css`
     font-size: 16px;
     line-height: 1.5rem;
     gap: 0.3rem;
+  }
+
+  @media only screen and (min-width: 601px) and (max-width: 1024px) {
+    width: 1024px;
   }
 `;
 
@@ -50,6 +54,15 @@ const container = css`
   @media only screen and (max-width: 600px) {
     margin: 0.5rem;
     display: flex;
+    max-width: 600px;
+    flex-flow: column wrap;
+    justify-content: space-between;
+  }
+
+  @media only screen and (min-width: 601px) and (max-width: 1200px) {
+    width: 1024px;
+    margin: 0.5rem;
+    display: flex;
     flex-flow: column wrap;
     justify-content: space-between;
   }
@@ -60,6 +73,10 @@ const cardContainer = css`
   display: flex;
   flex-flow: column wrap;
   justify-content: space-between;
+
+  @media only screen and (min-width: 601px) and (max-width: 1200px) {
+    max-width: 1024px;
+  }
 `;
 
 const h3style = css`
@@ -91,6 +108,13 @@ const cardrow = css`
     align-items: center;
     flex-wrap: nowrap;
   }
+
+  @media only screen and (min-width: 601px) and (max-width: 1200px) {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-right: 40px;
+  }
 `;
 
 const cardSpace = css`
@@ -110,6 +134,13 @@ const headerImage = css`
     height: auto;
     margin-top: 0;
   }
+
+  @media only screen and (min-width: 601px) and (max-width: 1200px) {
+    img {
+      width: 1200px;
+      height: auto;
+    }
+  }
 `;
 
 const MouseImage = css`
@@ -125,6 +156,13 @@ const MouseImage = css`
     position: absolute;
     width: 100%;
   }
+
+  @media only screen and (min-width: 601px) and (max-width: 1200px) {
+    z-index: -1;
+    position: absolute;
+    left: 60%;
+    margin-top: -170px;
+  }
 `;
 
 const townImage = css`
@@ -137,15 +175,17 @@ const paragraph = css`
   margin-right: 200px;
   margin-left: 16px;
 
-  @media only screen and (max-width: 600px) {
-    margin-right: 0px;
+  @media only screen and (min-width: 601px) and (max-width: 1200px) {
+    margin-right: 50px;
   }
 `;
 
 export default function Home() {
   return (
     <>
-      <Image className={headerImage} src={LandingImage} alt="Landing Image" />
+      <div className={headerImage}>
+        <Image src={LandingImage} alt="Landing Image" />
+      </div>
 
       <div className={layoutContainer}>
         <div className={container}>
@@ -171,59 +211,60 @@ export default function Home() {
           <Image className={townImage} src={BigImage} alt="Town" />
         </div>
 
-        <h3 className={h3style}>Upcoming</h3>
-        <h1 className={title}>EVENTS</h1>
-
-        <div className={cardrow}>
-          <Card
-            title="Launch Your Tech Career at Our Career Fair"
-            imageUrl="https://t3.ftcdn.net/jpg/02/92/34/14/240_F_292341430_qGtNmxVKgAx4OieUQYNwpMlIbc0ABgVs.jpg"
-            body="Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
-            btn={{
-              text: "Learn More",
-              href: "#",
-              type: "primary",
-              width: "cardButton",
-            }}
-          />
-          <div className={cardSpace}>
+        <div className={cardContainer} style={{ margin: "0px" }}>
+          <h3 className={h3style}>Upcoming</h3>
+          <h1 className={title}>EVENTS</h1>
+          <div className={cardrow}>
             <Card
-              title="Solve Real-World Tech Problems and Win Prizes"
-              imageUrl="https://t4.ftcdn.net/jpg/02/27/98/79/240_F_227987910_stMstGspY3J4PbPmdNBr1Huu0eCTs9oa.jpg"
-              body="Work in teams to solve real-world tech problems and present your solutions to a panel of judges for a chance to win prizes. Put your skills to the test and make valuable connections at our annual Hackathon."
+              title="Launch Your Tech Career at Our Career Fair"
+              imageUrl="https://t3.ftcdn.net/jpg/02/92/34/14/240_F_292341430_qGtNmxVKgAx4OieUQYNwpMlIbc0ABgVs.jpg"
+              body="Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
               btn={{
                 text: "Learn More",
                 href: "#",
-                type: "secondary",
+                type: "primary",
+                width: "cardButton",
+              }}
+            />
+            <div className={cardSpace}>
+              <Card
+                title="Solve Real-World Tech Problems and Win Prizes"
+                imageUrl="https://t4.ftcdn.net/jpg/02/27/98/79/240_F_227987910_stMstGspY3J4PbPmdNBr1Huu0eCTs9oa.jpg"
+                body="Work in teams to solve real-world tech problems and present your solutions to a panel of judges for a chance to win prizes. Put your skills to the test and make valuable connections at our annual Hackathon."
+                btn={{
+                  text: "Learn More",
+                  href: "#",
+                  type: "secondary",
+                  width: "cardButton",
+                }}
+              />
+            </div>
+            <Card
+              title="Build Your Soft Skills and Stand Out to Employers"
+              imageUrl="https://t3.ftcdn.net/jpg/04/56/98/68/240_F_456986840_BbHQK0bynMEDxMDJP0L3fkCMqnfmJ283.jpg"
+              body="Develop your communication, teamwork, and adaptability skills at our Soft Skills Workshop. Led by experienced professionals, this workshop will teach you the skills you need to succeed in the tech industry."
+              btn={{
+                text: "Learn More",
+                href: "#",
+                type: "tertiary",
                 width: "cardButton",
               }}
             />
           </div>
-          <Card
-            title="Build Your Soft Skills and Stand Out to Employers"
-            imageUrl="https://t3.ftcdn.net/jpg/04/56/98/68/240_F_456986840_BbHQK0bynMEDxMDJP0L3fkCMqnfmJ283.jpg"
-            body="Develop your communication, teamwork, and adaptability skills at our Soft Skills Workshop. Led by experienced professionals, this workshop will teach you the skills you need to succeed in the tech industry."
-            btn={{
-              text: "Learn More",
-              href: "#",
-              type: "tertiary",
-              width: "cardButton",
-            }}
-          />
-        </div>
 
-        <div
-          className={poppinsMedium.className}
-          style={{
-            marginTop: "20px",
-          }}
-        >
-          <Button
-            text="View All"
-            href="/events"
-            type="primary"
-            width="largeButton"
-          ></Button>
+          <div
+            className={poppinsMedium.className}
+            style={{
+              marginTop: "20px",
+            }}
+          >
+            <Button
+              text="View All"
+              href="/events"
+              type="primary"
+              width="largeButton"
+            ></Button>
+          </div>
         </div>
 
         <Image className={MouseImage} src={Mouse} alt="Mouse Image"></Image>
