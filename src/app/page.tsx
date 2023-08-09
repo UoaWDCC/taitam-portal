@@ -126,19 +126,20 @@ export default async function Home() {
 
         <div className={cardrow}>
           {rows.slice(0, 3).map((event, index) => (
-            <Card
-              key={index}
-              title={event.name}
-              body={event.desc}
-              imageUrl={event.cover}
-              btn={{
-                text: "Sign Up",
-                href: event.link,
-                type: "primary",
-                width: "cardButton",
-                target: "_blank",
-              }}
-            />
+            <div key={index} className={index === 1 ? cardSpace : undefined}>
+              <Card
+                title={event.name}
+                body={event.desc}
+                imageUrl={event.cover}
+                btn={{
+                  text: "Sign Up",
+                  href: event.link,
+                  type: "primary",
+                  width: "cardButton",
+                  target: "_blank",
+                }}
+              />
+            </div>
           ))}
         </div>
 
