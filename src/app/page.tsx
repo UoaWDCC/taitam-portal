@@ -77,6 +77,13 @@ const MouseImage = css`
   left: 52%;
 `;
 
+function trimDescription(description: string, maxLength: number): string {
+  if (description.length > maxLength) {
+    return description.slice(0, maxLength) + "...";
+  }
+  return description;
+}
+
 const fetchFromNotion = async () => {
   const res = await fetch(`${process.env.API_ENDPOINT}/notion`, {
     method: "GET",
@@ -141,7 +148,7 @@ export default async function Home() {
             <div key={index} className={index === 1 ? cardSpace : undefined}>
               <Card
                 title={event.name}
-                body={event.desc}
+                body={trimDescription(event.desc, 250)} //trim to 130 characters
                 imageUrl={event.cover}
                 btn={{
                   text: "Sign Up",
@@ -182,7 +189,7 @@ export default async function Home() {
               <div key={index} className={index === 1 ? cardSpace : undefined}>
                 <Card
                   title={art.name}
-                  body={art.desc}
+                  body={trimDescription(art.desc, 250)} //trim to 130 characters
                   imageUrl={art.cover}
                   btn={{
                     text: "Sign Up",
