@@ -55,7 +55,8 @@ const ArticlesCard = ({
         <Image
           src={image}
           alt="Stockholder image 1"
-          fill={true}
+          width={100}
+          height={100}
           style={{ objectFit: "cover" }}
         />
       </div>
