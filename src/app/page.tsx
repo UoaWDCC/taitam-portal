@@ -126,20 +126,12 @@ const cardSpace = css`
 `;
 
 const headerImage = css`
-  width: 100%;
-  margin-top: -80px;
-
-  @media only screen and (max-width: 600px) {
-    width: 100%;
-    height: auto;
-    margin-top: 0;
-  }
+  max-width: 100%;
+  height: auto;
 
   @media only screen and (min-width: 601px) and (max-width: 1200px) {
-    img {
-      width: 1200px;
-      height: auto;
-    }
+    max-width: 120%;
+    height: auto;
   }
 `;
 
@@ -160,7 +152,7 @@ const MouseImage = css`
   @media only screen and (min-width: 601px) and (max-width: 1200px) {
     z-index: -1;
     position: absolute;
-    left: 60%;
+    left: 57%;
     margin-top: -170px;
   }
 `;
@@ -175,6 +167,10 @@ const paragraph = css`
   margin-right: 200px;
   margin-left: 16px;
 
+  @media only screen and (max-width: 600px) {
+    margin-right: 0px;
+  }
+
   @media only screen and (min-width: 601px) and (max-width: 1200px) {
     margin-right: 50px;
   }
@@ -183,11 +179,8 @@ const paragraph = css`
 export default function Home() {
   return (
     <>
-      <div className={headerImage}>
-        <Image src={LandingImage} alt="Landing Image" />
-      </div>
-
       <div className={layoutContainer}>
+        <Image className={headerImage} src={LandingImage} alt="Landing Image" />
         <div className={container}>
           <h1 className={title}>WELCOME</h1>
           <p className={paragraph}>
