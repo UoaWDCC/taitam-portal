@@ -21,6 +21,13 @@ const fetchFromNotion = async () => {
   
 };
 
+function trimDescription(description: string, maxLength: number): string {
+  if (description.length > maxLength) {
+    return description.slice(0, maxLength) + "...";
+  }
+  return description;
+}
+
 export default async function EventsPage() {
   const rows: rowsStruct = await fetchFromNotion();
   
@@ -52,7 +59,7 @@ export default async function EventsPage() {
         key={index}
         title = {event.name}
         date = {`${event.date.start} @ ${event.location}`}
-        paragraph = {event.desc}
+        paragraph={trimDescription(event.desc, 130)} //trim to 130 characters
         image = {event.cover}
         
         btn={{
