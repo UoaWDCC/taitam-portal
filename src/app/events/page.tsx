@@ -12,9 +12,8 @@ const poppinsRegular = Poppins({ weight: "400", subsets: ["latin"] });
 const poppinsLight = Poppins({ weight: "300", subsets: ["latin"] });
 
 const fetchFromNotion = async () => {
-  console.log(process.env.API_ENDPOINT);
   const res = await fetch(`${process.env.API_ENDPOINT}/notion`, { method: "GET", headers: {
-    "Cache-Control": "no-cache",
+    "Cache-Control": "no-store, no-cache",
   } });
   const data = await res.json()
   return JSON.parse(JSON.stringify(data))
