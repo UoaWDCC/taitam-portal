@@ -1,13 +1,14 @@
 .card-container {
   overflow: hidden;
-  width: 992px;
+  max-width: 992px;
   max-height: auto;
   background: #ffffff;
   border: 1px solid #000000;
   box-shadow: 0px 3px 0px 2px #000000;
 
   @media (max-width: 600px) {
-    width: 309px;
+    overflow: hidden;
+    width: 340px;
     max-height: auto;
     background: #ffffff;
     border: 1px solid #000000;
