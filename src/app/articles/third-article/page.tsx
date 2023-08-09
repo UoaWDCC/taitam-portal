@@ -35,6 +35,9 @@ const headerImage = css`
       border: 1px solid #000;
     }
   }
+
+  @media only screen and (min-width: 601px) and (max-width: 1024px) {
+  }
 `;
 
 const title = css`
