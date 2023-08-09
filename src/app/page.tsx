@@ -7,7 +7,7 @@ import Button from "./(components)/Button";
 import LandingImage from "./(images)/Landingimage.svg";
 import Mouse from "./(images)/mouse.svg";
 import Arrow from "./(images)/arrow.png";
-import BigImage from "./(images)/bigimage.png";
+import BigImage from "./(images)/Group47.png";
 
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 

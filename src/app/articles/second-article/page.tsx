@@ -4,7 +4,7 @@ import Image from "next/image";
 import image1 from "../../(images)/articles1.png";
 import "../../globals.scss";
 import ArticlesCard from "../../(components)/ArticlesCard";
-import stockImg from "../../(images)/events2.png";
+import stockImg from "../../(images)/events1.png";
 
 const headerImage = css`
   max-width: 100%;
@@ -23,10 +23,9 @@ const headerImage = css`
     height: auto;
 
     img {
-      width: 362px;
+      width: 100%;
       height: auto;
-      margin-left: 16px;
-      margin-top: 45px;
+      margin: 45px 16px 0 16px;
     }
   }
 `;
@@ -68,8 +67,8 @@ const cardContainer = css`
     margin-left: 41px;
     display: block;
     flex-flow: column wrap;
-    justify-content: space-between;
-    margin-top: 90px;
+    align-items: center;
+    margin: 90px 70px 0px 70px;
   }
 `;
 

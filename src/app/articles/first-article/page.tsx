@@ -64,7 +64,6 @@ const cardContainer = css`
   margin-top: 280px;
 
   @media only screen and (max-width: 600px) {
-    margin-left: 41px;
     display: block;
     flex-flow: column wrap;
     align-items: center;
