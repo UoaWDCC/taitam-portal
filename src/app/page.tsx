@@ -12,7 +12,7 @@ import BigImage from "./(images)/Group 47.svg";
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 
 const layoutContainer = css`
-  max-width: 1200px;
+  max-width: 1276px;
   width: 100%;
   padding: 0 50px;
   box-sizing: border-box;
@@ -27,7 +27,7 @@ const layoutContainer = css`
   }
 
   @media only screen and (min-width: 601px) and (max-width: 1024px) {
-    width: 1024px;
+    width: 100%;
   }
 `;
 
@@ -59,7 +59,7 @@ const container = css`
     justify-content: space-between;
   }
 
-  @media only screen and (min-width: 601px) and (max-width: 1200px) {
+  @media only screen and (min-width: 601px) and (max-width: 1024px) {
     width: 1024px;
     margin: 0.5rem;
     display: flex;
@@ -74,7 +74,7 @@ const cardContainer = css`
   flex-flow: column wrap;
   justify-content: space-between;
 
-  @media only screen and (min-width: 601px) and (max-width: 1200px) {
+  @media only screen and (min-width: 601px) and (max-width: 1024px) {
     max-width: 1024px;
   }
 `;
@@ -109,7 +109,7 @@ const cardrow = css`
     flex-wrap: nowrap;
   }
 
-  @media only screen and (min-width: 601px) and (max-width: 1200px) {
+  @media only screen and (min-width: 601px) and (max-width: 1024px) {
     flex-direction: row;
     align-items: center;
     flex-wrap: nowrap;
@@ -126,12 +126,20 @@ const cardSpace = css`
 `;
 
 const headerImage = css`
-  max-width: 100%;
+  width: 120%;
   height: auto;
+  margin-left: -120px;
 
-  @media only screen and (min-width: 601px) and (max-width: 1200px) {
-    max-width: 120%;
+  @media only screen and (max-width: 600px) {
+    width: 100%;
     height: auto;
+    margin-left: 0px;
+  }
+
+  @media only screen and (min-width: 601px) and (max-width: 1024px) {
+    max-width: 100%;
+    height: auto;
+    margin-left: 55px;
   }
 `;
 
@@ -149,7 +157,7 @@ const MouseImage = css`
     width: 100%;
   }
 
-  @media only screen and (min-width: 601px) and (max-width: 1200px) {
+  @media only screen and (min-width: 601px) and (max-width: 1024px) {
     z-index: -1;
     position: absolute;
     left: 57%;
@@ -171,7 +179,7 @@ const paragraph = css`
     margin-right: 0px;
   }
 
-  @media only screen and (min-width: 601px) and (max-width: 1200px) {
+  @media only screen and (min-width: 601px) and (max-width: 1024px) {
     margin-right: 50px;
   }
 `;
@@ -180,7 +188,13 @@ export default function Home() {
   return (
     <>
       <div className={layoutContainer}>
-        <Image className={headerImage} src={LandingImage} alt="Landing Image" />
+        <div className={container}>
+          <Image
+            className={headerImage}
+            src={LandingImage}
+            alt="Landing Image"
+          />
+        </div>
         <div className={container}>
           <h1 className={title}>WELCOME</h1>
           <p className={paragraph}>
