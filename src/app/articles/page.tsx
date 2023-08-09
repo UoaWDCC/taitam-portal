@@ -23,6 +23,14 @@ const root = css`
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 const poppinsRegular = Poppins({ weight: "400", subsets: ["latin"] });
 
+function trimDescription(description: string, maxLength: number): string {
+  if (description.length > maxLength) {
+    return description.slice(0, maxLength) + "...";
+  }
+  return description;
+}
+
+
 const fetchArticlesFromNotion = async () => {
   const res = await fetch(`${process.env.API_ENDPOINT}/articlesApi`, {
     method: "GET",
@@ -55,7 +63,7 @@ export default async function ArticlesPage() {
             key={index}
             title={art.name}
             date={`By ${art.author} | ${art.date.start}`}
-            paragraph={art.desc}
+            paragraph={trimDescription(art.desc, 350)} //trim to 350 characters for articles page
             image={art.cover}
             btn={{
               text: "Read More",
