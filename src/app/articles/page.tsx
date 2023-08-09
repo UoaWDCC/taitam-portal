@@ -67,7 +67,7 @@ export default async function ArticlesPage() {
             image={art.cover}
             btn={{
               text: "Read More",
-              href: "/articles/second-article",
+              href: `/articles/${index}`,
               type: "secondary",
               width: "cardButton",
             }}

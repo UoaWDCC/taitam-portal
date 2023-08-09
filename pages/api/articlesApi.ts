@@ -53,7 +53,7 @@ export default async function handler(
     cover: covers[index],
   }));
 
-  console.log(rowsWithCovers)
+  //console.log(rowsWithCovers)
 
   res.status(200).json(rowsWithCovers);
 }
