@@ -171,7 +171,7 @@ export default function SignUpPage() {
 
           <div className="input-container">
             <div className="error-signUp">
-              <p className="form-info">What is your Employment Status?</p>
+              <p className="form-info">What&apos;s your Employment Status?</p>
               <div className="error-msg">
                 <p className="error">{errors.employment?.message}</p>
               </div>
@@ -226,7 +226,7 @@ export default function SignUpPage() {
 
           <div className="input-container">
             <div className="error-signUp">
-              <p className="form-info">What is your degree?</p>
+              <p className="form-info">What&apos;s your degree?</p>
               <div className="error-msg">
                 <p className="error">{errors.studyingDegree?.message}</p>
               </div>
