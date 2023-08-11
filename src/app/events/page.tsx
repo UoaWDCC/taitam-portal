@@ -1,3 +1,6 @@
+"use client";
+
+import { css } from "@linaria/core";
 import { Poppins } from "next/font/google";
 import { EventCard } from "../(components)/bigCard";
 import Button from "../(components)/Button";
@@ -5,25 +8,87 @@ import stockImg1 from "../(images)/events1.png";
 import stockImg2 from "../(images)/events2.png";
 import stockImg3 from "../(images)/events3.png";
 import React from "react";
+import { useState, useCallback, useEffect } from 'react';
 
 const poppinsBlack = Poppins({ weight: "900", subsets: ["latin"] });
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 const poppinsRegular = Poppins({ weight: "400", subsets: ["latin"] });
 const poppinsLight = Poppins({ weight: "300", subsets: ["latin"] });
 
+const tabletBreakpoint = 800;
+const mobileBreakpoint = 480;
+
+// Use this to identify breakpoints
+// Will return true if input breakpoint is reached 
+// i.e. screen size is equal to/less than the breakpoint
+const useMediaQuery = (width) => {
+  const [targetReached, setTargetReached] = useState(false);
+
+  const updateTarget = useCallback((e) => {
+    if (e.matches) {
+      setTargetReached(true);
+    } else {
+      setTargetReached(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    const media = window.matchMedia(`(max-width: ${width}px)`);
+    media.addEventListener("change", updateTarget);
+
+    // Check on mount (callback is not called until a change occurs)
+    if (media.matches) {
+      setTargetReached(true);
+    }
+
+    return () => media.removeListener(updateTarget);
+  }, []);
+
+  return targetReached;
+};
+
+
+const main = css`
+  padding: 100px 160px;
+  backgroundColor: #FFFDF6;
+  
+  @media (max-width: ${tabletBreakpoint}px) {
+    padding: 0 30px 100px;
+  }
+  
+  @media (max-width: ${mobileBreakpoint}px) {
+    padding: 0 16px 100px;
+  }
+`
+const title = css`
+  font-size: 96pt; 
+  color: #F96E47;
+  
+  @media (max-width: ${tabletBreakpoint}px) {
+    font-size: 48pt;
+  }
+  
+  @media (max-width: ${mobileBreakpoint}px) {
+    font-size: 36pt;
+  }
+`
+
+const paragraph = css`
+  font-size: 16pt;
+  margin-bottom: 25px
+`
+
 export default function EventsPage() {
   return (
     <div
-      className={poppinsLight.className}
-      style={{ padding: "100px 160px", backgroundColor: "#FFFDF6" }}
+      className={`${poppinsLight.className} ${main}`}
     >
       <div
-        className={poppinsBlack.className}
-        style={{ fontSize: 96 + "pt", color: "#F96E47" }}
+        className={`${poppinsBlack.className} ${title}`}
       >
         OUR EVENTS
       </div>
-      <div style={{ fontSize: 16 + "pt", marginBottom: "25px" }}>
+      <div className={ paragraph }>
         We regularly host meetups and events in Auckland, providing a vibrant
         and diverse community for students of all backgrounds who are studying
         technical disciplines. Our events offer direct access to resources,
@@ -81,7 +146,7 @@ export default function EventsPage() {
         className={poppinsRegular.className}
         style={{ textAlign: "center", fontSize: "24pt", marginTop: "50px" }}
       >
-        Do you have any questions about our events? Contact us!
+        Do you have any questions about our events?
       </div>
       <div
         className={poppinsMedium.className}
@@ -93,7 +158,7 @@ export default function EventsPage() {
           text="Contact Us"
           href="/contact"
           type="primary"
-          width="largeButton"
+          width = {useMediaQuery(525) ? "smallButton" : "largeButton"}
         ></Button>
       </div>
     </div>
