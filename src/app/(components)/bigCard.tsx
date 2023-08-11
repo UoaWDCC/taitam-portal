@@ -15,7 +15,7 @@ type CardProps = {
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 const poppinsRegular = Poppins({ weight: "400", subsets: ["latin"] });
 
-export const EventCard = ({ title, date, paragraph, image, btn }: CardProps) => (
+export const BigCard = ({ title, date, paragraph, image, btn }: CardProps) => (
   <aside>
     <div
       style={{

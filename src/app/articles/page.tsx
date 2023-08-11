@@ -1,5 +1,5 @@
 import { Poppins } from "next/font/google";
-import { EventCard } from "../(components)/bigCard";
+import { BigCard } from "../(components)/bigCard";
 import Button from "../(components)/Button";
 import stockImg1 from "../(images)/events1.png";
 import stockImg2 from "../(images)/events2.png";
@@ -36,7 +36,7 @@ export default function ArticlesPage() {
           meetups, to one of our many sponsorships with local businesses and
           universities – everything we do is about our communities.
         </p>
-        <EventCard
+        <BigCard
           title={"Launch Your Tech Career at Our Career Fair"}
           date={"By Naren Rohan, Project Manager | 12 July 2023"}
           paragraph={
@@ -50,7 +50,7 @@ export default function ArticlesPage() {
             width: "cardButton",
           }}
         />
-        <EventCard
+        <BigCard
           title={"Solve Real-World Tech Problems and Win Prizes"}
           date={"By Janna Rutor, Director of Events | 5 June 2023"}
           paragraph={
@@ -64,7 +64,7 @@ export default function ArticlesPage() {
             width: "cardButton",
           }}
         />
-        <EventCard
+        <BigCard
           title={"Build Your Soft Skills and Stand Out to Employers"}
           date={"By Wesley Key, Hiring Manager | 2 May 2023"}
           paragraph={
