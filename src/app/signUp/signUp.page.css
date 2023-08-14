@@ -139,4 +139,34 @@
     margin: 0 8rem 0 8rem;
   }
 
+  @media (max-width: 600px) {
+    .main {
+      flex-direction: column; /* Change the flex direction to stack elements vertically */
+      align-items: center; /* Center the items horizontally */
+      display: inline;
+    }
+
+    .sign-up-header-container {
+      margin-left: 1.5rem;
+    }
+
+    .sign-up-header {
+      font-size: 48px;
+    }
   
+    .form {
+      width: 100%; /* Adjust the width as needed */
+      margin-top: 2rem; /* Adjust the margin as needed */
+      margin-left: 1.5rem;
+    }
+    .checkbox-label {
+      margin: 0 1rem 0 1rem;
+    }
+    .input {
+      width: 80%;
+    }
+    .button {
+      margin: 1rem 0 3rem 0;
+    }
+
+  }
