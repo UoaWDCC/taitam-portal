@@ -1,24 +1,13 @@
 import { Poppins } from "next/font/google";
-import { EventCard } from "../(components)/bigCard";
-import Button from "../(components)/Button";
-import stockImg1 from "../(images)/events1.png";
-import stockImg2 from "../(images)/events2.png";
-import stockImg3 from "../(images)/events3.png";
+import { EventCard } from "../../src/app/(components)/bigCard";
+import Button from "../../src/app/(components)/Button";
 import React from "react";
+import { fetchEventsFromNotion } from "../../eventsData";
 
 const poppinsBlack = Poppins({ weight: "900", subsets: ["latin"] });
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 const poppinsRegular = Poppins({ weight: "400", subsets: ["latin"] });
 const poppinsLight = Poppins({ weight: "300", subsets: ["latin"] });
-
-const fetchFromNotion = async () => {
-  const res = await fetch(`${process.env.API_ENDPOINT}/notion`, { method: "GET", headers: {
-    "Cache-Control": "no-store, no-cache",
-  } });
-  const data = await res.json()
-  return JSON.parse(JSON.stringify(data))
-  
-};
 
 function trimDescription(description: string, maxLength: number): string {
   if (description.length > maxLength) {
@@ -27,8 +16,13 @@ function trimDescription(description: string, maxLength: number): string {
   return description;
 }
 
-export default async function EventsPage() {
-  const rows: rowsStruct = await fetchFromNotion();
+
+interface EventsPageProps {
+  events: rowsStruct; // Use the artStruct type here
+}
+
+
+const EventsPage = ({ events }: EventsPageProps) =>  {
   
   return (
     <div
@@ -53,7 +47,7 @@ export default async function EventsPage() {
       </div>
 
 
-      {rows.map((event, index) => (
+      {events.map((event, index) => (
         <EventCard
         key={index}
         title = {event.name}
@@ -92,4 +86,13 @@ export default async function EventsPage() {
       </div>
     </div>
   );
+}
+
+export default EventsPage;
+
+
+// Fetch articles and pass them as props
+export async function getServerSideProps() {
+  const events = await fetchEventsFromNotion();
+  return { props: { events } };
 }

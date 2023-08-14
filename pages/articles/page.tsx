@@ -1,12 +1,10 @@
 import { Poppins } from "next/font/google";
-import { EventCard } from "../(components)/bigCard";
-import Button from "../(components)/Button";
-import stockImg1 from "../(images)/events1.png";
-import stockImg2 from "../(images)/events2.png";
-import stockImg3 from "../(images)/events3.png";
+import { EventCard } from "@/app/(components)/bigCard"; // Import your EventCard component
+import { fetchArticlesFromNotion } from "../../artsData";
 import React from "react";
-import "../globals.scss";
+//import '../src/app/globals.scss'
 import { css } from "@linaria/core";
+import Button from "../../src/app/(components)/Button";
 
 const title = css`
   padding: 0;
@@ -31,19 +29,27 @@ function trimDescription(description: string, maxLength: number): string {
 }
 
 
-const fetchArticlesFromNotion = async () => {
-  const res = await fetch(`${process.env.API_ENDPOINT}/articlesApi`, {
-    method: "GET",
-    headers: {
-      "Cache-Control": "no-store, no-cache",
-    },
-  });
-  const data = await res.json();
-  return JSON.parse(JSON.stringify(data));
-};
+// const fetchArticlesFromNotion = async () => {
+//   const res = await fetch(`${process.env.API_ENDPOINT}/articlesApi`, {
+//     method: "GET",
+//     headers: {
+//       "Cache-Control": "no-store, no-cache",
+//     },
+//   });
+//   const data = await res.json();
+//   console.log(data)
+//   return JSON.parse(JSON.stringify(data));
+// };
 
-export default async function ArticlesPage() {
-  const arts: artStruct = await fetchArticlesFromNotion();
+
+
+interface DynamicPageProps {
+  articles: artStruct; // Use the artStruct type here
+}
+
+const ArticlesPage = ({ articles }: DynamicPageProps) => {
+
+  console.log(articles)
 
   return (
     <>
@@ -58,7 +64,7 @@ export default async function ArticlesPage() {
           universities – everything we do is about our communities.
         </p>
 
-        {arts.map((art, index) => (
+        {articles.map((art, index) => (
           <EventCard
             key={index}
             title={art.name}
@@ -96,4 +102,13 @@ export default async function ArticlesPage() {
       </div>
     </>
   );
+}
+
+export default ArticlesPage
+
+// Fetch articles and pass them as props
+export async function getServerSideProps() {
+  console.log("hello");
+  const articles = await fetchArticlesFromNotion();
+  return { props: { articles } };
 }
