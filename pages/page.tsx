@@ -2,12 +2,14 @@
 import { Poppins } from "next/font/google";
 import React from "react";
 import Image from "next/image";
-import Card from "./(components)/Card";
-import Button from "./(components)/Button";
+import Card from "../src/app/(components)/Card";
+import Button from "../src/app/(components)/Button";
 import LandingImage from "./(images)/Landingimage.svg";
 import Mouse from "./(images)/mouse.svg";
 import Arrow from "./(images)/arrow.png";
 import BigImage from "./(images)/bigimage.png";
+import { fetchEventsFromNotion } from "../eventsData";
+import { fetchArticlesFromNotion } from "../artsData";
 
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 
@@ -96,26 +98,31 @@ const fetchFromNotion = async () => {
   return JSON.parse(JSON.stringify(data));
 };
 
-const fetchArticlesFromNotion = async () => {
+// const fetchArticlesFromNotion = async () => {
 
-  const res = await fetch(`${process.env.API_ENDPOINT}/articlesApi`, {
-    method: "GET",
-    headers: {
-      "Cache-Control": "no-store, no-cache",
-    },
+//   const res = await fetch(`${process.env.API_ENDPOINT}/articlesApi`, {
+//     method: "GET",
+//     headers: {
+//       "Cache-Control": "no-store, no-cache",
+//     },
     
-  });
-  const data = await res.json();
-  return JSON.parse(JSON.stringify(data));
-};
+//   });
+//   const data = await res.json();
+//   return JSON.parse(JSON.stringify(data));
+// };
 
-export default async function Home() {
-  const rows: rowsStruct = await fetchFromNotion();
-  const arts: artStruct = await fetchArticlesFromNotion();
+
+interface HomePageProps {
+  events: rowsStruct; // Use the artStruct type here
+  articles: artStruct;
+}
+
+const Home = ({ events, articles }: HomePageProps) => {
+
 
   return (
     <>
-      <Image className={headerImage} src={LandingImage} alt="Landing Image" />
+      {/* <Image className={headerImage} src={LandingImage} alt="Landing Image" /> */}
 
       <div className={layoutContainer}>
         <div className={container}>
@@ -129,17 +136,17 @@ export default async function Home() {
 
           <div className={icon}>
             <h3 className={h3style}>OUR HISTORY</h3>
-            <Image
+            {/* <Image
               src={Arrow}
               alt="Arrow"
               className={icon}
               width={70}
               height={30}
-            ></Image>
+            ></Image> */}
           </div>
 
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <Image src={BigImage} alt="Town" width={930} height={750} />
+            {/* <Image src={BigImage} alt="Town" width={930} height={750} /> */}
           </div>
         </div>
 
@@ -147,7 +154,7 @@ export default async function Home() {
         <h1 className={title}>EVENTS</h1>
 
         <div className={cardrow}>
-          {rows.slice(0, 3).map((event, index) => (
+          {events.slice(0, 3).map((event, index) => (
             <div key={index} className={index === 1 ? cardSpace : undefined}>
               <Card
                 title={event.name}
@@ -180,7 +187,7 @@ export default async function Home() {
         </div>
 
         <div className={MouseImage}>
-          <Image src={Mouse} alt="Mouse Image" width={700}></Image>
+          {/* <Image src={Mouse} alt="Mouse Image" width={700}></Image> */}
         </div>
 
         <div className={cardContainer}>
@@ -188,7 +195,7 @@ export default async function Home() {
           <h1 className={title}>ARTICLES</h1>
 
           <div className={cardrow}>
-            {arts.slice(0, 3).map((art, index) => (
+            {articles.slice(0, 3).map((art, index) => (
               <div key={index} className={index === 1 ? cardSpace : undefined}>
                 <Card
                   title={art.name}
@@ -223,4 +230,12 @@ export default async function Home() {
       </div>
     </>
   );
+}
+
+export default Home;
+
+export async function getServerSideProps() {
+  const articles = await fetchArticlesFromNotion();
+  const events = await fetchEventsFromNotion();
+  return { props: { articles, events } };
 }

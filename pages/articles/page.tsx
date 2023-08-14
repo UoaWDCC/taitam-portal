@@ -29,27 +29,12 @@ function trimDescription(description: string, maxLength: number): string {
 }
 
 
-// const fetchArticlesFromNotion = async () => {
-//   const res = await fetch(`${process.env.API_ENDPOINT}/articlesApi`, {
-//     method: "GET",
-//     headers: {
-//       "Cache-Control": "no-store, no-cache",
-//     },
-//   });
-//   const data = await res.json();
-//   console.log(data)
-//   return JSON.parse(JSON.stringify(data));
-// };
-
-
-
 interface DynamicPageProps {
   articles: artStruct; // Use the artStruct type here
 }
 
 const ArticlesPage = ({ articles }: DynamicPageProps) => {
 
-  console.log(articles)
 
   return (
     <>
@@ -108,7 +93,6 @@ export default ArticlesPage
 
 // Fetch articles and pass them as props
 export async function getServerSideProps() {
-  console.log("hello");
   const articles = await fetchArticlesFromNotion();
   return { props: { articles } };
 }
