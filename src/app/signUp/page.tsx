@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import "./signUp.page.css";
@@ -18,7 +18,9 @@ export default function SignUpPage() {
   const { errors } = formState;
 
   const [selectedEducation, setSelectedEducation] = useState("");
-  const [lookingForWork, setLookingForWork] = useState<"Yes" | "No" | undefined>(undefined);
+  const [lookingForWork, setLookingForWork] = useState<
+    "Yes" | "No" | undefined
+  >(undefined);
 
   useEffect(() => {
     setLookingForWork(undefined);
@@ -114,7 +116,8 @@ export default function SignUpPage() {
               id="education"
               {...register("education", {
                 required: "Education level required",
-                validate: (value) => value !== "" || "Please select a valid education level",
+                validate: (value) =>
+                  value !== "" || "Please select a valid education level",
               })}
               value={selectedEducation}
               onChange={(e) => setSelectedEducation(e.target.value)}
@@ -128,7 +131,7 @@ export default function SignUpPage() {
 
           <div className="input-container">
             <div className="error-signUp">
-              <p className="form-info">What's your Employment Status?</p>
+              <p className="form-info">What&apos;s your Employment Status?</p>
               <div className="error-msg">
                 <p className="error">{errors.employment?.message}</p>
               </div>
@@ -183,7 +186,7 @@ export default function SignUpPage() {
 
           <div className="input-container">
             <div className="error-signUp">
-              <p className="form-info">What's your degree?</p>
+              <p className="form-info">What&apos;s your degree?</p>
               <div className="error-msg">
                 <p className="error">{errors.studyingDegree?.message}</p>
               </div>
