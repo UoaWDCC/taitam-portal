@@ -7,14 +7,37 @@ import ArticlesCard from "../../(components)/ArticlesCard";
 import stockImg from "../../(images)/events3.png";
 
 const headerImage = css`
-  max-width: 1119px;
-  height: 320px;
-  display: block;
+  max-width: 100%;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
   margin-top: -70px;
   z-index: -1;
   position: absolute;
+
+  img {
+    border: 1px solid #000;
+  }
+
+  @media only screen and (max-width: 600px) {
+    margin-left: auto;
+    margin-right: auto;
+    z-index: -1;
+    position: absolute;
+    height: auto;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-left: 16px;
+      margin-top: 45px;
+      margin-right: 16px;
+      border: 1px solid #000;
+    }
+  }
+
+  @media only screen and (min-width: 601px) and (max-width: 1024px) {
+  }
 `;
 
 const title = css`
@@ -22,11 +45,25 @@ const title = css`
   color: #f96e47;
   text-align: left;
   font-size: 96px;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 36px;
+    padding: 0;
+    color: #f96e47;
+    text-align: left;
+    margin-left: 16px;
+    margin-top: 55px;
+  }
 `;
 
 const root = css`
   max-width: 1200px;
   margin: 50px auto 100px auto;
+
+  @media only screen and (max-width: 600px) {
+    max-width: 600px;
+    margin: 50px auto 100px auto;
+  }
 `;
 
 const cardContainer = css`
@@ -35,6 +72,14 @@ const cardContainer = css`
   flex-flow: column wrap;
   justify-content: space-between;
   margin-top: 280px;
+
+  @media only screen and (max-width: 600px) {
+    margin-left: 27px;
+    display: block;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    margin-top: 90px;
+  }
 `;
 
 export default function ThirdArticle() {
