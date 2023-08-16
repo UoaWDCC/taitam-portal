@@ -9,6 +9,7 @@ import React from "react";
 import "../globals.scss";
 import { css } from "@linaria/core";
 import SmallCard from "../(components)/Card";
+import { useState,useEffect } from "react";
 
 const title = css`
   padding: 0;
@@ -54,8 +55,24 @@ const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 const poppinsRegular = Poppins({ weight: "400", subsets: ["latin"] });
 
 export default function ArticlesPage() {
+  const [windowWidth, setWindowWidth] = useState(1920);
+
+  useEffect(() => {
+    // Function to update window width
+    const updateWindowWidth = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    // Attach event listener for window resize
+    window.addEventListener('resize', updateWindowWidth);
+
+    // Cleanup: remove event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', updateWindowWidth);
+    };
+  }, []); // Empty dependency array means this effect runs only once after initial render
   const cards =
-    window.innerWidth < 600 ? (
+    windowWidth < 600 ? (
       <>
         <div className={smallCard}>
           <SmallCard
