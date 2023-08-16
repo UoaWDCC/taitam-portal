@@ -17,7 +17,7 @@ jobs:
           node-version: 16
 
       - name: Create env file
-        run: echo ${{ secrets.BACKEND_ENVFILE }} | base64 --decode > gae_env.yaml
+        run: echo ${{ secrets.BACKEND_ENVFILE }} | base64 --decode > .env
 
       - run: yarn
 
