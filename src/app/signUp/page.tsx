@@ -43,17 +43,7 @@ export default function SignUpPage() {
     const name = getValues("name");
     const employment = getValues("employment");
     const degree = getValues("studyingDegree");
-    if (
-      degree === "" ||
-      degree === undefined ||
-      selectedEducation === "" ||
-      selectedEducation === undefined ||
-      lookingForWork === undefined ||
-      name === "" ||
-      name === undefined ||
-      employment === "" ||
-      employment === undefined
-    ) {
+    if (!degree || !selectedEducation || !lookingForWork || !name || !employment) {
       return toast.error("Form needs to be filled");
     }
     createWithEmailAndPassword(email, password).then(
@@ -62,16 +52,14 @@ export default function SignUpPage() {
         console.log("SUCCESS!");
         createUser(name, email, selectedEducation, employment, lookingForWork, degree);
         return toast.success("You successfully signed up.");
-      },
-      (err) => {
+      }).catch (err => {
         console.log("FAILED...", err);
         if (password.length < 6) {
           return toast.error("Password should be atleast six characters");
         } else {
           return toast.error(err.code);
         }
-      }
-    );
+      });
   };
 
   return (
