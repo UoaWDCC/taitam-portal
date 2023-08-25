@@ -4,19 +4,10 @@ import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import { createWithEmailAndPassword, createUser } from "../firebase/firebase";
 import "./signUp.page.css";
-
-type Inputs = {
-  name: string;
-  email: string;
-  password: string;
-  education: string;
-  employment: string;
-  lookingForWork: "Yes" | "No" | undefined;
-  studyingDegree: string;
-};
+import DbUser from "../user";
 
 export default function SignUpPage() {
-  const form = useForm<Inputs>();
+  const form = useForm();
   const { register, handleSubmit, formState, getValues } = form;
   const { errors } = formState;
 
@@ -29,12 +20,11 @@ export default function SignUpPage() {
     setLookingForWork(undefined);
   }, []);
 
-  const onSubmit = (data: Inputs) => {
+  const onSubmit = () => {
     if (!selectedEducation || selectedEducation === "") {
       console.log("Please select a valid education level");
       return;
     }
-    console.log(data);
   };
 
   const handleSignUp = (): any => {
@@ -50,7 +40,14 @@ export default function SignUpPage() {
       (response) => {
         form.reset();
         console.log("SUCCESS!");
-        createUser(name, email, selectedEducation, employment, lookingForWork, degree);
+        createUser({
+          name: name,
+          email: email,
+          education: selectedEducation,
+          employment: employment,
+          lookingForWork: lookingForWork,
+          studyingDegree: degree,
+        });
         return toast.success("You successfully signed up.");
       }).catch (err => {
         console.log("FAILED...", err);

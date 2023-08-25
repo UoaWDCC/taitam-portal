@@ -2,12 +2,13 @@
 import { initializeApp } from "firebase/app";
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, User } from "firebase/auth"
 import {getFirestore, collection, addDoc} from 'firebase/firestore';
+import DbUser from "../user";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN ,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID ,
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
@@ -37,9 +38,9 @@ export function onAuthStateChangedHelper(callback: (user: User | null) => void) 
 }
 
 //Stores the newly created user information on firestore
-export function createUser(name: string, email: string, educationLevel: string, employment: string, isLookingForWork: "Yes" | "No" | undefined, degree: string) {
+export function createUser(data: DbUser) {
   const userCollectionRef = collection(db,"users")
-  return addDoc(userCollectionRef, {degree, isLookingForWork, employment, educationLevel, email, name})
+  return addDoc(userCollectionRef,data)
 } 
 
 
