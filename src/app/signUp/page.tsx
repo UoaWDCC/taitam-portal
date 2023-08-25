@@ -1,20 +1,14 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from "react-toastify";
+import { createWithEmailAndPassword, createUser } from "../firebase/firebase";
 import "./signUp.page.css";
-
-type Inputs = {
-  name: string;
-  email: string;
-  password: string;
-  education: string;
-  employment: string;
-  lookingForWork: "Yes" | "No" | undefined;
-  studyingDegree: string;
-};
+import DbUser from "../user";
 
 export default function SignUpPage() {
-  const { register, handleSubmit, formState } = useForm<Inputs>();
+  const form = useForm();
+  const { register, handleSubmit, formState, getValues } = form;
   const { errors } = formState;
 
   const [selectedEducation, setSelectedEducation] = useState("");
@@ -26,12 +20,43 @@ export default function SignUpPage() {
     setLookingForWork(undefined);
   }, []);
 
-  const onSubmit = (data: Inputs) => {
+  const onSubmit = () => {
     if (!selectedEducation || selectedEducation === "") {
       console.log("Please select a valid education level");
       return;
     }
-    console.log(data);
+  };
+
+  const handleSignUp = (): any => {
+    const email = getValues("email");
+    const password = getValues("password");
+    const name = getValues("name");
+    const employment = getValues("employment");
+    const degree = getValues("studyingDegree");
+    if (!degree || !selectedEducation || !lookingForWork || !name || !employment) {
+      return toast.error("Form needs to be filled");
+    }
+    createWithEmailAndPassword(email, password).then(
+      (response) => {
+        form.reset();
+        console.log("SUCCESS!");
+        createUser({
+          name: name,
+          email: email,
+          education: selectedEducation,
+          employment: employment,
+          lookingForWork: lookingForWork,
+          studyingDegree: degree,
+        });
+        return toast.success("You successfully signed up.");
+      }).catch (err => {
+        console.log("FAILED...", err);
+        if (password.length < 6) {
+          return toast.error("Password should be atleast six characters");
+        } else {
+          return toast.error(err.code);
+        }
+      });
   };
 
   return (
@@ -203,12 +228,24 @@ export default function SignUpPage() {
           </div>
 
           <div className="button-container">
-            <button type="submit" className="button">
+            <button type="submit" className="button" onClick={handleSignUp}>
               Sign Up
             </button>
           </div>
         </form>
       </div>
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   );
 }
