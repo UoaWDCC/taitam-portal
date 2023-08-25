@@ -71,7 +71,7 @@ export default function SignUpPage() {
             <div className="error-signUp">
               <p className="form-info">Full Name*</p>
               <div className="error-msg">
-                <p className="error">{errors.name?.message}</p>
+                <p className="error">{errors.name?.message?.toString() ?? ""}</p>
               </div>
             </div>
             <input
@@ -92,7 +92,7 @@ export default function SignUpPage() {
             <div className="error-signUp">
               <p className="form-info">Email</p>
               <div className="error-msg">
-                <p className="error">{errors.email?.message}</p>
+                <p className="error">{errors.email?.message?.toString() ?? ""}</p>
               </div>
             </div>
             <input
@@ -115,7 +115,7 @@ export default function SignUpPage() {
             <div className="error-signUp">
               <p className="form-info">Password</p>
               <div className="error-msg">
-                <p className="error">{errors.password?.message}</p>
+                <p className="error">{errors.password?.message?.toString() ?? ""}</p>
               </div>
             </div>
             <input
@@ -133,7 +133,7 @@ export default function SignUpPage() {
             <div className="error-signUp">
               <p className="form-info">Education Level</p>
               <div className="error-msg">
-                <p className="error">{errors.education?.message}</p>
+                <p className="error">{errors.education?.message?.toString() ?? ""}</p>
               </div>
             </div>
             <select
@@ -158,7 +158,7 @@ export default function SignUpPage() {
             <div className="error-signUp">
               <p className="form-info">What&apos;s your Employment Status?</p>
               <div className="error-msg">
-                <p className="error">{errors.employment?.message}</p>
+                <p className="error">{errors.employment?.message?.toString() ?? ""}</p>
               </div>
             </div>
             <input
@@ -176,7 +176,7 @@ export default function SignUpPage() {
             <div className="error-signUp">
               <p className="form-info">Are you looking for work?</p>
               <div className="error-msg">
-                <p className="error">{errors.lookingForWork?.message}</p>
+                <p className="error">{errors.lookingForWork?.message?.toString() ?? ""}</p>
               </div>
             </div>
             <div>
@@ -213,7 +213,7 @@ export default function SignUpPage() {
             <div className="error-signUp">
               <p className="form-info">What&apos;s your degree?</p>
               <div className="error-msg">
-                <p className="error">{errors.studyingDegree?.message}</p>
+                <p className="error">{errors.studyingDegree?.message?.toString() ?? ""}</p>
               </div>
             </div>
             <input
