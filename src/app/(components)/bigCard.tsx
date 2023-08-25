@@ -1,43 +1,57 @@
 ﻿import { Poppins } from "next/font/google";
 import heart from "../(images)/heart.svg";
 import React from "react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import Button, { ButtonProps } from "./Button";
+import {css} from "@linaria/core";
 
 type CardProps = {
   title: string;
   date: string;
   paragraph: string;
-  image: StaticImageData;
+  imageUrl: string;
   btn: ButtonProps;
 };
 
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 const poppinsRegular = Poppins({ weight: "400", subsets: ["latin"] });
 
-export const BigCard = ({ title, date, paragraph, image, btn }: CardProps) => (
+
+const mainBox = css`
+        border: solid black 1px;
+        box-shadow: 0 3px 0 4px;
+        display: grid;
+        grid-template-columns: auto% auto%;
+        grid-template-rows: auto;
+        background-color: white;
+        margin: 50px 0;
+`
+
+const bottomControls = css`
+        margin-top: 64px;
+        width: 100%;
+        
+         @media (max-width: 800px) {
+    margin-top: 32px;
+    
+    @media (max-width: 800px) {
+    margin-top: 12px;
+  }
+`
+
+export const BigCard = ({ title, date, paragraph, imageUrl, btn }: CardProps) => (
   <aside>
-    <div
-      style={{
-        border: "solid black 1px",
-        boxShadow: "0 3px 0 4px",
-        display: "grid",
-        gridTemplateColumns: "53% 47%",
-        gridTemplateRows: "auto",
-        backgroundColor: "white",
-        margin: "50px 0",
-      }}
-    >
+    <div className={mainBox}>
       <div
         style={{
           margin: "auto 0",
           gridColumnStart: "1",
-          width: "100%",
+          height: "100%",
           position: "relative",
-          paddingTop: "50.7%",
-        }}
+            overflow: "hidden"
+      }}
       >
-        <Image src={image} alt="Stockholder image 1" fill={true} />
+        <img src={imageUrl} alt={"image"} style={{height: "100%", left: "50%"}}/>
       </div>
       <div
         style={{
@@ -59,7 +73,7 @@ export const BigCard = ({ title, date, paragraph, image, btn }: CardProps) => (
           {date}
         </p>
         <p style={{ lineHeight: "30px" }}>{paragraph}</p>
-        <div style={{ position: "absolute", bottom: "0", width: "100%" }}>
+        <div className={bottomControls}>
           <div
             className={poppinsMedium.className}
             style={{

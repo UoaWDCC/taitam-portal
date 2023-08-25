@@ -133,7 +133,7 @@ export default function EventsPage() {
                         paragraph={
                             "Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
                         }
-                        image={stockImg1}
+                        imageUrl={stockImg1.src}
                         btn={{
                             text: "Sign Up",
                             href: "https://events.humanitix.com/test-event-1-o7k7hc2f",
@@ -147,7 +147,7 @@ export default function EventsPage() {
                         paragraph={
                             "Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
                         }
-                        image={stockImg2}
+                        imageUrl={stockImg2.src}
                         btn={{
                             text: "Sign Up",
                             href: "https://events.humanitix.com/test-event-2-2d9curo3",
@@ -161,7 +161,7 @@ export default function EventsPage() {
                         paragraph={
                             "Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
                         }
-                        image={stockImg3}
+                        imageUrl={stockImg3.src}
                         btn={{
                             text: "Sign Up",
                             href: "https://events.humanitix.com/test-event-3-hbr5ydfn",

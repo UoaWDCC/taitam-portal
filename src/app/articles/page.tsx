@@ -42,7 +42,7 @@ export default function ArticlesPage() {
           paragraph={
             "Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
           }
-          image={stockImg1}
+          imageUrl={stockImg1}
           btn={{
             text: "Read More",
             href: "/articles/first-article",
@@ -56,7 +56,7 @@ export default function ArticlesPage() {
           paragraph={
             "Work in teams to solve real-world tech problems and present your solutions to a panel of judges for a chance to win prizes. Put your skills to the test and make valuable connections at our annual Hackathon."
           }
-          image={stockImg2}
+          imageUrl={stockImg2}
           btn={{
             text: "Read More",
             href: "/articles/second-article",
@@ -70,7 +70,7 @@ export default function ArticlesPage() {
           paragraph={
             "Develop your communication, teamwork, and adaptability skills at our Soft Skills Workshop. Led by experienced professionals, this workshop will teach you the skills you need to succeed in the tech industry."
           }
-          image={stockImg3}
+          imageUrl={stockImg3}
           btn={{
             text: "Read More",
             href: "/articles/third-article",
