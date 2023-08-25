@@ -53,6 +53,7 @@ const smallCard = css`
   flex-direction: column;
   align-items: center;
   flex-wrap: nowrap;
+  margin: 0 33px 40px 30px;
 `;
 
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
