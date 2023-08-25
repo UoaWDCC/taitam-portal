@@ -141,7 +141,7 @@
     margin: 0 8rem 0 8rem;
   }
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1024px) {
     .main {
       flex-direction: column; /* Change the flex direction to stack elements vertically */
       align-items: center; /* Center the items horizontally */

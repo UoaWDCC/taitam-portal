@@ -183,7 +183,7 @@
 }
 
 /* Small screens */
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
   .main {
     flex-direction: column-reverse; /* Reverse the order of flex items */
   }
