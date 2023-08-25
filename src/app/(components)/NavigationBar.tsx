@@ -19,6 +19,11 @@ function NavigationBar() {
     return () => unsubscribe();
   }, []);
 
+  const handleToggleLinks = () => {
+    setShowLinks(!showLinks);
+  };
+
+
   function handleChange() {
     user && SignOut();
     console.log("You have logged out");
@@ -67,7 +72,7 @@ function NavigationBar() {
               CONTACT
             </a>
           </li>
-          <a className={styles.buttonContainer} href="/login">
+          <a className={styles.buttonContainer} href="/logIn">
             <button className={styles.logIn} onClick={handleChange}>
               <div className={styles.userIconContainer}>
                 <img src="Icon.png" alt="" />
