@@ -3,6 +3,7 @@ import heart from "../(images)/heart.svg";
 import React from "react";
 import Image, { StaticImageData } from "next/image";
 import Button, { ButtonProps } from "./Button";
+import { css } from "@linaria/core";
 
 type CardProps = {
   title: string;
@@ -15,26 +16,40 @@ type CardProps = {
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 const poppinsRegular = Poppins({ weight: "400", subsets: ["latin"] });
 
-export const EventCard = ({ title, date, paragraph, image, btn }: CardProps) => (
+const cardStyle = css`
+  border: solid black 1px;
+  box-shadow: 0 3px 0 4px;
+  display: grid;
+  grid-template-columns: auto minmax(350px, 47%);
+  grid-template-rows: auto;
+  background-color: white;
+  margin: 50px 0;
+`;
+
+const divStyle = css`
+  height: 100%;
+
+  img {
+    object-fit: cover;
+  }
+`;
+
+export const EventCard = ({
+  title,
+  date,
+  paragraph,
+  image,
+  btn,
+}: CardProps) => (
   <aside>
-    <div
-      style={{
-        border: "solid black 1px",
-        boxShadow: "0 3px 0 4px",
-        display: "grid",
-        gridTemplateColumns: "53% 47%",
-        gridTemplateRows: "auto",
-        backgroundColor: "white",
-        margin: "50px 0",
-      }}
-    >
+    <div className={cardStyle}>
       <div
+        className={divStyle}
         style={{
           margin: "auto 0",
           gridColumnStart: "1",
           width: "100%",
           position: "relative",
-          paddingTop: "50.7%",
         }}
       >
         <Image src={image} alt="Stockholder image 1" fill={true} />
@@ -58,7 +73,7 @@ export const EventCard = ({ title, date, paragraph, image, btn }: CardProps) => 
         >
           {date}
         </p>
-        <p style={{ lineHeight: "30px" }}>{paragraph}</p>
+        <p style={{ lineHeight: "30px", paddingBottom: "50px" }}>{paragraph}</p>
         <div style={{ position: "absolute", bottom: "0", width: "100%" }}>
           <div
             className={poppinsMedium.className}

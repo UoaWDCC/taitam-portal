@@ -182,4 +182,64 @@
   text-align: left;
 }
 
+/* Small screens */
+@media (max-width: 1000px) {
+  .main {
+    flex-direction: column-reverse; /* Reverse the order of flex items */
+  }
+
+  .account-existing {
+    margin: 0;
+    padding: 0;
+    margin-left: 3rem;
+    order: 2; /* Change the order to place it at the bottom */
+  }
+
+  .form {
+    width: 80%; /* Adjust as needed */
+  }
+
+  .log-in-header {
+    font-size: 48px; /* Adjust as needed */
+    margin: 0;
+    padding: 0;
+    line-height: 0.8;
+  }
+
+  .input-container {
+    margin-bottom: 10px; /* Adjust as needed */
+  }
+
+  .input {
+    width: 100%;
+  }
+
+  .button {
+    margin-top: 1rem;
+  }
+
+  .create-new-acc {
+    margin: 1.5rem;
+    padding-top: 1.5rem; /* Adjust as needed */
+    padding-left: 2rem;
+    order: 1; /* Change the order to place it at the top */
+    border-left: none;
+    background-color: #ffffff;
+    box-shadow: -1px 2px 4px 2px #000000;
+    height: 14rem;
+    width: 80%;
+  }
+
+  .new-here {
+    font-size: 48px; /* Adjust as needed */
+    margin-top: 1rem;
+    padding: 0;
+  }
+
+  .create-new-acc-text {
+    font-size: 14px; /* Adjust as needed */
+    margin-top: 1rem;
+  }
+}
+
 

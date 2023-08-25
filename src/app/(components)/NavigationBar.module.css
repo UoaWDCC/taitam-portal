@@ -24,6 +24,11 @@
   cursor: pointer;
   text-decoration: none;
   font-weight: 700;
+  /* word-wrap: break-word; */
+}
+
+.linksContainer {
+  margin-left: 20rem;
 }
 
 .linksContainer li {
@@ -37,7 +42,7 @@
   text-decoration: none;
   cursor: pointer;
   padding: 0 0.5rem;
-  font-weight: 400;
+  /* font-weight: 400; */
 }
 
 .active {
@@ -76,4 +81,69 @@
 .logIn:hover {
   background-color: #f96e47;
   transform: scale(0.9);
+}
+
+@media screen and (max-width: 600px) {
+  .logoContainer {
+    margin-left: 2rem;
+  }
+
+  .linksContainer {
+    display: none;
+  }
+
+  .linksContainer.showLinks {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 4.25rem;
+    right: 0;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    z-index: 999;
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .showLinks .linksContainer {
+    transform: translateX(0);
+  }
+
+  .mobileButton.showLinks .burgerIcon {
+    transform: rotate(90deg);
+  }
+
+  .linksContainer.showLinks li {
+    margin-bottom: 3rem; 
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  /* make the links in the side bar a different color */
+  .linksContainer.showLinks li a {
+    color: #f96e47;
+  }
+  .mobileButton {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 2rem;
+  }
+
+  .burgerIcon {
+    width: 30px;
+    height: 4px;
+    background-color: #000;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .showLinks .burgerIcon {
+    transform: rotate(45deg);
+  }
+
+  .mobileButton.showLinks .burgerIcon {
+    transform: rotate(225deg);
+  }
 }

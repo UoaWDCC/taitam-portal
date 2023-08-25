@@ -6,6 +6,8 @@ import { SignOut, onAuthStateChangedHelper } from "../firebase/firebase";
 import { User } from "firebase/auth";
 
 function NavigationBar() {
+
+  const [showLinks, setShowLinks] = useState(false);
   const pathname = usePathname();
   // Init user state
   const [user, setUser] = useState<User | null>(null);
@@ -25,19 +27,17 @@ function NavigationBar() {
   return (
     <main>
       <nav className={styles.navigationBar}>
-        <div className={styles["logoContainer"]}>
+        <div className={styles.logoContainer}>
           <a className={styles.taitamHome} href="/">
-            TAITAMARIKI <br></br>
+            TAITAMARIKI <br />
             POTENTIA
           </a>
         </div>
 
-        <ul className={styles["linksContainer"]}>
+        <ul className={`${styles.linksContainer} ${showLinks ? styles.showLinks : ""}`}>
           <li>
             <a
-              className={
-                pathname === "/about" ? styles.active : styles.navLinks
-              }
+              className={pathname === "/about" ? styles.active : styles.navLinks}
               href="/about"
             >
               ABOUT
@@ -45,9 +45,7 @@ function NavigationBar() {
           </li>
           <li>
             <a
-              className={
-                pathname === "/events" ? styles.active : styles.navLinks
-              }
+              className={pathname === "/events" ? styles.active : styles.navLinks}
               href="/events"
             >
               EVENTS
@@ -55,9 +53,7 @@ function NavigationBar() {
           </li>
           <li>
             <a
-              className={
-                pathname === "/articles" ? styles.active : styles.navLinks
-              }
+              className={pathname === "/articles" ? styles.active : styles.navLinks}
               href="/articles"
             >
               ARTICLES
@@ -65,9 +61,7 @@ function NavigationBar() {
           </li>
           <li>
             <a
-              className={
-                pathname === "/contact" ? styles.active : styles.navLinks
-              }
+              className={pathname === "/contact" ? styles.active : styles.navLinks}
               href="/contact"
             >
               CONTACT
@@ -82,8 +76,16 @@ function NavigationBar() {
             </button>
           </a>
         </ul>
+
+        <div
+          className={`${styles.mobileButton} ${showLinks ? styles.showLinks : ""}`}
+          onClick={handleToggleLinks}
+        >
+          <span className={styles.burgerIcon}></span>
+        </div>
       </nav>
     </main>
   );
 }
+
 export default NavigationBar;
