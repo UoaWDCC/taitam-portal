@@ -9,7 +9,7 @@ import React from "react";
 import "../globals.scss";
 import { css } from "@linaria/core";
 import SmallCard from "../(components)/Card";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const title = css`
   padding: 0;
@@ -33,6 +33,10 @@ const root = css`
   @media only screen and (max-width: 600px) {
     margin: 0 20px 0 20px;
   }
+
+  @media only screen and (max-width: 1024px) {
+    margin: 0 33px 0 33px;
+  }
 `;
 
 const paragraph = css`
@@ -49,6 +53,7 @@ const smallCard = css`
   flex-direction: column;
   align-items: center;
   flex-wrap: nowrap;
+  margin: 0 33px 40px 30px;
 `;
 
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
@@ -64,11 +69,11 @@ export default function ArticlesPage() {
     };
 
     // Attach event listener for window resize
-    window.addEventListener('resize', updateWindowWidth);
+    window.addEventListener("resize", updateWindowWidth);
 
     // Cleanup: remove event listener on component unmount
     return () => {
-      window.removeEventListener('resize', updateWindowWidth);
+      window.removeEventListener("resize", updateWindowWidth);
     };
   }, []); // Empty dependency array means this effect runs only once after initial render
   const cards =

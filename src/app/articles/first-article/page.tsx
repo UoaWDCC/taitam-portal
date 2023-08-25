@@ -35,6 +35,22 @@ const headerImage = css`
       border: 1px solid #000;
     }
   }
+
+  @media only screen and (max-width: 1024px) {
+    margin-left: auto;
+    margin-right: auto;
+    z-index: -1;
+    position: absolute;
+    height: auto;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-left: 28px;
+      margin-top: 40px;
+      margin-right: 28px;
+    }
+  }
 `;
 
 const title = css`
@@ -50,6 +66,15 @@ const title = css`
     text-align: left;
     margin-left: 16px;
     margin-top: 55px;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    font-size: 48px;
+    padding: 0;
+    color: #f96e47;
+    text-align: left;
+    margin-left: 34px;
+    margin-top: 43px;
   }
 `;
 
@@ -76,6 +101,14 @@ const cardContainer = css`
     flex-flow: column wrap;
     justify-content: space-between;
     margin-top: 90px;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    margin-left: 67px;
+    display: block;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    margin-top: 230px;
   }
 `;
 
