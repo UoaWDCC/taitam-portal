@@ -1,0 +1,101 @@
+import { useRouter } from "next/router";
+import { EventCard } from "@/app/(components)/bigCard"; // Import your EventCard component
+import { fetchArticlesFromNotion } from "../../../../artsData";
+import ArticlesCard from "@/app/(components)/ArticlesCard";
+import { css } from "@linaria/core";
+import Image from "next/image";
+
+const headerImage = css`
+  max-width: 1190px;
+  height: 310px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -70px;
+  z-index: -1;
+  position: absolute;
+`;
+
+const title = css`
+  padding: 0;
+  color: #f96e47;
+  text-align: left;
+  font-size: 96px;
+`;
+
+const root = css`
+  max-width: 1200px;
+  margin: 50px auto 100px auto;
+`;
+
+const cardContainer = css`
+  margin-left: 65px;
+  display: block;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  margin-top: 280px;
+`;
+
+export default async function Page({ params }: { params: { id: string } }) {
+  const articles: artStruct = await fetchArticlesFromNotion();
+
+  const articleId = parseInt(params.id);
+
+  const selectedArticle = articles[articleId];
+
+
+  return (
+    <>
+      <div className={root}>
+        <h1 className={title}>ARTICLES</h1>
+
+        <div className={headerImage}>
+          {selectedArticle && selectedArticle.cover && (
+            <Image
+              src={selectedArticle.cover}
+              width={1190}
+              height={310}
+              alt="Landing Image"
+            />
+          )}
+        </div>
+
+        <div className={cardContainer}>
+          <div>
+            {selectedArticle ? (
+              <ArticlesCard
+                title={selectedArticle.name}
+                reference={`By ${selectedArticle.author} | ${selectedArticle.date.start}`}
+                par1={selectedArticle.desc}
+                subtitle="A Networking Haven for Aspiring Tech Professionals:"
+                par2="Attending a career fair can be a game-changer for aspiring tech professionals..."
+                image={selectedArticle.cover}
+                par3="Our career fair is designed to cater to a wide range of tech career paths..."
+                par4="Aside from networking opportunities, our career fair also features informative sessions..."
+                par5="Attending a career fair is an excellent way to jumpstart your tech career..."
+              />
+            ) : (
+              <p>Loading...</p>
+            )}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+//   export async function generateStaticParams() {
+//     const posts = await fetchArticlesFromNotion()
+
+//     return posts.map((post) => ({
+//       slug: post.slug,
+//     }))
+//   }
+
+//   export async function generateStaticParams() {
+//     const articles:artStruct = await fetchArticlesFromNotion()
+
+//     return posts.map((post: { slug: any; }) => ({
+//       slug: post.slug,
+//     }))
+//   }

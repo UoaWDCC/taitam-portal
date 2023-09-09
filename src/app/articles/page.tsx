@@ -5,6 +5,7 @@ import React from "react";
 //import '../src/app/globals.scss'
 import { css } from "@linaria/core";
 import Button from "../(components)/Button";
+import Link from "next/link";
 
 const title = css`
   padding: 0;
@@ -28,9 +29,8 @@ function trimDescription(description: string, maxLength: number): string {
   return description;
 }
 
-
-export default async function ArticlesPage(){
-  const articles:artStruct = await fetchArticlesFromNotion();
+export default async function ArticlesPage() {
+  const articles: artStruct = await fetchArticlesFromNotion();
 
   return (
     <>
@@ -46,19 +46,24 @@ export default async function ArticlesPage(){
         </p>
 
         {articles.map((art, index) => (
-          <EventCard
-            key={index}
-            title={art.name}
-            date={`By ${art.author} | ${art.date.start}`}
-            paragraph={trimDescription(art.desc, 350)} //trim to 350 characters for articles page
-            image={art.cover}
-            btn={{
-              text: "Read More",
-              href: `/articles/${index}`,
-              type: "secondary",
-              width: "cardButton",
-            }}
-          />
+          <li key={index}>
+            <Link href={`/articles/${index}`}>{art.name}</Link>
+          </li>
+
+          // <EventCard
+          //   key={index}
+          //   title={art.name}
+          //   date={`By ${art.author} | ${art.date.start}`}
+          //   paragraph={trimDescription(art.desc, 350)} //trim to 350 characters for articles page
+          //   image={art.cover}
+          //   btn={{
+          //     text: "Read More",
+          //     href: `/articles/${index}`,
+          //     type: "secondary",
+          //     width: "cardButton",
+          //   }}
+
+          // />
         ))}
 
         <div
@@ -85,13 +90,11 @@ export default async function ArticlesPage(){
   );
 }
 
-
 // interface DynamicPageProps {
 //   articles: artStruct; // Use the artStruct type here
 // }
 
 // const ArticlesPage = ({ articles }: DynamicPageProps) => {
-
 
 //   return (
 //     <>
