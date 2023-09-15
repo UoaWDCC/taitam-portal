@@ -108,7 +108,7 @@ const cardContainer = css`
     display: block;
     flex-flow: column wrap;
     justify-content: space-between;
-    margin-top: 230px;
+    margin-top: 100px;
   }
 `;
 
