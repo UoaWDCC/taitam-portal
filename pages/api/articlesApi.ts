@@ -4,6 +4,7 @@ import { Url } from "next/dist/shared/lib/router/router";
 
 const notion = new Client({ auth: process.env.ARTICLES_SECRET });
 
+// how notion gives us the data
 type artRow = {
   Author: { id: string; rich_text: { text: { content: string } }[] };
   Date: {
@@ -42,6 +43,8 @@ export default async function handler(
   const rows = query.results.map((result) => result.properties) as artRow[];
 
 
+  // convert from notion data to ArticleData type 
+
   const arts: ArticleData[] = rows.map((row) => ({
     date: {
       start: row.Date.date.start,
@@ -56,16 +59,19 @@ export default async function handler(
     articleId: row.ArticleId.rich_text[0].text.content,
   }));
 
+  // add image covers
   const covers = query.results.map((res) => {
     const coverUrl = (res as { cover?: { file?: { url?: string } } })?.cover
       ?.file?.url;
     return coverUrl;
   });
 
+  // combine rows with covers
   const rowsWithCovers = arts.map((row, index) => ({
     ...row,
     cover: covers[index],
   }));
 
+  // return success
   res.status(200).json(rowsWithCovers);
 }

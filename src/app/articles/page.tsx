@@ -73,9 +73,6 @@ export default function ArticlesPage() {
 
   useEffect(() => {
     fetchArticlesFromNotion().then((arts: ArticleData[]) => {
-      console.log("IS THIS BEING CALLED BROTHERRRRRRRRRRRRRR");
-      console.log(arts);
-      console.log("CMON MANNNNNNNNNNNN");
       setArticles(arts);
     });
 

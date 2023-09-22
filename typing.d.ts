@@ -20,5 +20,5 @@ type ArticleData = {
   desc: string;
   name: string;
   cover: string;
-  Id: string;
+  articleId: string;
 };
