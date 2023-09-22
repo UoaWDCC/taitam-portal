@@ -9,6 +9,5 @@ export const fetchArticlesFromNotion = async (): Promise<ArticleData[]> => {
     }
   );
   const data = await res.json();
-  //console.log(data)
   return JSON.parse(JSON.stringify(data));
 };

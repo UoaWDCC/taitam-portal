@@ -6,7 +6,14 @@ const notion = new Client({ auth: process.env.ARTICLES_SECRET });
 
 type artRow = {
   Author: { id: string; rich_text: { text: { content: string } }[] };
-  Date: { id: string; date: string };
+  Date: {
+    id: string; 
+    date:{
+      start: string;
+      end: any;
+      timezone: any;  
+    }
+};
   Link: { id: string; url: string };
   Description: { id: string; rich_text: { text: { content: string } }[] };
   Name: { id: string; title: { text: { content: string } }[] };
@@ -31,44 +38,16 @@ export default async function handler(
     ],
   });
 
-
-  // const x = query.results.map((result) => result.properties);
-  // const notionResults = query.results.map
-
-  // console.log(notionResults)
-
-  // if("properties" in notionResults){
-  //   console.log("THIS IS HERE WE CAN MOVE ON")
-  // }
-
-  // const articleDataArray: ArticleData[] = notionResults.map((result) => {
-
-    
-  //   const article: ArticleData = {
-  //     date: result.properties.Date.date,
-  //     author: result.properties.Author.rich_text[0].text.content,
-  //     link: result.properties.Link.url,
-  //     desc: result.properties.Description.rich_text[0].text.content,
-  //     name: result.properties.Name.title[0].text.content,
-  //     cover: result.properties.Cover.file.url,
-  //     Id: result.properties.Id.text,
-  //   };
-  
-  //   return article;
-  // });
-
-  // console.log(query)
-
-
-
-
-
   // @ts-ignore
   const rows = query.results.map((result) => result.properties) as artRow[];
 
 
   const arts: ArticleData[] = rows.map((row) => ({
-    date: {start: row.Date.date},
+    date: {
+      start: row.Date.date.start,
+      end: row.Date.date.end,
+      timezone: row.Date.date.timezone,
+    },
     author: row.Author.rich_text[0].text.content,
     link: row.Link.url,
     desc: row.Description.rich_text[0].text.content,
