@@ -1,5 +1,5 @@
 export const fetchEventsFromNotion = async (): Promise<EventData[]> => {
-  const res = await fetch(`${process.env.API_ENDPOINT}/notion`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/notion`, {
     method: "GET",
     headers: {
       "Cache-Control": "no-store, no-cache",
@@ -8,3 +8,5 @@ export const fetchEventsFromNotion = async (): Promise<EventData[]> => {
   const data = await res.json();
   return JSON.parse(JSON.stringify(data));
 };
+
+

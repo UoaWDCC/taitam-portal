@@ -11,6 +11,7 @@ type artRow = {
   Description: { id: string; rich_text: { text: { content: string } }[] };
   Name: { id: string; title: { text: { content: string } }[] };
   Cover: { id: string; type: string; file: { url: string } };
+  ArticleId: { id: string; rich_text: { text: { content: string } }[] };
 };
 
 export default async function handler(
@@ -30,16 +31,50 @@ export default async function handler(
     ],
   });
 
+
+  // const x = query.results.map((result) => result.properties);
+  // const notionResults = query.results.map
+
+  // console.log(notionResults)
+
+  // if("properties" in notionResults){
+  //   console.log("THIS IS HERE WE CAN MOVE ON")
+  // }
+
+  // const articleDataArray: ArticleData[] = notionResults.map((result) => {
+
+    
+  //   const article: ArticleData = {
+  //     date: result.properties.Date.date,
+  //     author: result.properties.Author.rich_text[0].text.content,
+  //     link: result.properties.Link.url,
+  //     desc: result.properties.Description.rich_text[0].text.content,
+  //     name: result.properties.Name.title[0].text.content,
+  //     cover: result.properties.Cover.file.url,
+  //     Id: result.properties.Id.text,
+  //   };
+  
+  //   return article;
+  // });
+
+  // console.log(query)
+
+
+
+
+
   // @ts-ignore
   const rows = query.results.map((result) => result.properties) as artRow[];
 
-  const rowsStruct: artStruct = rows.map((row) => ({
-    date: row.Date.date,
+
+  const arts: ArticleData[] = rows.map((row) => ({
+    date: {start: row.Date.date},
     author: row.Author.rich_text[0].text.content,
     link: row.Link.url,
     desc: row.Description.rich_text[0].text.content,
     name: row.Name.title[0].text.content,
     cover: row.Cover?.file.url,
+    articleId: row.ArticleId.rich_text[0].text.content,
   }));
 
   const covers = query.results.map((res) => {
@@ -48,12 +83,10 @@ export default async function handler(
     return coverUrl;
   });
 
-  const rowsWithCovers = rowsStruct.map((row, index) => ({
+  const rowsWithCovers = arts.map((row, index) => ({
     ...row,
     cover: covers[index],
   }));
-
-  //console.log(rowsWithCovers)
 
   res.status(200).json(rowsWithCovers);
 }

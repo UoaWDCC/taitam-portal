@@ -73,7 +73,9 @@ export default function ArticlesPage() {
 
   useEffect(() => {
     fetchArticlesFromNotion().then((arts: ArticleData[]) => {
+      console.log("IS THIS BEING CALLED BROTHERRRRRRRRRRRRRR");
       console.log(arts);
+      console.log("CMON MANNNNNNNNNNNN");
       setArticles(arts);
     });
 
@@ -90,6 +92,7 @@ export default function ArticlesPage() {
       window.removeEventListener("resize", updateWindowWidth);
     };
   }, []);
+
 
   return (
     <>
@@ -110,7 +113,7 @@ export default function ArticlesPage() {
             {articles.map((art: ArticleData, index) => (
               <SmallCard
                 key={index}
-                title={art.name}
+                title={art.articleId}
                 imageUrl={art.cover}
                 body={trimDescription(art.desc, 200)}
                 btn={{
@@ -134,7 +137,7 @@ export default function ArticlesPage() {
                 image={art.cover}
                 btn={{
                   text: "Read More",
-                  href: `/articles/${index}`,
+                  href: `/articles/${art.articleId}`,
                   type: "secondary",
                   width: "cardButton",
                 }}
