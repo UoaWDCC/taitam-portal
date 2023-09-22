@@ -143,7 +143,13 @@ export default function ContactPage() {
         </div>
       </div>
       <div className="image">
-        <Image src={contactSVG} alt="contact" width={400} height={450} />
+        <Image
+          className="img"
+          src={contactSVG}
+          alt="contact"
+          width={400}
+          height={450}
+        />
       </div>
       <ToastContainer
         position="bottom-left"

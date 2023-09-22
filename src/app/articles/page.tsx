@@ -1,3 +1,5 @@
+"use client";
+
 import { Poppins } from "next/font/google";
 import { EventCard } from "@/app/(components)/bigCard"; // Import your EventCard component
 import { fetchArticlesFromNotion } from "../../../artsData";
@@ -6,17 +8,52 @@ import React from "react";
 import { css } from "@linaria/core";
 import Button from "../(components)/Button";
 import Link from "next/link";
+import SmallCard from "../(components)/Card";
+import { useState, useEffect } from "react";
 
 const title = css`
   padding: 0;
   color: #f96e47;
   text-align: left;
   font-size: 96px;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 36px;
+    padding: 0;
+    color: #f96e47;
+    text-align: left;
+    margin-top: 50px;
+  }
 `;
 
 const root = css`
   max-width: 1200px;
   margin: 50px auto 100px auto;
+
+  @media only screen and (max-width: 600px) {
+    margin: 0 20px 0 20px;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    margin: 0 33px 0 33px;
+  }
+`;
+
+const paragraph = css`
+  margin-top: -70px;
+
+  @media only screen and (max-width: 600px) {
+    margin-top: 0px;
+  }
+`;
+
+const smallCard = css`
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin: 0 33px 40px 30px;
 `;
 
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
@@ -29,8 +66,30 @@ function trimDescription(description: string, maxLength: number): string {
   return description;
 }
 
-export default async function ArticlesPage() {
-  const articles: artStruct = await fetchArticlesFromNotion();
+export default function ArticlesPage() {
+  const [articles, setArticles] = useState<ArticleData[]>([]);
+
+  const [windowWidth, setWindowWidth] = useState(1920);
+
+  useEffect(() => {
+    fetchArticlesFromNotion().then((arts: ArticleData[]) => {
+      console.log(arts);
+      setArticles(arts);
+    });
+
+    // Function to update window width
+    const updateWindowWidth = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    // Attach event listener for window resize
+    window.addEventListener("resize", updateWindowWidth);
+
+    // Cleanup: remove event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", updateWindowWidth);
+    };
+  }, []);
 
   return (
     <>
@@ -45,34 +104,57 @@ export default async function ArticlesPage() {
           universities – everything we do is about our communities.
         </p>
 
-        {articles.map((art, index) => (
-    
-          <EventCard
-            key={index}
-            title={art.name}
-            date={`By ${art.author} | ${art.date.start}`}
-            paragraph={trimDescription(art.desc, 350)} //trim to 350 characters for articles page
-            image={art.cover}
-            btn={{
-              text: "Read More",
-              href: `/articles/${index}`,
-              type: "secondary",
-              width: "cardButton",
-            }}
-
-          />
-        ))}
+        {/* This should be for small card */}
+        {windowWidth < 600 ? (
+          <div className={smallCard}>
+            {articles.map((art: ArticleData, index) => (
+              <SmallCard
+                key={index}
+                title={art.name}
+                imageUrl={art.cover}
+                body={trimDescription(art.desc, 200)}
+                btn={{
+                  text: "Read More",
+                  href: `/articles/${index}`,
+                  type: "primary",
+                  width: "cardButton",
+                }}
+              />
+            ))}
+          </div>
+        ) : (
+          <>
+            {/* This should be for big card */}
+            {articles.map((art, index) => (
+              <EventCard
+                key={index}
+                title={art.name}
+                date={`By ${art.author} | ${art.date.start}`}
+                paragraph={trimDescription(art.desc, 350)} //trim to 350 characters for articles page
+                image={art.cover}
+                btn={{
+                  text: "Read More",
+                  href: `/articles/${index}`,
+                  type: "secondary",
+                  width: "cardButton",
+                }}
+              />
+            ))}
+          </>
+        )}
 
         <div
           className={poppinsRegular.className}
-          style={{ textAlign: "center", fontSize: "20pt", marginTop: "50px" }}
+          style={{ textAlign: "center", fontSize: "24px", marginTop: "50px" }}
         >
           Do you have any questions? Contact us!
         </div>
         <div
           className={poppinsMedium.className}
           style={{
-            marginTop: "20px",
+            marginTop: "14px",
+            marginBottom: "30px",
+            textAlign: "center",
           }}
         >
           <Button
@@ -86,4 +168,3 @@ export default async function ArticlesPage() {
     </>
   );
 }
-

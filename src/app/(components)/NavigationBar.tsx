@@ -1,21 +1,47 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./NavigationBar.module.css";
 import { usePathname } from "next/navigation";
+import { SignOut, onAuthStateChangedHelper } from "../firebase/firebase";
+import { User } from "firebase/auth";
 
 function NavigationBar() {
+  const [showLinks, setShowLinks] = useState(false);
   const pathname = usePathname();
+  // Init user state
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChangedHelper((user) => {
+      setUser(user);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const handleToggleLinks = () => {
+    setShowLinks(!showLinks);
+  };
+
+  function handleChange() {
+    user && SignOut();
+    console.log("You have logged out");
+  }
+
   return (
     <main>
       <nav className={styles.navigationBar}>
-        <div className={styles["logoContainer"]}>
+        <div className={styles.logoContainer}>
           <a className={styles.taitamHome} href="/">
-            TAITAMARIKI <br></br>
+            TAITAMARIKI <br />
             POTENTIA
           </a>
         </div>
 
-        <ul className={styles["linksContainer"]}>
+        <ul
+          className={`${styles.linksContainer} ${
+            showLinks ? styles.showLinks : ""
+          }`}
+        >
           <li>
             <a
               className={
@@ -56,17 +82,27 @@ function NavigationBar() {
               CONTACT
             </a>
           </li>
-          <a className={styles.buttonContainer} href="#">
-            <button className={styles.logIn}>
+          <a className={styles.buttonContainer} href="/logIn">
+            <button className={styles.logIn} onClick={handleChange}>
               <div className={styles.userIconContainer}>
                 <img src="Icon.png" alt="" />
               </div>
-              Login
+              {user ? "Logout" : "Login"}
             </button>
           </a>
         </ul>
+
+        <div
+          className={`${styles.mobileButton} ${
+            showLinks ? styles.showLinks : ""
+          }`}
+          onClick={handleToggleLinks}
+        >
+          <span className={styles.burgerIcon}></span>
+        </div>
       </nav>
     </main>
   );
 }
+
 export default NavigationBar;

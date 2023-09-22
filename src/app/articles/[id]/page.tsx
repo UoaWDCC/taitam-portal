@@ -37,12 +37,11 @@ const cardContainer = css`
 `;
 
 export default async function Page({ params }: { params: { id: string } }) {
-  const articles: artStruct = await fetchArticlesFromNotion();
+  const articles: ArticleData[] = await fetchArticlesFromNotion();
 
   const articleId = parseInt(params.id);
 
   const selectedArticle = articles[articleId];
-
 
   return (
     <>

@@ -31,28 +31,21 @@ const ArticlesCard = ({
         <h3>{title}</h3>
       </div>
 
-      <div className="card-para">
-        <h4 style={{ color: "#056dfa" }}>{reference}</h4>
+      <div className="card-reference">
+        <h4>{reference}</h4>
       </div>
 
       <div className="card-para">
         <p>{par1}</p>
       </div>
 
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          marginTop: "30px",
-        }}
-        className="card-para"
-      >
+      <div className="card-para">
         <div>
           <h3>{subtitle}</h3>
           <p>{par2}</p>
         </div>
         <Image
+          className="image-container"
           src={image}
           alt="Stockholder image 1"
           width={100}
@@ -61,7 +54,7 @@ const ArticlesCard = ({
         />
       </div>
 
-      <div className="card-para" style={{ marginTop: "35px" }}>
+      <div className="card-para">
         <p>{par3}</p>
       </div>
 

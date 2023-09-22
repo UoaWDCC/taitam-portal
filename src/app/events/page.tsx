@@ -16,9 +16,8 @@ function trimDescription(description: string, maxLength: number): string {
   return description;
 }
 
-
-export default async function ArticlesPage(){
-  const events: rowsStruct = await fetchEventsFromNotion();
+export default async function ArticlesPage() {
+  const events: EventData[] = await fetchEventsFromNotion();
 
   return (
     <div
@@ -42,22 +41,20 @@ export default async function ArticlesPage(){
         similar challenges, we have something for everyone.
       </div>
 
-
       {events.map((event, index) => (
         <EventCard
-        key={index}
-        title = {event.name}
-        date = {`${event.date.start} @ ${event.location}`}
-        paragraph={trimDescription(event.desc, 330)} //trim to 130 characters
-        image = {event.cover}
-        
-        btn={{
-          text: "Sign Up",
-          href: event.link,
-          type: "primary",
-          width: "cardButton",
-          target: "_blank",
-        }}
+          key={index}
+          title={event.name}
+          date={`${event.date.start} @ ${event.location}`}
+          paragraph={trimDescription(event.desc, 330)} //trim to 130 characters
+          image={event.cover}
+          btn={{
+            text: "Sign Up",
+            href: event.link,
+            type: "primary",
+            width: "cardButton",
+            target: "_blank",
+          }}
         />
       ))}
 
@@ -84,14 +81,12 @@ export default async function ArticlesPage(){
   );
 }
 
-
 // interface EventsPageProps {
 //   events: rowsStruct; // Use the artStruct type here
 // }
 
-
 // const EventsPage = ({ events }: EventsPageProps) =>  {
-  
+
 //   return (
 //     <div
 //       className={poppinsLight.className}
@@ -114,7 +109,6 @@ export default async function ArticlesPage(){
 //         similar challenges, we have something for everyone.
 //       </div>
 
-
 //       {events.map((event, index) => (
 //         <EventCard
 //         key={index}
@@ -122,7 +116,7 @@ export default async function ArticlesPage(){
 //         date = {`${event.date.start} @ ${event.location}`}
 //         paragraph={trimDescription(event.desc, 130)} //trim to 130 characters
 //         image = {event.cover}
-        
+
 //         btn={{
 //           text: "Sign Up",
 //           href: event.link,
@@ -157,7 +151,6 @@ export default async function ArticlesPage(){
 // }
 
 // export default EventsPage;
-
 
 // // Fetch articles and pass them as props
 // export async function getServerSideProps() {

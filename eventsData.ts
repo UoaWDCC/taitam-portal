@@ -1,4 +1,4 @@
-export const fetchEventsFromNotion = async () => {
+export const fetchEventsFromNotion = async (): Promise<EventData[]> => {
   const res = await fetch(`${process.env.API_ENDPOINT}/notion`, {
     method: "GET",
     headers: {

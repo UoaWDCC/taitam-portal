@@ -1,7 +1,6 @@
 import { css } from "@linaria/core";
 import { Poppins } from "next/font/google";
 import Button from "../(components)/Button";
-import Image from "next/image";
 import "../globals.scss";
 
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
@@ -13,21 +12,54 @@ const title = css`
   color: #f96e47;
   text-align: left;
   font-size: 96px;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 40px;
+  }
+
+  @media (min-width: 600px) and (max-width: 1024px) {
+    font-size: 7vw;
+  }
 `;
 
 const h3styles = css`
   padding: 0;
   margin-top: 10px;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 20px;
+  }
+`;
+
+const subheader = css`
+  padding: 0;
+  margin-top: 10px;
+  text-align: right;
+  padding-bottom: 15px;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 20px;
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 0;
+  }
 `;
 
 /* ------- info sections -------*/
 const container = css`
   margin: 10% 0;
-  padding: 0 50px;
+  padding: 0 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    margin: 0;
+  }
 `;
 
 const item = css`
@@ -35,85 +67,58 @@ const item = css`
   padding: 10px;
   text-align: left;
 
+  @media only screen and (max-width: 600px) {
+    padding: 0;
+    margin: 5px 5px 0px 5px;
+    text-align: left;
+    height: 100%;
+    font-size: 14px;
+  }
+
+  @media (min-width: 600px) and (max-width: 1024px) {
+    padding: 0;
+    margin: 5px 5px 0px 5px;
+    height: 100%;
+  }
+
   &:nth-child(1) {
     flex: 1.3;
+
+    @media (min-width: 600px) and (max-width: 1024px) {
+      padding-right: 15px;
+    }
   }
 
   &:nth-child(2) {
     flex: 2;
+
+    @media only screen and (max-width: 600px) {
+      margin-bottom: 10px;
+    }
+
+    @media (min-width: 600px) and (max-width: 1024px) {
+      font-size: 14px;
+      line-height: 2vw;
+      padding-bottom: 10px;
+    }
   }
 `;
 
 /* ------- image section -------*/
-const imageContainer = css`
-  display: grid;
-  grid-template-columns: auto;
-  position: relative;
-  border: 1px black;
-  margin: 5% 0;
-`;
-
-const bubbleImg1 = css`
-  grid-row: 1;
-  grid-column: 1/2;
-  z-index: 1;
-  padding-top: 120px;
-  text-align: left;
-`;
-
-const bubbleImg2 = css`
-  grid-row: 1;
-  grid-column: 1/2;
-  z-index: 1;
-  text-align: center;
-  padding-right: 5%;
-  padding-top: 20px;
-`;
-
-const bubbleImg3 = css`
-  grid-row: 1;
-  grid-column: 1/2;
-  z-index: 1;
-  padding-top: 120px;
-  text-align: right;
-`;
-
-const text1 = css`
-  width: 20%;
-  grid-row: 1;
-  grid-column: 1/2;
-  z-index: 1;
-  padding-top: 190px;
-  padding-left: 70px;
-  text-align: center;
-`;
-
-const text2 = css`
-  width: 25%;
-  grid-row: 1;
-  grid-column: 1/2;
-  z-index: 1;
-  padding-right: 50%;
-  padding-left: 35%;
-  padding-top: 6%;
-  text-align: center;
-`;
-
-const text3 = css`
-  width: 21%;
-  grid-row: 1;
-  grid-column: 1/2;
-  z-index: 1;
-  padding-top: 15%;
-  padding-left: 70%;
-  text-align: center;
-`;
-
 const image = css`
-  grid-row: 1;
-  grid-column: 1/2;
-  text-align: center;
-  padding-top: 300px;
+  background-image: url("/about.svg");
+  width: 100%;
+  height: 60vw;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+  @media only screen and (max-width: 600px) {
+    background-image: url("/aboutMobile.svg");
+    width: 100%;
+    height: 120vw;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
 `;
 
 /* ------- bullet point section -------*/
@@ -124,6 +129,16 @@ const box = css`
   outline: 1px solid black;
   background: white;
   box-shadow: 0px 3px 0px 2px #000000;
+
+  @media only screen and (max-width: 600px) {
+    margin: 60px 10px;
+    padding: 10px;
+  }
+
+  @media (min-width: 600px) and (max-width: 1024px) {
+    margin: 10px;
+    padding: 10px;
+  }
 `;
 
 const listheading = css`
@@ -143,16 +158,40 @@ const listindividual = css`
   font-size: 16px;
   width: 100%;
 
+  @media only screen and (max-width: 600px) {
+    padding: 0;
+    margin: 1rem;
+    font-size: 14px;
+    line-height: 1.5rem;
+    gap: 0.3rem;
+  }
+
+  @media (min-width: 600px) and (max-width: 1024px) {
+    font-size: 14px;
+  }
+
   &:before {
     counter-increment: list-item;
     content: counter(list-item) ".";
     font-size: 96px;
     font-weight: 700;
+
+    @media only screen and (max-width: 600px) {
+      font-size: 75px;
+    }
+
+    @media (min-width: 600px) and (max-width: 1024px) {
+      font-size: 80px;
+    }
   }
 
   &:nth-child(1):before {
     color: #f96e47;
     margin-right: 22px;
+
+    @media (min-width: 600px) and (max-width: 1024px) {
+      margin-right: 4px;
+    }
   }
 
   &:nth-child(2):before {
@@ -162,27 +201,33 @@ const listindividual = css`
 
   &:nth-child(3):before {
     color: #e992d7;
-  }
-`;
 
-/* ------- contact us -------*/
-const button = css`
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-  background-color: #ffcc01;
-  padding: 5px 12px;
-  border-radius: 20px;
-  font-size: 19px;
-  line-height: 24px;
-  width: 35%;
-  border: none;
-  box-shadow: 0px 2px 0px 1px #000000;
+    @media only screen and (max-width: 600px) {
+      margin-right: 5px;
+    }
+
+    @media (min-width: 600px) and (max-width: 1024px) {
+      margin-right: 4px;
+    }
+  }
 `;
 
 const rootContainer = css`
   max-width: 1200px;
   margin: 50px auto 100px auto;
+  padding: 0 50px;
+
+  @media only screen and (max-width: 600px) {
+    margin: 10px;
+    max-width: 600px;
+    padding: 0;
+  }
+
+  @media (min-width: 600px) and (max-width: 1024px) {
+    margin: 10px;
+    max-width: 1024px;
+    padding: 0 20px;
+  }
 `;
 
 export default function AboutPage() {
@@ -193,63 +238,14 @@ export default function AboutPage() {
         Our Mission: Empowering Students to Succeed in the Tech Industry
       </h3>
 
-      <div className={imageContainer}>
-        <div className={bubbleImg1}>
-          <Image
-            src={"/cloudText.png"}
-            width={363}
-            height={308}
-            alt={"cloud bubble text"}
-          />
-        </div>
-        <div className={text1}>
-          <p>
-            It feels like the tech industry is constantly changing. Will my
-            university coursework be enough to keep up with the latest trends
-            and technologies?
-          </p>
-        </div>
-        <div className={bubbleImg2}>
-          <Image
-            src={"/roundText.png"}
-            width={400}
-            height={282}
-            alt={"round bubble text"}
-          />
-        </div>
-        <div className={text2}>
-          <p>
-            I have spent years learning technical skills in school, but what about
-            the soft skills that employers are looking for? Will I be able to
-            find a job after graduation?
-          </p>
-        </div>
-        <div className={bubbleImg3}>
-          <Image
-            src={"/spikyText.png"}
-            width={420}
-            height={320}
-            alt={"spiky bubble text"}
-          />
-        </div>
-        <div className={text3}>
-          <p>
-            I am just starting out my career, but it seems like recruitment
-            agencies only want people with years of experience. How am I
-            supposed to get my foot in the door?
-          </p>
-        </div>
-        <div className={image}>
-          <Image src={"/maze.png"} width={694} height={512} alt={"maze"} />
-        </div>
-      </div>
+      <div className={image}></div>
 
       <div className={container}>
         <div className={item}>
           <h1 className={title}>FOR THE LAST 10 YEARS...</h1>
         </div>
         <div className={item}>
-          <p>
+          <p style={{ margin: "0" }}>
             For the last ten years, we’ve been heavily involved with local
             universities and higher institutions, not only through our annual
             Computer Science Scholarship, but also through various sponsorships
@@ -290,16 +286,13 @@ export default function AboutPage() {
 
       <div className={container} style={{ marginBottom: "0" }}>
         <div className={item}>
-          <h3
-            className={h3styles}
-            style={{ textAlign: "right", paddingBottom: "15px" }}
-          >
+          <h3 className={subheader}>
             How do we go about bridging the gap between university and
             employment?
           </h3>
         </div>
         <div className={item}>
-          <p>
+          <p style={{ margin: "0" }}>
             Together, these issues have created one overarching challenge. To
             tackle this, we’d need to go about things in a way that the
             recruitment world has never seen. This meant supporting and
