@@ -1,9 +1,12 @@
+"use client";
+
 import { useRouter } from "next/router";
 import { EventCard } from "@/app/(components)/bigCard"; // Import your EventCard component
 import { fetchArticlesFromNotion } from "../../../../artsData";
 import ArticlesCard from "@/app/(components)/ArticlesCard";
 import { css } from "@linaria/core";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 const headerImage = css`
   max-width: 1190px;
@@ -36,12 +39,35 @@ const cardContainer = css`
   margin-top: 280px;
 `;
 
-export default async function Page({ params }: { params: { id: string } }) {
-  const articles: ArticleData[] = await fetchArticlesFromNotion();
+export default function Page({ params }: { params: { id: string } }) {
 
-  const articleId = parseInt(params.id);
 
-  const selectedArticle = articles[articleId];
+  const [articles, setArticles] = useState<ArticleData[]>([]);
+
+  const [windowWidth, setWindowWidth] = useState(1920);
+
+  useEffect(() => {
+    fetchArticlesFromNotion().then((arts: ArticleData[]) => {
+      setArticles(arts);
+    });
+
+    // Function to update window width
+    const updateWindowWidth = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    // Attach event listener for window resize
+    window.addEventListener("resize", updateWindowWidth);
+
+    // Cleanup: remove event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", updateWindowWidth);
+    };
+  }, []);
+
+  const selectedArticle = articles.find((article) => article.articleId == params.id);
+
+  //console.log(selectedArticle);
 
   return (
     <>
