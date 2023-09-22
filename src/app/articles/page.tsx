@@ -34,7 +34,7 @@ const root = css`
     margin: 0 20px 0 20px;
   }
 
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1275px) {
     margin: 0 33px 0 33px;
   }
 `;
