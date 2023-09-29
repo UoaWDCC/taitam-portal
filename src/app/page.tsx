@@ -11,7 +11,6 @@ import BigImage from "./(images)/bigimage.svg";
 import { fetchEventsFromNotion } from "../../eventsData";
 import { fetchArticlesFromNotion } from "../../artsData";
 
-
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 
 const layoutContainer = css`
@@ -194,92 +193,64 @@ function trimDescription(description: string, maxLength: number): string {
   return description;
 }
 
-// const fetchFromNotion = async () => {
-//   const res = await fetch(`${process.env.API_ENDPOINT}/notion`, {
-//     method: "GET",
-//     headers: {
-//       "Cache-Control": "no-store, no-cache",
-//     },
-//   });
-//   const data = await res.json();
-//   return JSON.parse(JSON.stringify(data));
-// };
-
-// const fetchArticlesFromNotion = async () => {
-
-//   const res = await fetch(`${process.env.API_ENDPOINT}/articlesApi`, {
-//     method: "GET",
-//     headers: {
-//       "Cache-Control": "no-store, no-cache",
-//     },
-
-//   });
-//   const data = await res.json();
-//   return JSON.parse(JSON.stringify(data));
-// };
-
-// interface HomePageProps {
-//   events: rowsStruct; // Use the artStruct type here
-//   articles: artStruct;
-// }
-
 export default async function Home() {
   const events: EventData[] = await fetchEventsFromNotion();
   const articles: ArticleData[] = await fetchArticlesFromNotion();
 
   return (
     <>
-      <div className={layoutContainer}>
-        <div className={container}>
-          <Image
-            className={headerImage}
-            src={LandingImage}
-            alt="Landing Image"
-          />
-        </div>
-        <div className={container}>
-          <h1 className={title}>WELCOME</h1>
-          <p className={paragraph}>
-            Taitamariki Potentia is a student-led tech community created to
-            bridge the gap between university and employment. Our mission is to
-            empower young people studying technical disciplines to navigate the
-            challenges associated with breaking into the industry.
-          </p>
-
-          <div className={icon}>
-            <h3 className={h3style}>OUR HISTORY</h3>
+      <div>
+        <div className={layoutContainer}>
+          <div className={container}>
             <Image
-              src={Arrow}
-              alt="Arrow"
-              className={icon}
-              width={70}
-              height={30}
-            ></Image>
+              className={headerImage}
+              src={LandingImage}
+              alt="Landing Image"
+            />
           </div>
+          <div className={container}>
+            <h1 className={title}>WELCOME</h1>
+            <p className={paragraph}>
+              Taitamariki Potentia is a student-led tech community created to
+              bridge the gap between university and employment. Our mission is
+              to empower young people studying technical disciplines to navigate
+              the challenges associated with breaking into the industry.
+            </p>
 
-          <Image className={townImage} src={BigImage} alt="Town" />
-        </div>
-        <h3 className={h3style}>Upcoming</h3>
-        <h1 className={title}>EVENTS</h1>
-
-        <div className={cardrow}>
-          {events.slice(0, 3).map((event, index) => (
-            <div key={index} className={index === 1 ? cardSpace : undefined}>
-              <Card
-                title={event.name}
-                body={trimDescription(event.desc, 250)} //trim to 130 characters
-                imageUrl={event.cover}
-                btn={{
-                  text: "Sign Up",
-                  href: event.link,
-                  type: "primary",
-                  width: "cardButton",
-                  target: "_blank",
-                }}
-              />
+            <div className={icon}>
+              <h3 className={h3style}>OUR HISTORY</h3>
+              <Image
+                src={Arrow}
+                alt="Arrow"
+                className={icon}
+                width={70}
+                height={30}
+              ></Image>
             </div>
-          ))}
-        </div>
+
+            <Image className={townImage} src={BigImage} alt="Town" />
+          </div>
+          <h3 className={h3style}>Upcoming</h3>
+          <h1 className={title}>EVENTS</h1>
+
+          <div className={cardrow}>
+            {events.slice(0, 3).map((event, index) => (
+              <div key={index} className={index === 1 ? cardSpace : undefined}>
+                <Card
+                  title={event.name}
+                  body={trimDescription(event.desc, 250)} //trim to 130 characters
+                  imageUrl={event.cover}
+                  btn={{
+                    text: "Sign Up",
+                    href: event.link,
+                    type: "primary",
+                    width: "cardButton",
+                    target: "_blank",
+                  }}
+                />
+              </div>
+            ))}
+          </div>
 
           <div
             className={poppinsMedium.className}
@@ -332,7 +303,7 @@ export default async function Home() {
               href="/articles"
               type="primary"
               width="largeButton"
-            ></Button>
+            />
           </div>
         </div>
       </div>
