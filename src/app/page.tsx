@@ -1,4 +1,5 @@
-﻿import { css } from "@linaria/core";
+﻿export const dynamic = "force-dynamic";
+import { css } from "@linaria/core";
 import { Poppins } from "next/font/google";
 import React from "react";
 import Image from "next/image";
