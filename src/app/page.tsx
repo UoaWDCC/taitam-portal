@@ -36,7 +36,7 @@ const layoutContainer = css`
 
 const title = css`
   font-size: 96px;
-  padding: 0;
+  padding-left: 20px;
   margin: 10px 0 0 0;
   color: #f96e47;
   text-align: left;
@@ -84,7 +84,7 @@ const cardContainer = css`
 
 const h3style = css`
   font-size: 19px;
-  padding: 0;
+  padding-left: 20px;
   margin: 0 0 0 0;
   color: #000000;
   text-align: left;
@@ -104,6 +104,7 @@ const cardrow = css`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center; 
   flex-wrap: nowrap;
 
   @media only screen and (max-width: 600px) {
@@ -266,9 +267,7 @@ export default async function Home() {
               width="largeButton"
             ></Button>
           </div>
-        </div>
-
-        <Image className={MouseImage} src={Mouse} alt="Mouse Image"></Image>
+          <Image className={MouseImage} src={Mouse} alt="Mouse Image"></Image>
 
         <div className={cardContainer}>
           <h3 className={h3style}>Latest</h3>
@@ -306,6 +305,7 @@ export default async function Home() {
               width="largeButton"
             />
           </div>
+        </div>
         </div>
       </div>
     </>
