@@ -7,7 +7,10 @@ import Button from "./(components)/Button";
 import LandingImage from "./(images)/Landingimage.svg";
 import Mouse from "./(images)/mouse.svg";
 import Arrow from "./(images)/arrow.png";
-import BigImage from "./(images)/Group 47.svg";
+import BigImage from "./(images)/bigimage.svg";
+import { fetchEventsFromNotion } from "../../eventsData";
+import { fetchArticlesFromNotion } from "../../artsData";
+
 
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 
@@ -184,7 +187,46 @@ const paragraph = css`
   }
 `;
 
-export default function Home() {
+function trimDescription(description: string, maxLength: number): string {
+  if (description.length > maxLength) {
+    return description.slice(0, maxLength) + "...";
+  }
+  return description;
+}
+
+// const fetchFromNotion = async () => {
+//   const res = await fetch(`${process.env.API_ENDPOINT}/notion`, {
+//     method: "GET",
+//     headers: {
+//       "Cache-Control": "no-store, no-cache",
+//     },
+//   });
+//   const data = await res.json();
+//   return JSON.parse(JSON.stringify(data));
+// };
+
+// const fetchArticlesFromNotion = async () => {
+
+//   const res = await fetch(`${process.env.API_ENDPOINT}/articlesApi`, {
+//     method: "GET",
+//     headers: {
+//       "Cache-Control": "no-store, no-cache",
+//     },
+
+//   });
+//   const data = await res.json();
+//   return JSON.parse(JSON.stringify(data));
+// };
+
+// interface HomePageProps {
+//   events: rowsStruct; // Use the artStruct type here
+//   articles: artStruct;
+// }
+
+export default async function Home() {
+  const events: EventData[] = await fetchEventsFromNotion();
+  const articles: ArticleData[] = await fetchArticlesFromNotion();
+
   return (
     <>
       <div className={layoutContainer}>
@@ -217,47 +259,27 @@ export default function Home() {
 
           <Image className={townImage} src={BigImage} alt="Town" />
         </div>
+        <h3 className={h3style}>Upcoming</h3>
+        <h1 className={title}>EVENTS</h1>
 
-        <div className={cardContainer} style={{ margin: "0px" }}>
-          <h3 className={h3style}>Upcoming</h3>
-          <h1 className={title}>EVENTS</h1>
-          <div className={cardrow}>
-            <Card
-              title="Launch Your Tech Career at Our Career Fair"
-              imageUrl="https://t3.ftcdn.net/jpg/02/92/34/14/240_F_292341430_qGtNmxVKgAx4OieUQYNwpMlIbc0ABgVs.jpg"
-              body="Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
-              btn={{
-                text: "Learn More",
-                href: "#",
-                type: "primary",
-                width: "cardButton",
-              }}
-            />
-            <div className={cardSpace}>
+        <div className={cardrow}>
+          {events.slice(0, 3).map((event, index) => (
+            <div key={index} className={index === 1 ? cardSpace : undefined}>
               <Card
-                title="Solve Real-World Tech Problems and Win Prizes"
-                imageUrl="https://t4.ftcdn.net/jpg/02/27/98/79/240_F_227987910_stMstGspY3J4PbPmdNBr1Huu0eCTs9oa.jpg"
-                body="Work in teams to solve real-world tech problems and present your solutions to a panel of judges for a chance to win prizes. Put your skills to the test and make valuable connections at our annual Hackathon."
+                title={event.name}
+                body={trimDescription(event.desc, 250)} //trim to 130 characters
+                imageUrl={event.cover}
                 btn={{
-                  text: "Learn More",
-                  href: "#",
-                  type: "secondary",
+                  text: "Sign Up",
+                  href: event.link,
+                  type: "primary",
                   width: "cardButton",
+                  target: "_blank",
                 }}
               />
             </div>
-            <Card
-              title="Build Your Soft Skills and Stand Out to Employers"
-              imageUrl="https://t3.ftcdn.net/jpg/04/56/98/68/240_F_456986840_BbHQK0bynMEDxMDJP0L3fkCMqnfmJ283.jpg"
-              body="Develop your communication, teamwork, and adaptability skills at our Soft Skills Workshop. Led by experienced professionals, this workshop will teach you the skills you need to succeed in the tech industry."
-              btn={{
-                text: "Learn More",
-                href: "#",
-                type: "tertiary",
-                width: "cardButton",
-              }}
-            />
-          </div>
+          ))}
+        </div>
 
           <div
             className={poppinsMedium.className}
@@ -281,41 +303,22 @@ export default function Home() {
           <h1 className={title}>ARTICLES</h1>
 
           <div className={cardrow}>
-            <Card
-              title="Launch Your Tech Career at Our Career Fair"
-              imageUrl="https://t3.ftcdn.net/jpg/05/07/97/04/240_F_507970416_alQzqRPyu5bVayFcavgWFNoru5q5Qze7.jpg"
-              body="Connect with top employers, recruiters, and other talented students at our annual Tech Career Fair. Explore job opportunities, receive professional CV advice, and network with industry leaders."
-              btn={{
-                text: "Learn More",
-                href: "/articles/first-article",
-                type: "primary",
-                width: "cardButton",
-              }}
-            />
-            <div className={cardSpace}>
-              <Card
-                title="Solve Real-World Tech Problems and Win Prizes"
-                imageUrl="https://t4.ftcdn.net/jpg/04/30/92/33/240_F_430923373_9qr0KsEw2uXIeDOJHT8cyOEgTnacm5rl.jpg"
-                body="Work in teams to solve real-world tech problems and present your solutions to a panel of judges for a chance to win prizes. Put your skills to the test and make valuable connections at our annual Hackathon."
-                btn={{
-                  text: "Learn More",
-                  href: "/articles/second-article",
-                  type: "secondary",
-                  width: "cardButton",
-                }}
-              />
-            </div>
-            <Card
-              title="Build Your Soft Skills and Stand Out to Employers"
-              imageUrl="https://t4.ftcdn.net/jpg/03/14/34/87/240_F_314348719_6CxqaGP9rfDJwnB1RjntD6V7C6K0Ou6K.jpg"
-              body="Develop your communication, teamwork, and adaptability skills at our Soft Skills Workshop. Led by experienced professionals, this workshop will teach you the skills you need to succeed in the tech industry."
-              btn={{
-                text: "Learn More",
-                href: "/articles/third-article",
-                type: "tertiary",
-                width: "cardButton",
-              }}
-            />
+            {articles.slice(0, 3).map((art, index) => (
+              <div key={index} className={index === 1 ? cardSpace : undefined}>
+                <Card
+                  title={art.name}
+                  body={trimDescription(art.desc, 250)} //trim to 130 characters
+                  imageUrl={art.cover}
+                  btn={{
+                    text: "Sign Up",
+                    href: art.link,
+                    type: "primary",
+                    width: "cardButton",
+                    target: "_blank",
+                  }}
+                />
+              </div>
+            ))}
           </div>
 
           <div

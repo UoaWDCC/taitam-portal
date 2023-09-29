@@ -107,7 +107,8 @@ const item = css`
 
 /* ------- image section -------*/
 const image = css`
-  background-image: url('/about.svg');
+
+  background-image: url("/about.svg");
   width: 100%;
   height: 60vw;
   background-size: 100% 100%;
@@ -229,7 +230,6 @@ const rootContainer = css`
     max-width: 1024px;
     padding: 0 20px;
   }
-  
 `;
 
 export default function AboutPage() {
@@ -288,9 +288,7 @@ export default function AboutPage() {
 
       <div className={container} style={{ marginBottom: "0" }}>
         <div className={item}>
-          <h3
-            className={subheader}
-          >
+          <h3 className={subheader}>
             How do we go about bridging the gap between university and
             employment?
           </h3>

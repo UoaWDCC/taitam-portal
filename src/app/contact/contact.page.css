@@ -273,7 +273,6 @@
 }
 
 @media only screen and (max-width: 600px) {
-
   /* titles and text */
   .contact-header {
     font-size: 36px;
@@ -346,10 +345,7 @@
     padding: 0 0 0 0;
   }
 
-}
-
 @media (min-width: 600px) and (max-width: 1024px) {
-
   /* containers */
   .main {
     flex-direction: column;
@@ -397,5 +393,4 @@
   .img {
     height: 300px;
   }
-
 }

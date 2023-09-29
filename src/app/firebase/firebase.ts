@@ -42,8 +42,3 @@ export function createUser(data: DbUser) {
   const userCollectionRef = collection(db,"users")
   return addDoc(userCollectionRef,data)
 } 
-
-
-
-
-

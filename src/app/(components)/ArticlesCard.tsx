@@ -8,7 +8,7 @@ export interface CardProps {
   par1: string;
   subtitle: string;
   par2: string;
-  image: StaticImageData;
+  image: string;
   par3: string;
   par4: string;
   par5: string;
@@ -48,6 +48,9 @@ const ArticlesCard = ({
           className="image-container"
           src={image}
           alt="Stockholder image 1"
+          width={100}
+          height={100}
+          style={{ objectFit: "cover" }}
         />
       </div>
 

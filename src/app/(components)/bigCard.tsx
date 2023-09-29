@@ -9,7 +9,7 @@ type CardProps = {
   title: string;
   date: string;
   paragraph: string;
-  image: StaticImageData;
+  image: string;
   btn: ButtonProps;
 };
 
@@ -52,7 +52,12 @@ export const EventCard = ({
           position: "relative",
         }}
       >
-        <Image src={image} alt="Stockholder image 1" fill={true} />
+        <Image
+          src={image}
+          alt="Stockholder image 1"
+          fill={true}
+          style={{ objectFit: "cover" }}
+        />
       </div>
       <div
         style={{

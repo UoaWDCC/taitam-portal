@@ -6,7 +6,6 @@ import { SignOut, onAuthStateChangedHelper } from "../firebase/firebase";
 import { User } from "firebase/auth";
 
 function NavigationBar() {
-
   const [showLinks, setShowLinks] = useState(false);
   const pathname = usePathname();
   // Init user state
@@ -22,8 +21,6 @@ function NavigationBar() {
   const handleToggleLinks = () => {
     setShowLinks(!showLinks);
   };
-
-
   function handleChange() {
     user && SignOut();
     console.log("You have logged out");
@@ -38,7 +35,6 @@ function NavigationBar() {
             POTENTIA
           </a>
         </div>
-
         <ul className={`${styles.linksContainer} ${showLinks ? styles.showLinks : ""}`}>
           <li>
             <a
@@ -82,8 +78,7 @@ function NavigationBar() {
           </a>
         </ul>
 
-        <div
-          className={`${styles.mobileButton} ${showLinks ? styles.showLinks : ""}`}
+        <div className={`${styles.mobileButton} ${showLinks ? styles.showLinks : ""}`}
           onClick={handleToggleLinks}
         >
           <span className={styles.burgerIcon}></span>
