@@ -20,6 +20,8 @@ const cardStyle = css`
   border: solid black 1px;
   box-shadow: 0 3px 0 4px;
   display: grid;
+  overflow: hidden;
+  height: 350px;
   grid-template-columns: auto minmax(350px, 47%);
   grid-template-rows: auto;
   background-color: white;
@@ -56,7 +58,7 @@ export const EventCard = ({
           src={image}
           alt="Stockholder image 1"
           fill={true}
-          style={{ objectFit: "cover" }}
+          style={{ objectFit: "cover"}}
         />
       </div>
       <div
