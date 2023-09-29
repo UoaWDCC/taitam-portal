@@ -11,6 +11,7 @@ import BigImage from "./(images)/bigimage.svg";
 import { fetchEventsFromNotion } from "../../eventsData";
 import { fetchArticlesFromNotion } from "../../artsData";
 
+
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 
 const layoutContainer = css`
@@ -228,12 +229,17 @@ export default async function Home() {
 
   return (
     <>
-      {/* <Image className={headerImage} src={LandingImage} alt="Landing Image" /> */}
-
       <div className={layoutContainer}>
         <div className={container}>
+          <Image
+            className={headerImage}
+            src={LandingImage}
+            alt="Landing Image"
+          />
+        </div>
+        <div className={container}>
           <h1 className={title}>WELCOME</h1>
-          <p style={{ marginRight: "200px" }}>
+          <p className={paragraph}>
             Taitamariki Potentia is a student-led tech community created to
             bridge the gap between university and employment. Our mission is to
             empower young people studying technical disciplines to navigate the
@@ -251,11 +257,8 @@ export default async function Home() {
             ></Image>
           </div>
 
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <Image src={BigImage} alt="Town" width={930} height={750} />
-          </div>
+          <Image className={townImage} src={BigImage} alt="Town" />
         </div>
-
         <h3 className={h3style}>Upcoming</h3>
         <h1 className={title}>EVENTS</h1>
 
@@ -278,23 +281,22 @@ export default async function Home() {
           ))}
         </div>
 
-        <div
-          className={poppinsMedium.className}
-          style={{
-            marginTop: "20px",
-          }}
-        >
-          <Button
-            text="Learn More"
-            href="/events"
-            type="primary"
-            width="largeButton"
-          ></Button>
+          <div
+            className={poppinsMedium.className}
+            style={{
+              marginTop: "20px",
+            }}
+          >
+            <Button
+              text="View All"
+              href="/events"
+              type="primary"
+              width="largeButton"
+            ></Button>
+          </div>
         </div>
 
-        <div className={MouseImage}>
-          <Image src={Mouse} alt="Mouse Image" width={700}></Image>
-        </div>
+        <Image className={MouseImage} src={Mouse} alt="Mouse Image"></Image>
 
         <div className={cardContainer}>
           <h3 className={h3style}>Latest</h3>
@@ -326,7 +328,7 @@ export default async function Home() {
             }}
           >
             <Button
-              text="Learn More"
+              text="View All"
               href="/articles"
               type="primary"
               width="largeButton"

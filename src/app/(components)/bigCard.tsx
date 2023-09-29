@@ -50,7 +50,6 @@ export const EventCard = ({
           gridColumnStart: "1",
           width: "100%",
           position: "relative",
-          paddingTop: "50.7%",
         }}
       >
         <Image

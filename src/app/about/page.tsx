@@ -5,6 +5,7 @@ import "../globals.scss";
 
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 
+
 /* ------- headers -------*/
 const title = css`
   padding: 0;
@@ -106,6 +107,7 @@ const item = css`
 
 /* ------- image section -------*/
 const image = css`
+
   background-image: url("/about.svg");
   width: 100%;
   height: 60vw;
@@ -113,7 +115,7 @@ const image = css`
   background-repeat: no-repeat;
 
   @media only screen and (max-width: 600px) {
-    background-image: url("/aboutMobile.svg");
+    background-image: url('/aboutMobile.svg');
     width: 100%;
     height: 120vw;
     background-size: 100% 100%;
@@ -177,8 +179,8 @@ const listindividual = css`
     font-weight: 700;
 
     @media only screen and (max-width: 600px) {
-      font-size: 75px;
-    }
+    font-size: 75px;
+  }
 
     @media (min-width: 600px) and (max-width: 1024px) {
       font-size: 80px;
@@ -220,7 +222,7 @@ const rootContainer = css`
   @media only screen and (max-width: 600px) {
     margin: 10px;
     max-width: 600px;
-    padding: 0;
+    padding: 0
   }
 
   @media (min-width: 600px) and (max-width: 1024px) {
@@ -245,7 +247,7 @@ export default function AboutPage() {
           <h1 className={title}>FOR THE LAST 10 YEARS...</h1>
         </div>
         <div className={item}>
-          <p style={{ margin: "0" }}>
+          <p style={{margin: "0"}}>
             For the last ten years, we’ve been heavily involved with local
             universities and higher institutions, not only through our annual
             Computer Science Scholarship, but also through various sponsorships
@@ -292,7 +294,7 @@ export default function AboutPage() {
           </h3>
         </div>
         <div className={item}>
-          <p style={{ margin: "0" }}>
+          <p style={{margin: "0"}}>
             Together, these issues have created one overarching challenge. To
             tackle this, we’d need to go about things in a way that the
             recruitment world has never seen. This meant supporting and

@@ -33,17 +33,11 @@ export default function SignUpPage() {
     const name = getValues("name");
     const employment = getValues("employment");
     const degree = getValues("studyingDegree");
-    if (
-      !degree ||
-      !selectedEducation ||
-      !lookingForWork ||
-      !name ||
-      !employment
-    ) {
+    if (!degree || !selectedEducation || !lookingForWork || !name || !employment) {
       return toast.error("Form needs to be filled");
     }
-    createWithEmailAndPassword(email, password)
-      .then((response) => {
+    createWithEmailAndPassword(email, password).then(
+      (response) => {
         form.reset();
         console.log("SUCCESS!");
         createUser({
@@ -55,8 +49,7 @@ export default function SignUpPage() {
           studyingDegree: degree,
         });
         return toast.success("You successfully signed up.");
-      })
-      .catch((err) => {
+      }).catch (err => {
         console.log("FAILED...", err);
         if (password.length < 6) {
           return toast.error("Password should be atleast six characters");
@@ -78,9 +71,7 @@ export default function SignUpPage() {
             <div className="error-signUp">
               <p className="form-info">Full Name*</p>
               <div className="error-msg">
-                <p className="error">
-                  {errors.name?.message?.toString() ?? ""}
-                </p>
+                <p className="error">{errors.name?.message?.toString() ?? ""}</p>
               </div>
             </div>
             <input
@@ -101,9 +92,7 @@ export default function SignUpPage() {
             <div className="error-signUp">
               <p className="form-info">Email</p>
               <div className="error-msg">
-                <p className="error">
-                  {errors.email?.message?.toString() ?? ""}
-                </p>
+                <p className="error">{errors.email?.message?.toString() ?? ""}</p>
               </div>
             </div>
             <input
@@ -126,9 +115,7 @@ export default function SignUpPage() {
             <div className="error-signUp">
               <p className="form-info">Password</p>
               <div className="error-msg">
-                <p className="error">
-                  {errors.password?.message?.toString() ?? ""}
-                </p>
+                <p className="error">{errors.password?.message?.toString() ?? ""}</p>
               </div>
             </div>
             <input
@@ -146,9 +133,7 @@ export default function SignUpPage() {
             <div className="error-signUp">
               <p className="form-info">Education Level</p>
               <div className="error-msg">
-                <p className="error">
-                  {errors.education?.message?.toString() ?? ""}
-                </p>
+                <p className="error">{errors.education?.message?.toString() ?? ""}</p>
               </div>
             </div>
             <select
@@ -173,9 +158,7 @@ export default function SignUpPage() {
             <div className="error-signUp">
               <p className="form-info">What&apos;s your Employment Status?</p>
               <div className="error-msg">
-                <p className="error">
-                  {errors.employment?.message?.toString() ?? ""}
-                </p>
+                <p className="error">{errors.employment?.message?.toString() ?? ""}</p>
               </div>
             </div>
             <input
@@ -193,9 +176,7 @@ export default function SignUpPage() {
             <div className="error-signUp">
               <p className="form-info">Are you looking for work?</p>
               <div className="error-msg">
-                <p className="error">
-                  {errors.lookingForWork?.message?.toString() ?? ""}
-                </p>
+                <p className="error">{errors.lookingForWork?.message?.toString() ?? ""}</p>
               </div>
             </div>
             <div>
@@ -232,9 +213,7 @@ export default function SignUpPage() {
             <div className="error-signUp">
               <p className="form-info">What&apos;s your degree?</p>
               <div className="error-msg">
-                <p className="error">
-                  {errors.studyingDegree?.message?.toString() ?? ""}
-                </p>
+                <p className="error">{errors.studyingDegree?.message?.toString() ?? ""}</p>
               </div>
             </div>
             <input

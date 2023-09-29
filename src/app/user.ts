@@ -8,3 +8,4 @@ type DbUser = {
 };
 
 export default DbUser;
+

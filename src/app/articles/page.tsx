@@ -1,5 +1,4 @@
 "use client";
-
 import { Poppins } from "next/font/google";
 import { EventCard } from "@/app/(components)/bigCard"; // Import your EventCard component
 import { fetchArticlesFromNotion } from "../../../artsData";
@@ -75,7 +74,6 @@ export default function ArticlesPage() {
     fetchArticlesFromNotion().then((arts: ArticleData[]) => {
       setArticles(arts);
     });
-
     // Function to update window width
     const updateWindowWidth = () => {
       setWindowWidth(window.innerWidth);
@@ -89,13 +87,11 @@ export default function ArticlesPage() {
       window.removeEventListener("resize", updateWindowWidth);
     };
   }, []);
-
-
   return (
     <>
       <div className={root}>
         <h1 className={title}>ARTICLES</h1>
-        <p style={{ marginTop: "-70px" }}>
+        <p className={paragraph}>
           As a tech recruitment agency that is committed to making a difference
           in the industry, we’re passionate about giving back to the community
           and building tomorrow’s technology professionals from the grassroots
@@ -103,7 +99,6 @@ export default function ArticlesPage() {
           meetups, to one of our many sponsorships with local businesses and
           universities – everything we do is about our communities.
         </p>
-
         {/* This should be for small card */}
         {windowWidth < 600 ? (
           <div className={smallCard}>
@@ -142,7 +137,6 @@ export default function ArticlesPage() {
             ))}
           </>
         )}
-
         <div
           className={poppinsRegular.className}
           style={{ textAlign: "center", fontSize: "24px", marginTop: "50px" }}
