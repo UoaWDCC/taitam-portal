@@ -1,4 +1,4 @@
-﻿export const dynamic = "force-dynamic";
+﻿"use client";
 import { css } from "@linaria/core";
 import { Poppins } from "next/font/google";
 import React from "react";
@@ -11,6 +11,8 @@ import Arrow from "./(images)/arrow.png";
 import BigImage from "./(images)/bigimage.svg";
 import { fetchEventsFromNotion } from "../../eventsData";
 import { fetchArticlesFromNotion } from "../../artsData";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const poppinsMedium = Poppins({ weight: "500", subsets: ["latin"] });
 
@@ -194,10 +196,33 @@ function trimDescription(description: string, maxLength: number): string {
   return description;
 }
 
-export default async function Home() {
-  const events: EventData[] = await fetchEventsFromNotion();
-  const articles: ArticleData[] = await fetchArticlesFromNotion();
+export default function HomePage(){
+  const [articles, setArticles] = useState<ArticleData[]>([]);
+  const [events, setEvents] = useState<EventData[]>([]);
 
+  const [windowWidth, setWindowWidth] = useState(1920);
+
+  useEffect(() => {
+    fetchArticlesFromNotion().then((arts: ArticleData[]) => {
+      setArticles(arts);
+    });
+
+    fetchEventsFromNotion().then((events: EventData[]) => {
+      setEvents(events);
+    });
+    // Function to update window width
+    const updateWindowWidth = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    // Attach event listener for window resize
+    window.addEventListener("resize", updateWindowWidth);
+
+    // Cleanup: remove event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", updateWindowWidth);
+    };
+  }, []);
   return (
     <>
       <div>
@@ -311,3 +336,121 @@ export default async function Home() {
     </>
   );
 }
+
+// export default async function Home() {
+//   const events: EventData[] = await fetchEventsFromNotion();
+//   const articles: ArticleData[] = await fetchArticlesFromNotion();
+
+//   return (
+//     <>
+//       <div>
+//         <div className={layoutContainer}>
+//           <div className={container}>
+//             <Image
+//               className={headerImage}
+//               src={LandingImage}
+//               alt="Landing Image"
+//             />
+//           </div>
+//           <div className={container}>
+//             <h1 className={title}>WELCOME</h1>
+//             <p className={paragraph}>
+//               Taitamariki Potentia is a student-led tech community created to
+//               bridge the gap between university and employment. Our mission is
+//               to empower young people studying technical disciplines to navigate
+//               the challenges associated with breaking into the industry.
+//             </p>
+
+//             <div className={icon}>
+//               <h3 className={h3style}>OUR HISTORY</h3>
+//               <Image
+//                 src={Arrow}
+//                 alt="Arrow"
+//                 className={icon}
+//                 width={70}
+//                 height={30}
+//               ></Image>
+//             </div>
+
+//             <Image className={townImage} src={BigImage} alt="Town" />
+//           </div>
+//           <h3 className={h3style}>Upcoming</h3>
+//           <h1 className={title}>EVENTS</h1>
+
+//           <div className={cardrow}>
+//             {events.slice(0, 3).map((event, index) => (
+//               <div key={index} className={index === 1 ? cardSpace : undefined}>
+//                 <Card
+//                   title={event.name}
+//                   body={trimDescription(event.desc, 250)} //trim to 130 characters
+//                   imageUrl={event.cover}
+//                   btn={{
+//                     text: "Sign Up",
+//                     href: event.link,
+//                     type: "primary",
+//                     width: "cardButton",
+//                     target: "_blank",
+//                   }}
+//                 />
+//               </div>
+//             ))}
+//           </div>
+
+//           <div
+//             className={poppinsMedium.className}
+//             style={{
+//               marginTop: "20px",
+//             }}
+//           >
+//             <Button
+//               text="View All"
+//               href="/events"
+//               type="primary"
+//               width="largeButton"
+//             ></Button>
+//           </div>
+//         </div>
+
+//         <Image className={MouseImage} src={Mouse} alt="Mouse Image"></Image>
+
+//         <div className={cardContainer}>
+//           <h3 className={h3style}>Latest</h3>
+//           <h1 className={title}>ARTICLES</h1>
+
+//           <div className={cardrow}>
+//             {articles.slice(0, 3).map((art, index) => (
+//               <div key={index} className={index === 1 ? cardSpace : undefined}>
+//                 <Card
+//                   title={art.name}
+//                   body={trimDescription(art.desc, 250)} //trim to 130 characters
+//                   imageUrl={art.cover}
+//                   btn={{
+//                     text: "Sign Up",
+//                     href: art.link,
+//                     type: "primary",
+//                     width: "cardButton",
+//                     target: "_blank",
+//                   }}
+//                 />
+//               </div>
+//             ))}
+//           </div>
+
+//           <div
+//             className={poppinsMedium.className}
+//             style={{
+//               marginTop: "20px",
+//             }}
+//           >
+//             <Button
+//               text="View All"
+//               href="/articles"
+//               type="primary"
+//               width="largeButton"
+//             />
+//           </div>
+//         </div>
+//       </div>
+//     </>
+//   );
+// }
