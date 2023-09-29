@@ -76,6 +76,7 @@ const cardContainer = css`
   display: flex;
   flex-flow: column wrap;
   justify-content: space-between;
+  flex-direction: column;
 
   @media only screen and (min-width: 601px) and (max-width: 1024px) {
     max-width: 1024px;
@@ -123,6 +124,7 @@ const cardrow = css`
 
 const cardSpace = css`
   margin: 0 35px 0 35px;
+  position: relative;
 
   @media only screen and (max-width: 600px) {
     margin: 28px 0 28px 0;
@@ -245,7 +247,7 @@ export default async function Home() {
                   btn={{
                     text: "Sign Up",
                     href: event.link,
-                    type: "primary",
+                    type: "ternary",
                     width: "cardButton",
                     target: "_blank",
                   }}
@@ -283,7 +285,7 @@ export default async function Home() {
                   btn={{
                     text: "Sign Up",
                     href: art.link,
-                    type: "primary",
+                    type: "ternary",
                     width: "cardButton",
                     target: "_blank",
                   }}

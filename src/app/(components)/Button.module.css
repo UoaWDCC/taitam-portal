@@ -5,7 +5,6 @@
   text-align: center;
   align-items: center;
   justify-content: center;
-
   cursor: pointer;
   text-decoration: none;
   padding: 0.5em 1em;
@@ -22,6 +21,15 @@
 .primary {
   background-color: #ffcc01;
   color: black;
+  margin-top: 10px;
+}
+
+.ternary {
+  background-color: #ffcc01;
+  color: black;
+  position: absolute;
+  bottom: 20px; /* Align at the bottom of the parent */
+  left: 10px; /* You can adjust left position if needed */
 }
 
 .primary:hover {
