@@ -5,7 +5,14 @@ import { Url } from "next/dist/shared/lib/router/router";
 const notion = new Client({ auth: process.env.NOTION_SECRET });
 
 type Row = {
-  Date: { id: string; date: string };
+  Date: {
+    id: string; 
+    date:{
+      start: string;
+      end: any;
+      timezone: any;  
+    }
+};
   Location: { id: string; rich_text: { text: { content: string } }[] };
   Link: { id: string; url: string };
   Description: { id: string; rich_text: { text: { content: string } }[] };
@@ -30,8 +37,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   // @ts-ignore
   const rows = query.results.map((result) => result.properties) as Row[];
 
-  const rowsStruct: rowsStruct = rows.map((row) => ({
-    date: row.Date.date,
+  const events: EventData[] = rows.map((row) => ({
+    date: {
+      start: row.Date.date.start,
+      end: row.Date.date.end,
+      timezone: row.Date.date.timezone,
+    },
     location: row.Location.rich_text[0].text.content,
     link: row.Link.url,
     desc: row.Description.rich_text[0].text.content,
@@ -46,8 +57,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   });
   
 
-  const rowsWithCovers = rowsStruct.map((row, index) => ({
-    ...row,
+  const rowsWithCovers = events.map((event, index) => ({
+    ...event,
     cover: covers[index],
   }));
 
