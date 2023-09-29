@@ -1,7 +1,7 @@
 .card-container {
   overflow: hidden;
   width: 350px;
-  max-height: auto;
+  height: 530px;
   left: 162px;
   top: 1928px;
   background: #ffffff;
@@ -12,7 +12,7 @@
 .image-container {
   overflow: hidden;
   width: 350px;
-  height: 136px;
+  height: 200px;
   left: 162px;
   top: 1928px;
   border: 2px solid #000000;
