@@ -344,6 +344,7 @@
     margin: 0 10% 0 10%;
     padding: 0 0 0 0;
   }
+}
 
 @media (min-width: 600px) and (max-width: 1024px) {
   /* containers */
