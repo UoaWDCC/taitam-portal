@@ -105,7 +105,7 @@ export default function ArticlesPage() {
             {articles.map((art: ArticleData, index) => (
               <SmallCard
                 key={index}
-                title={art.articleId}
+                title={art.name}
                 imageUrl={art.cover}
                 body={trimDescription(art.desc, 200)}
                 btn={{
