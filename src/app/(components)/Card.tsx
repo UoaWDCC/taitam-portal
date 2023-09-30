@@ -21,15 +21,14 @@ const Card = ({ title, imageUrl, body, btn }: CardProps) => {
         </div>
         <div className="card-body">
           <p>{body}</p>
-
-          <Button
+        </div>
+      </div>
+      <Button
             type={btn.type}
             text={btn.text}
             href={btn.href}
             width={btn.width}
           />
-        </div>
-      </div>
     </div>
   );
 };

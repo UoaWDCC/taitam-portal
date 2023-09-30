@@ -36,7 +36,7 @@ const layoutContainer = css`
 
 const title = css`
   font-size: 96px;
-  padding: 0;
+  padding-left: 20px;
   margin: 10px 0 0 0;
   color: #f96e47;
   text-align: left;
@@ -76,6 +76,7 @@ const cardContainer = css`
   display: flex;
   flex-flow: column wrap;
   justify-content: space-between;
+  flex-direction: column;
 
   @media only screen and (min-width: 601px) and (max-width: 1024px) {
     max-width: 1024px;
@@ -84,7 +85,7 @@ const cardContainer = css`
 
 const h3style = css`
   font-size: 19px;
-  padding: 0;
+  padding-left: 20px;
   margin: 0 0 0 0;
   color: #000000;
   text-align: left;
@@ -104,6 +105,7 @@ const cardrow = css`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center; 
   flex-wrap: nowrap;
 
   @media only screen and (max-width: 600px) {
@@ -122,6 +124,7 @@ const cardrow = css`
 
 const cardSpace = css`
   margin: 0 35px 0 35px;
+  position: relative;
 
   @media only screen and (max-width: 600px) {
     margin: 28px 0 28px 0;
@@ -244,7 +247,7 @@ export default async function Home() {
                   btn={{
                     text: "Sign Up",
                     href: event.link,
-                    type: "primary",
+                    type: "ternary",
                     width: "cardButton",
                     target: "_blank",
                   }}
@@ -266,9 +269,7 @@ export default async function Home() {
               width="largeButton"
             ></Button>
           </div>
-        </div>
-
-        <Image className={MouseImage} src={Mouse} alt="Mouse Image"></Image>
+          <Image className={MouseImage} src={Mouse} alt="Mouse Image"></Image>
 
         <div className={cardContainer}>
           <h3 className={h3style}>Latest</h3>
@@ -284,7 +285,7 @@ export default async function Home() {
                   btn={{
                     text: "Sign Up",
                     href: art.link,
-                    type: "primary",
+                    type: "ternary",
                     width: "cardButton",
                     target: "_blank",
                   }}
@@ -306,6 +307,7 @@ export default async function Home() {
               width="largeButton"
             />
           </div>
+        </div>
         </div>
       </div>
     </>
