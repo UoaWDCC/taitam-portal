@@ -33,6 +33,7 @@ const headerImage = css`
       margin-top: 45px;
       margin-right: 16px;
       border: 1px solid #000;
+      object-fit: cover;
     }
   }
 
