@@ -4,7 +4,7 @@ export const fetchArticlesFromNotion = async (): Promise<ArticleData[]> => {
     {
       method: "GET",
       headers: {
-        "Cache-Control": "no-store, no-cache",
+        "Cache-Control": "no-cache",
       },
     }
   );
