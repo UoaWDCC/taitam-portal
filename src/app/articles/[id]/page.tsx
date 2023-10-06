@@ -9,14 +9,51 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const headerImage = css`
-  max-width: 1190px;
-  height: 310px;
-  display: block;
+  max-width: 100%;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
   margin-top: -70px;
   z-index: -1;
   position: absolute;
+
+  img {
+    border: 1px solid #000;
+    object-fit: cover;
+  }
+
+  @media only screen and (max-width: 600px) {
+    margin-left: auto;
+    margin-right: auto;
+    z-index: -1;
+    position: absolute;
+    height: auto;
+
+    img {
+      max-width: 362px;
+      max-height: 150px;
+      margin-left: 16px;
+      margin-top: 45px;
+      margin-right: 16px;
+      border: 1px solid #000;
+    }
+  }
+
+  @media only screen and (max-width: 1024px) {
+    margin-left: auto;
+    margin-right: auto;
+    z-index: -1;
+    position: absolute;
+    height: auto;
+
+    img {
+      max-width: 100%;
+      height: 300px;
+      margin-left: 28px;
+      margin-top: 40px;
+      margin-right: 28px;
+    }
+  }
 `;
 
 const title = css`
@@ -37,6 +74,10 @@ const cardContainer = css`
   flex-flow: column wrap;
   justify-content: space-between;
   margin-top: 280px;
+
+  @media only screen and (max-width: 600px) {
+    margin-top: 170px;
+  }
 `;
 
 export default function Page({ params }: { params: { id: string } }) {
