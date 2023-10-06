@@ -1,0 +1,98 @@
+
+/* Add this CSS to your profilepage.css file */
+
+/* Set up the main container to use flex layout */
+.main {
+    display: flex;
+}
+
+.header {
+    color: #f96e47;
+}
+  
+  /* Style for the sidebar on the left */
+  .sideBar {
+    display: flex;
+    flex-direction: column;
+    width: 20%; /* Adjust the width as needed */
+
+  }
+  
+  /* Style for the profile icon */
+  .profileIcon img {
+    max-width: 7rem;
+    max-height: 7rem;
+    margin: 0 8rem 1rem 8rem;
+  }
+  
+  /* Style for the menu */
+  .menu {
+    width: 100%;
+    background-color: white;
+    overflow-wrap: break-word;
+    box-shadow: 0px 2px 0px 2px #000000;
+    margin-left: 2rem;
+  }
+
+  .logOut {
+    background-color: #ffcc01;
+    border: none;
+    color: #000000;
+    padding: 0.7rem 1.7rem;
+    text-align: center;
+    text-decoration: none;
+    font-size: 19px;
+    box-shadow: -1px 2px 0px 2px #000000;
+    border-radius: 30px;
+    transition: transform 0.2s ease-in-out;
+    margin: 2rem 0 0 7rem;
+  }
+  
+  .logOut:active {
+    background-color: #f96e47;
+    text-decoration: underline;
+  }
+  
+  .logOut:hover {
+    background-color: #f96e47;
+    transform: scale(0.9);
+  }
+  
+  
+  /* Style for the main content on the right */
+  .mainContext {
+    flex: 1; /* This will make it take up the remaining space */
+    display: flex;
+    flex-direction: column;
+    margin: 0 2rem 0 8rem;
+  }
+  
+  /* Remove bullet points from lists */
+  .menu ul,
+  .personalDetails ul {
+    list-style-type: none;
+  }
+
+  .upload {
+    background-color: #ffcc01;
+    border: none;
+    color: #000000;
+    padding: 0.7rem 1.7rem;
+    text-align: center;
+    text-decoration: none;
+    font-size: 19px;
+    box-shadow: -1px 2px 0px 2px #000000;
+    border-radius: 30px;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .upload:active {
+    background-color: #f96e47;
+    text-decoration: underline;
+  }
+  
+  .upload:hover {
+    background-color: #f96e47;
+    transform: scale(0.9);
+  }
+  
