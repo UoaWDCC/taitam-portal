@@ -1,21 +1,58 @@
-
 /* Add this CSS to your profilepage.css file */
 
 /* Set up the main container to use flex layout */
 .main {
     display: flex;
-}
-
-.header {
+  }
+  
+  .header {
     color: #f96e47;
-}
+  }
+  
+  /* Remove bullet points from lists */
+  .menu ul,
+  .personalDetails ul {
+    list-style-type: none;
+  }
+  
+  /* Style for the buttons */
+  .upload,
+  .logOut,
+  .submit,
+  .update {
+    background-color: #ffcc01;
+    border: none;
+    color: #000000;
+    padding: 0.7rem 1.7rem;
+    text-align: center;
+    text-decoration: none;
+    font-size: 19px;
+    box-shadow: -1px 2px 0px 2px #000000;
+    border-radius: 30px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .upload:active,
+  .logOut:active,
+  .submit:active,
+  .update:active {
+    background-color: #f96e47;
+    text-decoration: underline;
+  }
+  
+  .upload:hover,
+  .logOut:hover,
+  .submit:hover,
+  .update:hover {
+    background-color: #f96e47;
+    transform: scale(0.9);
+  }
   
   /* Style for the sidebar on the left */
   .sideBar {
     display: flex;
     flex-direction: column;
     width: 20%; /* Adjust the width as needed */
-
   }
   
   /* Style for the profile icon */
@@ -33,66 +70,48 @@
     box-shadow: 0px 2px 0px 2px #000000;
     margin-left: 2rem;
   }
-
+  
   .logOut {
-    background-color: #ffcc01;
-    border: none;
-    color: #000000;
-    padding: 0.7rem 1.7rem;
-    text-align: center;
-    text-decoration: none;
-    font-size: 19px;
-    box-shadow: -1px 2px 0px 2px #000000;
-    border-radius: 30px;
-    transition: transform 0.2s ease-in-out;
     margin: 2rem 0 0 7rem;
   }
   
-  .logOut:active {
-    background-color: #f96e47;
-    text-decoration: underline;
-  }
-  
-  .logOut:hover {
-    background-color: #f96e47;
-    transform: scale(0.9);
-  }
-  
-  
   /* Style for the main content on the right */
   .mainContext {
-    flex: 1; /* This will make it take up the remaining space */
+    flex: 1;
     display: flex;
     flex-direction: column;
     margin: 0 2rem 0 8rem;
   }
   
-  /* Remove bullet points from lists */
-  .menu ul,
-  .personalDetails ul {
-    list-style-type: none;
-  }
-
-  .upload {
-    background-color: #ffcc01;
-    border: none;
-    color: #000000;
-    padding: 0.7rem 1.7rem;
-    text-align: center;
-    text-decoration: none;
-    font-size: 19px;
-    box-shadow: -1px 2px 0px 2px #000000;
-    border-radius: 30px;
-    transition: transform 0.2s ease-in-out;
-  }
-
-  .upload:active {
-    background-color: #f96e47;
-    text-decoration: underline;
+  .personalDetails {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
   }
   
-  .upload:hover {
-    background-color: #f96e47;
-    transform: scale(0.9);
+  /* Container for the Personal Details list and the Update button */
+  .detailsContainer {
+    display: flex;
+    justify-content: space-between; /* Align items horizontally */
+    align-items: center; /* Align items vertically */
   }
+  
+  /* Style for the Update button within the container */
+  .update {
+    margin-right: 10rem;
+  }
+
+  .changePassword {
+    margin-bottom: 1rem;
+  }
+
+  label {
+    display: block; /* Display labels as block elements (stacked) */
+    margin: 1rem 5rem 0.5rem 0; /* Add some spacing between labels */
+  }
+
+  .submit {
+    margin-left: 33.5rem;
+  }
+
   

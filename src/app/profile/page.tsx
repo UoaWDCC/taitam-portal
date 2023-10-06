@@ -32,15 +32,18 @@ export default function ProfilePage() {
         </div>
         <div className="mainContext">
             <div className="personalDetails">
-                <h2 className = "header">Personal Details</h2>
-                <ul>
-                    <li>Fullname: </li>
-                    <li>Email: </li>
-                    <li>Employment Details: </li>
-                    <li>Open for work: </li>
-                    <li>Degree of study: </li>
-                    <li>Education Level: </li>
-                </ul>
+                <h2 className="header">Personal Details</h2>
+                <div className="detailsContainer">
+                    <ul>
+                        <li>Full Name: </li>
+                        <li>Email: </li>
+                        <li>Employment Details: </li>
+                        <li>Open for work: </li>
+                        <li>Degree of study: </li>
+                        <li>Education Level: </li>
+                    </ul>
+                    <button className="update">Update</button>
+                </div>
             </div>
             <div className="changePassword">
                 <h2 className = "header">Change your password</h2>
@@ -51,7 +54,7 @@ export default function ProfilePage() {
                     <input type="password" name="newPassword" id="newPassword" />
                     <label htmlFor="confirmPassword">Confirm password</label>
                     <input type="password" name="confirmPassword" id="confirmPassword" />
-                    <button>Submit</button>
+                    <button className = "submit">Submit</button>
                 </form>
             </div>
             <div className = "articlesHistory">
