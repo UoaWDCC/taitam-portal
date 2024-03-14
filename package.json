@@ -12,9 +12,9 @@
   },
   "dependencies": {
     "@emailjs/browser": "3.11.0",
-    "@linaria/babel-preset": "4.4.3",
-    "@linaria/core": "4.2.8",
-    "@linaria/react": "4.3.6",
+    "@linaria/babel-preset": "^4.4.3",
+    "@linaria/core": "^4.2.8",
+    "@linaria/react": "^4.3.6",
     "@next/swc-linux-x64-gnu": "13.2.4",
     "@notionhq/client": "2.2.9",
     "@types/node": "18.15.11",

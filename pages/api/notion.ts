@@ -3,6 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { Url } from "next/dist/shared/lib/router/router";
 
 const notion = new Client({ auth: process.env.NOTION_SECRET });
+console.log(notion)
 
 type Row = {
   Date: {
